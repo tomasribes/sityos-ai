@@ -1,0 +1,248 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Sityos Automate Olivero theme.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Implements hook_preprocess_links__language_block().
+ *
+ * Exposes current_lang so the template can identify the active language
+ * and attaches the language-switcher library.
+ */
+function sityos_automate_olivero_preprocess_links__language_block(array &$variables): void {
+  $current_language = \Drupal::languageManager()->getCurrentLanguage();
+  $variables['current_lang'] = $current_language->getId();
+  $variables['current_lang_name'] = $current_language->getName();
+
+  // Flag image URL from the languageicons contrib module.
+  $module_path = \Drupal::service('extension.list.module')
+    ->getPath('languageicons');
+  $variables['current_lang_flag_url'] = base_path() . $module_path . '/flags/' . $current_language->getId() . '.png';
+
+  $variables['#attached']['library'][] = 'sityos_automate_olivero/language-switcher';
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function sityos_automate_olivero_preprocess_html(array &$variables): void {
+  $variables['sao_path'] = \Drupal::service('extension.list.theme')
+    ->getPath('sityos_automate_olivero');
+
+  // Add <link rel="preload"> for the hero AVIF image on full node pages.
+  $route_match = \Drupal::routeMatch();
+  $node = $route_match->getParameter('node');
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    $media_data = _sityos_get_media_image_file($node);
+    if ($media_data) {
+      $hero_data = _sityos_hero_image_data($media_data['file'], $media_data['alt']);
+      $avif_source = $hero_data['picture_sources'][0] ?? NULL;
+      if ($avif_source && !empty($avif_source['srcset'])) {
+        $variables['head_tags'][] = [
+          '#type' => 'html_tag',
+          '#tag' => 'link',
+          '#attributes' => [
+            'rel'            => 'preload',
+            'as'             => 'image',
+            'type'           => 'image/avif',
+            'imagesrcset'    => $avif_source['srcset'],
+            'imagesizes'     => $avif_source['sizes'],
+            'fetchpriority'  => 'high',
+          ],
+        ];
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function sityos_automate_olivero_preprocess_page(array &$variables): void {
+  // Pass theme path for template use.
+  $variables['sao_path'] = \Drupal::service('extension.list.theme')
+    ->getPath('sityos_automate_olivero');
+}
+
+/**
+ * Builds a srcset string from an array of image style IDs mapped to widths.
+ *
+ * @param string $uri
+ *   The file URI (e.g. public://image.jpg).
+ * @param array<string, int> $styles_with_widths
+ *   Associative array: ['style_id' => width_in_px, ...].
+ *
+ * @return string
+ *   Srcset string: "url 480w, url 800w, ..."
+ */
+function _sityos_build_srcset(string $uri, array $styles_with_widths): string {
+  $file_url_generator = \Drupal::service('file_url_generator');
+  /** @var \Drupal\Core\Entity\EntityStorageInterface $image_style_storage */
+  $image_style_storage = \Drupal::entityTypeManager()->getStorage('image_style');
+  $parts = [];
+  foreach ($styles_with_widths as $style_id => $width) {
+    /** @var \Drupal\image\ImageStyleInterface|null $style */
+    $style = $image_style_storage->load($style_id);
+    if ($style) {
+      $derivative_uri = $style->buildUri($uri);
+      $parts[] = $file_url_generator->generateAbsoluteString($derivative_uri) . " {$width}w";
+    }
+  }
+  return implode(', ', $parts);
+}
+
+/**
+ * Builds the picture_sources array for a hero image (16:9, full-bleed).
+ *
+ * Returns an array with keys: picture_sources, image_url, image_alt,
+ * image_width, image_height — ready to merge into a hero component include.
+ *
+ * @param \Drupal\file\FileInterface $file
+ *   The file entity for the image.
+ * @param string $alt
+ *   Alt text.
+ *
+ * @return array<string, mixed>
+ */
+function _sityos_hero_image_data(\Drupal\file\FileInterface $file, string $alt): array {
+  $uri = $file->getFileUri();
+  $sizes = '(min-width: 1400px) 1400px, 100vw';
+
+  $avif = _sityos_build_srcset($uri, [
+    'sityos_hero_480w' => 480,
+    'sityos_hero_800w' => 800,
+    'sityos_hero_1200w' => 1200,
+    'sityos_hero_1440w' => 1440,
+    'sityos_hero_2560w' => 2560,
+  ]);
+  $webp = _sityos_build_srcset($uri, [
+    'sityos_hero_480w_webp' => 480,
+    'sityos_hero_800w_webp' => 800,
+    'sityos_hero_1200w_webp' => 1200,
+    'sityos_hero_1440w_webp' => 1440,
+  ]);
+
+  // Fallback <img src> uses the widest WebP style.
+  $fallback_style = \Drupal::entityTypeManager()->getStorage('image_style')->load('wide');
+  $fallback_url = $fallback_style
+    ? \Drupal::service('file_url_generator')->generateAbsoluteString($fallback_style->buildUri($uri))
+    : \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
+
+  return [
+    'picture_sources' => [
+      ['type' => 'image/avif', 'srcset' => $avif, 'sizes' => $sizes],
+      ['type' => 'image/webp', 'srcset' => $webp, 'sizes' => $sizes],
+    ],
+    'image_url'    => $fallback_url,
+    'image_alt'    => $alt,
+    'image_width'  => 1440,
+    'image_height' => 810,
+  ];
+}
+
+/**
+ * Builds the picture_sources array for a card image (16:9, grid thumbnail).
+ *
+ * @param \Drupal\file\FileInterface $file
+ *   The file entity for the image.
+ * @param string $alt
+ *   Alt text.
+ *
+ * @return array<string, mixed>
+ */
+function _sityos_card_image_data(\Drupal\file\FileInterface $file, string $alt): array {
+  $uri = $file->getFileUri();
+  $sizes = '(min-width: 1300px) 370px, (min-width: 700px) calc(50vw - 24px), calc(100vw - 32px)';
+
+  $avif = _sityos_build_srcset($uri, [
+    'sityos_card_320w' => 320,
+    'sityos_card_480w' => 480,
+    'sityos_card_640w' => 640,
+    'sityos_card_800w' => 800,
+  ]);
+  $webp = _sityos_build_srcset($uri, [
+    'sityos_card_320w_webp' => 320,
+    'sityos_card_480w_webp' => 480,
+    'sityos_card_640w_webp' => 640,
+    'sityos_card_800w_webp' => 800,
+  ]);
+
+  $fallback_style = \Drupal::entityTypeManager()->getStorage('image_style')->load('max_650x650');
+  $fallback_url = $fallback_style
+    ? \Drupal::service('file_url_generator')->generateAbsoluteString($fallback_style->buildUri($uri))
+    : \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
+
+  return [
+    'picture_sources' => [
+      ['type' => 'image/avif', 'srcset' => $avif, 'sizes' => $sizes],
+      ['type' => 'image/webp', 'srcset' => $webp, 'sizes' => $sizes],
+    ],
+    'image_url'    => $fallback_url,
+    'image_alt'    => $alt,
+    'image_width'  => 640,
+    'image_height' => 360,
+  ];
+}
+
+/**
+ * Extracts the file entity and alt text from a node's media image field.
+ *
+ * Returns null if the node has no field_media_image or the media is empty.
+ *
+ * @return array{file: \Drupal\file\FileInterface, alt: string}|null
+ */
+function _sityos_get_media_image_file(\Drupal\node\NodeInterface $node): ?array {
+  if (!$node->hasField('field_media_image') || $node->get('field_media_image')->isEmpty()) {
+    return NULL;
+  }
+  /** @var \Drupal\media\MediaInterface|null $media */
+  $media = $node->get('field_media_image')->entity;
+  if (!$media || !$media->hasField('field_media_image') || $media->get('field_media_image')->isEmpty()) {
+    return NULL;
+  }
+  $image_item = $media->get('field_media_image')->first();
+  /** @var \Drupal\file\FileInterface|null $file */
+  $file = $image_item->entity;
+  if (!$file) {
+    return NULL;
+  }
+  return ['file' => $file, 'alt' => (string) ($image_item->alt ?? '')];
+}
+
+/**
+ * Implements hook_preprocess_node().
+ *
+ * Injects hero_image_data / card_image_data into node template variables
+ * so templates can pass them directly to SAO components.
+ */
+function sityos_automate_olivero_preprocess_node(array &$variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  $view_mode = $variables['view_mode'];
+
+  $media_data = _sityos_get_media_image_file($node);
+  if (!$media_data) {
+    return;
+  }
+
+  if ($view_mode === 'full') {
+    $variables['hero_image_data'] = _sityos_hero_image_data($media_data['file'], $media_data['alt']);
+  }
+  elseif ($view_mode === 'teaser') {
+    $variables['card_image_data'] = _sityos_card_image_data($media_data['file'], $media_data['alt']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_html().
+ *
+ * Adds <link rel="preload"> for the hero image on full node pages to
+ * improve LCP (Largest Contentful Paint).
+ */
+function sityos_automate_olivero_preprocess_html_node_image_preload(array &$variables): void {
+  // Intentionally left for the preload logic wired via preprocess_html below.
+}

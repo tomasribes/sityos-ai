@@ -1,0 +1,7 @@
+name: 'Sityos Base'
+type: module
+description: 'Foundation module for Sityos Automate. Provides shared services, utilities, and base configuration.'
+package: 'Sityos'
+core_version_requirement: ^11
+dependencies:
+  - drupal:system

@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Sityos Use Case module hooks.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_node_presave().
+ */
+function sityos_use_case_node_presave(NodeInterface $node): void {
+  if ($node->bundle() !== 'use_case') {
+    return;
+  }
+  // Placeholder: add pre-save business logic for use cases here.
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view() for node entities.
+ */
+function sityos_use_case_node_view(array &$build, EntityInterface $entity, mixed $display, string $view_mode): void {
+  if ($entity->bundle() !== 'use_case') {
+    return;
+  }
+  // Placeholder: add view-time alterations for use cases here.
+}

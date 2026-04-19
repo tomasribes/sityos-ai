@@ -1,0 +1,16 @@
+# Live Environment Config Split
+uuid: 3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8r
+langcode: en
+status: true
+dependencies: {  }
+id: live
+label: 'Live'
+description: 'Production environment configuration with security and performance optimizations'
+weight: 2
+folder: ../config/live
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

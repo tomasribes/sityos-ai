@@ -1,0 +1,51 @@
+{#
+  Newsletter Signup — email subscription form.
+
+  Props:
+    - heading (string)
+    - description (string)
+    - placeholder (string): default "Enter your email"
+    - button_label (string): default "Subscribe"
+    - form_action (string, required)
+    - variant: inline | stacked | banner — default: inline
+    - privacy_text (string)
+#}
+{% set variant = variant ?? 'inline' %}
+{% set placeholder = placeholder ?? 'Enter your email'|t %}
+{% set button_label = button_label ?? 'Subscribe'|t %}
+
+<section class="sao-newsletter sao-newsletter--{{ variant }}" aria-label="{{ heading ?? 'Newsletter signup'|t }}">
+  <div class="sao-newsletter__content">
+    {% if heading %}
+      <h2 class="sao-newsletter__heading">{{ heading }}</h2>
+    {% endif %}
+    {% if description %}
+      <p class="sao-newsletter__description">{{ description }}</p>
+    {% endif %}
+  </div>
+
+  <form class="sao-newsletter__form" action="{{ form_action }}" method="post" role="form" aria-label="{{ 'Newsletter subscription'|t }}">
+    <div class="sao-newsletter__field">
+      <label for="sao-newsletter-email" class="visually-hidden">{{ 'Email address'|t }}</label>
+      <input
+        type="email"
+        id="sao-newsletter-email"
+        name="email"
+        class="sao-newsletter__input"
+        placeholder="{{ placeholder }}"
+        required
+        autocomplete="email"
+      />
+      <button type="submit" class="sao-newsletter__submit">
+        {{ button_label }}
+      </button>
+    </div>
+
+    {# Live region for success/error messages #}
+    <div class="sao-newsletter__feedback" aria-live="polite" role="status"></div>
+
+    {% if privacy_text %}
+      <p class="sao-newsletter__privacy">{{ privacy_text }}</p>
+    {% endif %}
+  </form>
+</section>

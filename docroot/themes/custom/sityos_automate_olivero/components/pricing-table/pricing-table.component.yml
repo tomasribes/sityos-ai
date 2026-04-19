@@ -1,0 +1,64 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json'
+name: 'Pricing Table'
+status: experimental
+description: 'Pricing plans with monthly/annual toggle via :has(), Popover API feature tooltips, and CSS Anchor Positioning.'
+group: 'Sityos Automate'
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Heading
+    plans:
+      type: array
+      title: Plans
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+            title: 'Plan name'
+          price_monthly:
+            type: string
+            title: 'Monthly price'
+          price_annual:
+            type: string
+            title: 'Annual price'
+          period:
+            type: string
+            title: 'Billing period label'
+          description:
+            type: string
+            title: Description
+          features:
+            type: array
+            title: Features
+            items:
+              type: object
+              properties:
+                text:
+                  type: string
+                  title: 'Feature text'
+                tooltip:
+                  type: string
+                  title: 'Feature tooltip'
+          cta_label:
+            type: string
+            title: 'CTA label'
+          cta_url:
+            type: string
+            title: 'CTA URL'
+          highlighted:
+            type: boolean
+            title: Highlighted
+            default: false
+    billing_toggle:
+      type: boolean
+      title: 'Show billing toggle'
+      default: true
+  required:
+    - plans
+libraryOverrides:
+  css:
+    component:
+      pricing-table.css: {}

@@ -1,0 +1,47 @@
+# ─── Environment ──────────────────────────────────────────────────────────────
+.env
+backups/
+
+# ─── Drupal core & contrib (managed by Composer) ──────────────────────────────
+docroot/core/
+docroot/vendor/
+docroot/modules/contrib/
+docroot/themes/contrib/
+docroot/profiles/contrib/
+docroot/libraries/
+
+# ─── Drupal generated files ───────────────────────────────────────────────────
+docroot/sites/*/files/
+docroot/sites/default/settings.local.php
+docroot/sites/default/services.local.yml
+docroot/sites/php.ini
+
+# ─── Private files ─────────────────────────────────────────────────────────────
+private-files/
+deploy/
+sityos-artifact*/
+ai-keys.txt
+
+# ─── Composer ─────────────────────────────────────────────────────────────────
+vendor/
+
+# ─── Node / Theme build ───────────────────────────────────────────────────────
+node_modules/
+docroot/themes/custom/sityos/node_modules/
+docroot/themes/custom/sityos/css/
+docroot/themes/custom/sityos/js/dist/
+docroot/themes/custom/sityos_automate_olivero/node_modules/
+
+# ─── OS & Editor ──────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.log
+
+# ─── Docker ───────────────────────────────────────────────────────────────────
+docker/php/auth.json
+/.editorconfig
+/.gitattributes

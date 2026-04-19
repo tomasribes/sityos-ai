@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * block--system-branding-block.html.twig
+ *
+ * Theme: Sityos — overrides Barrio's navbar-brand markup.
+ * Template suggestion: block--system-branding-block.html.twig
+ *
+ * Available variables:
+ *   - site_logo: URL of the logo uploaded in Appearance > Settings.
+ *   - site_name: The site name (string).
+ *   - site_slogan: The site slogan (unused).
+ */
+#}
+<div{{ attributes.addClass('site-header__branding-inner') }}>
+  {% if site_logo %}
+    <a href="{{ path('<front>') }}" rel="home" class="site-branding__logo">
+      <img src="{{ site_logo }}" alt="{{ site_name }}" />
+    </a>
+  {% endif %}
+  {% if site_name %}
+    <a href="{{ path('<front>') }}" rel="home" class="site-branding__name">
+      {{ site_name }}
+    </a>
+  {% endif %}
+</div>

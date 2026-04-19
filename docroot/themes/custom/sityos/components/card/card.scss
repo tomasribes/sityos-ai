@@ -1,0 +1,277 @@
+// === sityos: card.scss ===
+// Editorial content card — image-first, serif titles, gold accents.
+// Scroll-reveal via .js-reveal class (IntersectionObserver in main.js).
+
+@use '../../sass/abstracts/variables' as *;
+@use '../../sass/abstracts/mixins' as *;
+
+// ─── Keyframes ────────────────────────────────────────────────────────────────
+
+@keyframes card-shimmer-border {
+  from { --shimmer-angle: 0deg; }
+  to   { --shimmer-angle: 360deg; }
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
+.sityos-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: $color-bg-elevated;
+  border: 1px solid $color-bg-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  transition:
+    border-color $motion-duration-base $motion-easing-standard,
+    transform $motion-duration-base $motion-easing-standard,
+    box-shadow $motion-duration-base $motion-easing-standard;
+
+  // ── Scroll-reveal ───────────────────────────────────────────────────────────
+
+  &.js-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity $motion-duration-slow $motion-easing-enter,
+      transform $motion-duration-slow $motion-easing-enter,
+      border-color $motion-duration-base $motion-easing-standard,
+      box-shadow $motion-duration-base $motion-easing-standard;
+  }
+
+  // ── Shimmer border — gold accent ────────────────────────────────────────────
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--shimmer-angle, 0deg),
+      transparent 0%,
+      rgba($color-accent, 0.6) 20%,
+      rgba($color-accent-warm, 0.6) 40%,
+      transparent 60%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity $motion-duration-base $motion-easing-standard;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &:hover {
+    border-color: rgba($color-accent, 0.3);
+    transform: translateY(-3px);
+    box-shadow: $shadow-glow;
+
+    &::before {
+      opacity: 1;
+      animation: card-shimmer-border 2s linear infinite;
+    }
+  }
+
+  // ── Media ───────────────────────────────────────────────────────────────────
+
+  &__media {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $motion-duration-slow $motion-easing-standard;
+    }
+  }
+
+  &:hover &__media img {
+    transform: scale(1.04);
+  }
+
+  // ── Body ────────────────────────────────────────────────────────────────────
+
+  &__link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: inherit;
+    text-decoration: none;
+    z-index: $z-base;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: $space-5;
+  }
+
+  // ── Label badges — content-type colors preserved ────────────────────────────
+
+  &__label {
+    display: inline-block;
+    font-size: $type-meta;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: $space-1 $space-2;
+    border-radius: $radius-sm;
+    margin-bottom: $space-3;
+    align-self: flex-start;
+
+    &--purple {
+      background: rgba($color-purple, 0.15);
+      color: $color-purple-light;
+    }
+
+    &--blue {
+      background: rgba($color-blue, 0.15);
+      color: $color-blue-light;
+    }
+
+    &--green {
+      background: rgba($color-success, 0.15);
+      color: $color-success;
+    }
+  }
+
+  // ── Title ───────────────────────────────────────────────────────────────────
+
+  &__title {
+    font-family: $font-display;
+    font-size: $type-title;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    line-height: $line-height-snug;
+    margin-bottom: $space-3;
+    @include line-clamp(2);
+  }
+
+  // ── Description ─────────────────────────────────────────────────────────────
+
+  &__description {
+    font-size: $type-body;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    margin-bottom: $space-4;
+    @include line-clamp(2);
+  }
+
+  // ── Footer ──────────────────────────────────────────────────────────────────
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  &__meta {
+    font-size: $type-meta;
+    color: $color-text-muted;
+  }
+
+  &__cta {
+    font-size: $type-meta;
+    font-weight: $font-weight-medium;
+    color: $color-accent;
+    transition: color $transition-fast;
+
+    .sityos-card:hover & {
+      color: $color-accent-warm;
+    }
+  }
+}
+
+// ─── Variant: Featured ────────────────────────────────────────────────────────
+
+.sityos-card--featured {
+  .sityos-card__media {
+    aspect-ratio: 16 / 9;
+  }
+
+  .sityos-card__body {
+    padding: $space-6;
+  }
+
+  .sityos-card__title {
+    font-size: $type-headline;
+    @include line-clamp(3);
+  }
+
+  .sityos-card__description {
+    @include line-clamp(3);
+  }
+}
+
+// ─── Variant: Horizontal ──────────────────────────────────────────────────────
+
+.sityos-card--horizontal {
+  @include respond-up(md) {
+    flex-direction: row;
+
+    .sityos-card__link {
+      flex-direction: row;
+    }
+
+    .sityos-card__media {
+      width: 280px;
+      flex-shrink: 0;
+      aspect-ratio: 4 / 3;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .sityos-card__title {
+      font-size: $type-title;
+    }
+
+    .sityos-card__description {
+      @include line-clamp(2);
+    }
+  }
+}
+
+// ─── Reduced motion ───────────────────────────────────────────────────────────
+
+@media (prefers-reduced-motion: reduce) {
+  .sityos-card {
+    &.js-reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    &:hover {
+      transform: none;
+
+      &::before {
+        animation: none;
+      }
+    }
+
+    &__media img {
+      transition: none;
+    }
+  }
+}

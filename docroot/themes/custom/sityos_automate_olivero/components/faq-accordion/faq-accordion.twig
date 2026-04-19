@@ -1,0 +1,44 @@
+{#
+  FAQ Accordion — native <details>/<summary>.
+
+  Props:
+    - heading (string)
+    - items (array of {question, answer})
+    - allow_multiple (bool): default false (exclusive via name attr)
+    - variant: default | bordered | minimal — default: default
+
+  Implementation:
+    - Uses native <details name="..."> for exclusive accordion (no JS).
+    - Smooth height transition via interpolate-size: allow-keywords.
+    - Built-in accessibility from native elements.
+#}
+{% set variant = variant ?? 'default' %}
+{% set allow_multiple = allow_multiple ?? false %}
+{% set group_name = allow_multiple ? '' : 'sao-faq-group' %}
+
+<section class="sao-faq sao-faq--{{ variant }}" aria-labelledby="{{ heading ? 'sao-faq-heading' : '' }}">
+  {% if heading %}
+    <h2 class="sao-faq__heading" id="sao-faq-heading">{{ heading }}</h2>
+  {% endif %}
+
+  <div class="sao-faq__items">
+    {% for item in items %}
+      <details
+        class="sao-faq__item"
+        {% if group_name %}name="{{ group_name }}"{% endif %}
+      >
+        <summary class="sao-faq__question">
+          <span class="sao-faq__question-text">{{ item.question }}</span>
+          <svg class="sao-faq__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </summary>
+        <div class="sao-faq__answer">
+          <div class="sao-faq__answer-content">
+            {{ item.answer|raw }}
+          </div>
+        </div>
+      </details>
+    {% endfor %}
+  </div>
+</section>

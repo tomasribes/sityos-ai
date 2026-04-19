@@ -1,0 +1,16 @@
+{#
+  Use Case node — teaser view (card in listings).
+  card_image_data is set by sityos_automate_olivero_preprocess_node().
+#}
+{% set card_props = {
+  title: label|render|striptags|trim,
+  url: url,
+  description: content.body|render|striptags|trim|slice(0, 140),
+  label: 'Use Case'|t,
+  label_color: 'blue',
+} %}
+{% if card_image_data is defined %}
+  {% set card_props = card_props | merge(card_image_data) %}
+{% endif %}
+
+{% include 'sityos_automate_olivero:card' with card_props only %}

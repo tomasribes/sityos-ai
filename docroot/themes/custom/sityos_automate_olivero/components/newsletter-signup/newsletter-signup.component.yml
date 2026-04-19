@@ -1,0 +1,39 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json'
+name: 'Newsletter Signup'
+status: experimental
+description: 'Email subscription form with inline, stacked, and banner variants. Container-query responsive.'
+group: 'Sityos Automate'
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Heading
+    description:
+      type: string
+      title: Description
+    placeholder:
+      type: string
+      title: 'Input placeholder'
+      default: 'Enter your email'
+    button_label:
+      type: string
+      title: 'Submit button label'
+      default: 'Subscribe'
+    form_action:
+      type: string
+      title: 'Form action URL'
+    variant:
+      type: string
+      title: Variant
+      enum: [inline, stacked, banner]
+      default: inline
+    privacy_text:
+      type: string
+      title: 'Privacy notice text'
+  required:
+    - form_action
+libraryOverrides:
+  css:
+    component:
+      newsletter-signup.css: {}

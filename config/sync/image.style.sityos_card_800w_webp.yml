@@ -1,0 +1,25 @@
+uuid: 36abd883-11bb-44fd-b4a7-b21b3475c0ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: sityos_card_800w_webp
+label: 'Sityos Card 800w (WebP)'
+effects:
+  337e4d27-06a9-45dd-b897-534a49210982:
+    uuid: 337e4d27-06a9-45dd-b897-534a49210982
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 450
+      crop_type: focal_point
+    label: ''
+  7f16159f-ae62-4383-9f35-9505d417cd20:
+    uuid: 7f16159f-ae62-4383-9f35-9505d417cd20
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp
+    label: ''

@@ -1,0 +1,43 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json'
+name: Testimonials
+status: experimental
+description: 'Testimonial section with CSS scroll-snap carousel and grid variants.'
+group: 'Sityos Automate'
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Heading
+    items:
+      type: array
+      title: Testimonials
+      items:
+        type: object
+        properties:
+          quote:
+            type: string
+            title: Quote
+          author:
+            type: string
+            title: Author
+          role:
+            type: string
+            title: Role
+          company:
+            type: string
+            title: Company
+          avatar_url:
+            type: string
+            title: 'Avatar URL'
+    variant:
+      type: string
+      title: Variant
+      enum: [carousel, grid, single]
+      default: carousel
+  required:
+    - items
+libraryOverrides:
+  css:
+    component:
+      testimonials.css: {}

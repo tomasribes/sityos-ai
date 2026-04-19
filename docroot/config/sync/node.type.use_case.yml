@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies: {}
+_core:
+  default_config_hash: sityos_use_case_type
+name: 'Use Case'
+type: use_case
+description: 'Real-world automation use cases with measurable outcomes and lessons learned.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

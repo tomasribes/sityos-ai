@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - pathauto
+id: use_case
+label: 'Use Case'
+type: canonical_entities:node
+pattern: 'use-cases/[node:title]'
+selection_criteria:
+  7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d:
+    id: entity_bundle:node
+    bundles:
+      use_case: use_case
+    negate: false
+    uuid: 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+selection_logic: and
+weight: 0

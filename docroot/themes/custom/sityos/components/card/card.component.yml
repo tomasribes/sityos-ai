@@ -1,0 +1,54 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json'
+name: Card
+status: experimental
+description: 'Editorial content card with image, badge, and meta footer.'
+group: Sityos
+props:
+  type: object
+  properties:
+    title:
+      type: string
+      title: Title
+      description: 'Card heading text.'
+    description:
+      type: string
+      title: Description
+      description: 'Short summary text (1-2 sentences).'
+    url:
+      type: string
+      title: URL
+      description: 'Link target for the card.'
+    image_url:
+      type: string
+      title: 'Image URL'
+      description: 'Card thumbnail image.'
+    image_alt:
+      type: string
+      title: 'Image alt text'
+    label:
+      type: string
+      title: Label
+      description: 'Badge label, e.g. "Article", "Tutorial".'
+    label_color:
+      type: string
+      title: 'Label color'
+      description: 'Badge color variant.'
+      enum: [purple, blue, green]
+      default: purple
+    date:
+      type: string
+      title: Date
+      description: 'Published date string.'
+    reading_time:
+      type: string
+      title: 'Reading time'
+      description: 'e.g. "5 min read"'
+    variant:
+      type: string
+      title: Variant
+      description: 'Card layout variant.'
+      enum: [standard, featured, horizontal]
+      default: standard
+  required:
+    - title
+    - url

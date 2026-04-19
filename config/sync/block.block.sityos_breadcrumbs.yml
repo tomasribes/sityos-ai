@@ -1,0 +1,20 @@
+uuid: b53a9b95-4180-41ca-938e-d5a0ef226d6e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - sityos
+id: sityos_breadcrumbs
+theme: sityos
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

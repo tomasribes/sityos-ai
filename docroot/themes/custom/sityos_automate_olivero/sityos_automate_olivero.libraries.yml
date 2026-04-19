@@ -1,0 +1,30 @@
+global-styling:
+  version: VERSION
+  css:
+    base:
+      # Fonts kept standalone so @font-face loads at the earliest possible weight.
+      # Once confirmed fonts load correctly from style.min.css, this entry can be removed.
+      css/base/fonts.css: {}
+    theme:
+      css/style.min.css: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - sityos_automate_olivero/color-mode
+
+color-mode:
+  version: VERSION
+  js:
+    js/color-mode-toggle.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+language-switcher:
+  version: VERSION
+  # Language switcher CSS is now compiled into style.min.css via _language-switcher.scss.
+  # Only the JS is needed here.
+  js:
+    js/language-switcher.js: {}
+  dependencies:
+    - core/drupal

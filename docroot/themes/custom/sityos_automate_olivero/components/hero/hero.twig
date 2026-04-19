@@ -1,0 +1,91 @@
+{#
+  Hero component — Tech/SaaS variant.
+
+  Props:
+    - eyebrow (string): Category label
+    - headline (string, required): Main heading. <em> gets gradient accent.
+    - subtitle (string): Supporting text
+    - image_url (string): Background image. Falls back to gradient mesh.
+    - image_alt (string): Background image alt text
+    - cta_primary_label, cta_primary_url: Primary CTA
+    - cta_secondary_label, cta_secondary_url: Secondary CTA
+    - variant: default | centered | split — default: default
+    - overlay_opacity (number): 0–1, default 0.5
+#}
+{% set variant = variant ?? 'default' %}
+
+<section
+  class="sao-hero sao-hero--{{ variant }}"
+  style="--hero-overlay-opacity: {{ overlay_opacity ?? 0.5 }}"
+  {% if not image_url %}aria-label="{{ headline|striptags }}"{% endif %}
+>
+  {% if picture_sources is defined and picture_sources %}
+    <div class="sao-hero__media-wrapper">
+      <picture>
+        {% for source in picture_sources %}
+          <source type="{{ source.type }}" srcset="{{ source.srcset }}" sizes="{{ source.sizes }}">
+        {% endfor %}
+        <img
+          class="sao-hero__media"
+          src="{{ image_url ?? '' }}"
+          alt="{{ image_alt ?? '' }}"
+          loading="eager"
+          fetchpriority="high"
+          width="{{ image_width ?? 1440 }}"
+          height="{{ image_height ?? 810 }}"
+        >
+      </picture>
+    </div>
+  {% elseif image_url %}
+    <div class="sao-hero__media-wrapper">
+      <img
+        class="sao-hero__media"
+        src="{{ image_url }}"
+        alt="{{ image_alt ?? '' }}"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+  {% else %}
+    <div class="sao-hero__mesh" aria-hidden="true"></div>
+  {% endif %}
+
+  <div class="sao-hero__overlay" aria-hidden="true"></div>
+
+  <div class="sao-hero__content">
+    {% if eyebrow %}
+      <span class="sao-hero__eyebrow">{{ eyebrow }}</span>
+    {% endif %}
+
+    <h1 class="sao-hero__headline">{{ headline|raw }}</h1>
+
+    {% if subtitle %}
+      <p class="sao-hero__subtitle">{{ subtitle }}</p>
+    {% endif %}
+
+    {% if cta_primary_label and cta_primary_url %}
+      <div class="sao-hero__actions">
+        {% include 'sityos_automate_olivero:cta-button' with {
+          label: cta_primary_label,
+          url: cta_primary_url,
+          variant: 'primary',
+          size: 'lg',
+        } only %}
+
+        {% if cta_secondary_label and cta_secondary_url %}
+          {% include 'sityos_automate_olivero:cta-button' with {
+            label: cta_secondary_label,
+            url: cta_secondary_url,
+            variant: 'ghost',
+            size: 'lg',
+          } only %}
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+
+  {# Scroll indicator #}
+  <div class="sao-hero__scroll" aria-hidden="true">
+    <span class="sao-hero__scroll-line"></span>
+  </div>
+</section>

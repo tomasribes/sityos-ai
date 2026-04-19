@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies: {}
+_core:
+  default_config_hash: sityos_page_type
+name: 'Basic page'
+type: page
+description: 'Static pages: About, Contact, Legal, Homepage.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,81 @@
+<?php
+
+/**
+ * @file
+ * sityos.theme — Theme hook implementations for Sityos Automate.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Implements hook_preprocess_node() for article nodes.
+ *
+ * Computes reading_time and resolves document download variables so the
+ * Twig template stays logic-light.
+ *
+ * Variables added:
+ *   - reading_time (int|null): estimated reading time in minutes.
+ *   - document_url (string|null): absolute URL to the PDF file.
+ *   - document_name (string|null): original filename of the PDF.
+ */
+/**
+ * Implements hook_preprocess_links__language_block().
+ *
+ * Exposes the current language code as `current_lang` so the custom
+ * links--language-block.html.twig can identify the active language
+ * without relying on rendered HTML class inspection.
+ */
+function sityos_preprocess_links__language_block(array &$variables): void {
+  $variables['current_lang'] = \Drupal::languageManager()
+    ->getCurrentLanguage()
+    ->getId();
+}
+
+/**
+ * Implements hook_preprocess_node() for article nodes.
+ *
+ * Computes reading_time and resolves document download variables so the
+ * Twig template stays logic-light.
+ *
+ * Variables added:
+ *   - reading_time (int|null): estimated reading time in minutes.
+ *   - document_url (string|null): absolute URL to the PDF file.
+ *   - document_name (string|null): original filename of the PDF.
+ */
+function sityos_preprocess_node__article(array &$variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+
+  // Only needed on the full-page view.
+  if (!$variables['page']) {
+    return;
+  }
+
+  // ── Reading time ──────────────────────────────────────────────────────────
+  $variables['reading_time'] = null;
+  if ($node->hasField('body') && !$node->get('body')->isEmpty()) {
+    $words = str_word_count(strip_tags($node->get('body')->value ?? ''));
+    $variables['reading_time'] = max(1, (int) round($words / 200));
+  }
+
+  // ── Document download ─────────────────────────────────────────────────────
+  // Traversal: node → media entity → file entity → URL + filename.
+  $variables['document_url']  = null;
+  $variables['document_name'] = null;
+
+  if ($node->hasField('field_media_document') && !$node->get('field_media_document')->isEmpty()) {
+    /** @var \Drupal\media\MediaInterface|null $media */
+    $media = $node->get('field_media_document')->entity;
+
+    if ($media?->hasField('field_media_document') && !$media->get('field_media_document')->isEmpty()) {
+      /** @var \Drupal\file\FileInterface|null $file */
+      $file = $media->get('field_media_document')->entity;
+
+      if ($file) {
+        $variables['document_url']  = \Drupal::service('file_url_generator')
+          ->generateAbsoluteString($file->getFileUri());
+        $variables['document_name'] = $file->getFilename();
+      }
+    }
+  }
+}

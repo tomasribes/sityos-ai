@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - pathauto
+id: article
+label: Article
+type: canonical_entities:node
+pattern: 'articles/[node:title]'
+selection_criteria:
+  28ef0754-bd85-4f55-a8b8-e5b46e87de10:
+    id: entity_bundle:node
+    bundles:
+      article: article
+    negate: false
+    uuid: 28ef0754-bd85-4f55-a8b8-e5b46e87de10
+selection_logic: and
+weight: 0

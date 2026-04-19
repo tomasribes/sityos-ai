@@ -1,0 +1,11 @@
+display:
+  default:
+    display_title: 'Per defecte'
+    display_options:
+      empty:
+        area_text_custom:
+          content: 'No hi ha comentaris disponibles.'
+  block_1:
+    display_title: Bloc
+    display_options:
+      block_category: 'Llistes (Views)'

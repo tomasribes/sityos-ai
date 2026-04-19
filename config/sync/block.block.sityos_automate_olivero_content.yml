@@ -1,0 +1,22 @@
+uuid: b0bdd262-5a74-4669-8936-ad4935eda96e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - sityos_automate_olivero
+_core:
+  default_config_hash: G4iNGvy_k2yNIEH_FJmbkvgBBar1etJIhKJYuygT7hU
+id: sityos_automate_olivero_content
+theme: sityos_automate_olivero
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,144 @@
+// === sityos: cta-button.scss | 2026-04-03 ===
+// Primary variant: shimmer sweep via ::after pseudo-element + spring scale on hover.
+
+@use '../../sass/abstracts/variables' as *;
+@use '../../sass/abstracts/mixins' as *;
+
+// ─── Keyframes ────────────────────────────────────────────────────────────────
+
+@keyframes btn-shimmer-sweep {
+  from { transform: translateX(-100%) skewX(-15deg); }
+  to   { transform: translateX(250%) skewX(-15deg); }
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
+.sityos-cta-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-family: $font-primary;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-md;
+  text-decoration: none;
+  transition:
+    transform $motion-duration-base $motion-easing-spring,
+    box-shadow $motion-duration-base $motion-easing-standard,
+    background $motion-duration-base $motion-easing-standard,
+    border-color $motion-duration-base $motion-easing-standard,
+    color $motion-duration-fast $motion-easing-standard;
+  cursor: pointer;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  overflow: hidden; // Contain shimmer ::after
+
+  // Focus state
+  &:focus-visible {
+    @include focus-ring($color-accent);
+  }
+
+  // ── Sizes ──────────────────────────────────────────────────────────────────
+  &--sm {
+    font-size: $font-size-sm;
+    padding: $space-2 $space-4;
+  }
+
+  &--md {
+    font-size: $font-size-base;
+    padding: $space-3 $space-6;
+  }
+
+  &--lg {
+    font-size: $font-size-lg;
+    padding: $space-4 $space-8;
+  }
+
+  // ── Variants ───────────────────────────────────────────────────────────────
+
+  &--primary {
+    background: $gradient-brand;
+    color: $color-text-primary;
+    border-color: transparent;
+
+    // Shimmer sweep element
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.22),
+        transparent
+      );
+      transform: translateX(-100%) skewX(-15deg);
+      pointer-events: none;
+    }
+
+    &:hover {
+      box-shadow: $shadow-glow;
+      transform: scale(1.02) translateY(-1px);
+      color: $color-text-primary;
+
+      &::after {
+        animation: btn-shimmer-sweep 0.6s $motion-easing-standard forwards;
+      }
+    }
+
+    &:active {
+      transform: scale(0.98) translateY(0);
+    }
+  }
+
+  &--secondary {
+    background: $color-bg-surface;
+    color: $color-text-primary;
+    border-color: $color-bg-border;
+
+    &:hover {
+      background: $color-bg-elevated;
+      border-color: rgba($color-accent, 0.4);
+      color: $color-accent-warm;
+      transform: translateY(-1px);
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $color-text-secondary;
+    border-color: $color-bg-border;
+
+    &:hover {
+      background: rgba($color-accent, 0.08);
+      border-color: rgba($color-accent, 0.3);
+      color: $color-accent-warm;
+      transform: translateY(-1px);
+    }
+  }
+
+  &__external-icon {
+    font-size: 0.8em;
+    opacity: 0.7;
+  }
+}
+
+// ─── Reduced motion ───────────────────────────────────────────────────────────
+
+@media (prefers-reduced-motion: reduce) {
+  .sityos-cta-button {
+    transition: background $motion-duration-fast linear, color $motion-duration-fast linear, border-color $motion-duration-fast linear;
+
+    &:hover,
+    &:active {
+      transform: none;
+    }
+
+    &--primary::after {
+      display: none;
+    }
+  }
+}

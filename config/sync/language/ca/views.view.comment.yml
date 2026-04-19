@@ -1,0 +1,92 @@
+label: Comentaris
+display:
+  default:
+    display_title: 'Per defecte'
+    display_options:
+      title: Comentaris
+      fields:
+        comment_bulk_form:
+          action_title: Acció
+        subject:
+          label: Assumpte
+          separator: ', '
+        uid:
+          separator: ', '
+        name:
+          label: Autor
+          separator: ', '
+        entity_id:
+          label: 'Publicat a'
+          separator: ', '
+        changed:
+          label: Actualitzat
+          separator: ', '
+        operations:
+          label: Operacions
+        name_1:
+          separator: ', '
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Elements per pàgina'
+            items_per_page_options_all_label: '- Tot -'
+            offset_label: Desplaçament
+      exposed_form:
+        options:
+          submit_button: Filtra
+          reset_button_label: Reinicialitza
+          exposed_sorts_label: 'Ordena per'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      empty:
+        area_text_custom:
+          content: 'No hi ha comentaris disponibles.'
+      filters:
+        subject:
+          expose:
+            label: Assumpte
+        combine:
+          expose:
+            label: "Nom de l'autor"
+        langcode:
+          expose:
+            label: Llengua
+      use_more_text: més
+  page_published:
+    display_title: 'Comentaris publicats'
+    display_options:
+      menu:
+        title: Comentaris
+  page_unapproved:
+    display_title: 'Comentaris sense aprovar'
+    display_options:
+      fields:
+        comment_bulk_form:
+          action_title: Acció
+        subject:
+          label: Assumpte
+          separator: ', '
+        uid:
+          separator: ', '
+        name:
+          label: Autor
+          separator: ', '
+        entity_id:
+          label: 'Publicat a'
+          separator: ', '
+        changed:
+          label: Actualitzat
+          separator: ', '
+        operations:
+          label: Operacions
+        name_1:
+          separator: ', '
+      filters:
+        subject:
+          expose:
+            label: Assumpte
+        langcode:
+          expose:
+            label: Llengua
+      menu:
+        title: 'Comentaris sense aprovar'

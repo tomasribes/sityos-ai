@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - pathauto
+id: tutorial
+label: Tutorial
+type: canonical_entities:node
+pattern: 'tutorials/[node:title]'
+selection_criteria:
+  3f5e2c1a-9b4d-4e78-a2c3-d1e4f5b6c7d8:
+    id: entity_bundle:node
+    bundles:
+      tutorial: tutorial
+    negate: false
+    uuid: 3f5e2c1a-9b4d-4e78-a2c3-d1e4f5b6c7d8
+selection_logic: and
+weight: 0

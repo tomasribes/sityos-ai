@@ -1,0 +1,47 @@
+{#
+  Feature Grid — icon + title + description grid.
+
+  Props:
+    - heading (string)
+    - subtitle (string)
+    - items (array of {icon, title, description, url})
+    - columns (int): 2 | 3 | 4 — default: 3
+    - variant: cards | minimal | icon-left — default: cards
+#}
+{% set variant = variant ?? 'cards' %}
+{% set columns = columns ?? 3 %}
+
+<section class="sao-feature-grid sao-feature-grid--{{ variant }}" style="--sao-fg-columns: {{ columns }}" aria-labelledby="{{ heading ? 'sao-fg-heading' : '' }}">
+  {% if heading or subtitle %}
+    <div class="sao-feature-grid__header">
+      {% if heading %}
+        <h2 class="sao-feature-grid__heading" id="sao-fg-heading">{{ heading }}</h2>
+      {% endif %}
+      {% if subtitle %}
+        <p class="sao-feature-grid__subtitle">{{ subtitle }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="sao-feature-grid__items" role="list">
+    {% for item in items %}
+      <div class="sao-feature-grid__item" role="listitem">
+        {% if item.icon %}
+          <div class="sao-feature-grid__icon" aria-hidden="true">{{ item.icon|raw }}</div>
+        {% endif %}
+
+        {% if item.url %}
+          <h3 class="sao-feature-grid__title">
+            <a href="{{ item.url }}">{{ item.title }}</a>
+          </h3>
+        {% else %}
+          <h3 class="sao-feature-grid__title">{{ item.title }}</h3>
+        {% endif %}
+
+        {% if item.description %}
+          <p class="sao-feature-grid__description">{{ item.description }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>

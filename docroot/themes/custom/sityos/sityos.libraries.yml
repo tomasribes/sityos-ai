@@ -1,0 +1,36 @@
+global:
+  version: VERSION
+  css:
+    theme:
+      css/style.min.css: {}
+  js:
+    js/main.js: { minified: true }
+  dependencies:
+    - core/drupal
+    - sityos/google-fonts
+
+# Google Fonts loaded as external asset (avoids @import in SCSS).
+google-fonts:
+  version: VERSION
+  css:
+    base:
+      https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap: { type: external, minified: true }
+
+# Component-specific libraries (loaded on demand via Twig).
+card:
+  version: VERSION
+  css:
+    component:
+      css/components/card.min.css: {}
+
+hero:
+  version: VERSION
+  css:
+    component:
+      css/components/hero.min.css: {}
+
+cta-button:
+  version: VERSION
+  css:
+    component:
+      css/components/cta-button.min.css: {}

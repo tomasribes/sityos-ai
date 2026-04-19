@@ -1,0 +1,39 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json'
+name: 'FAQ Accordion'
+status: experimental
+description: 'FAQ accordion using native <details>/<summary> with smooth height transitions. Zero JS required.'
+group: 'Sityos Automate'
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Heading
+    items:
+      type: array
+      title: Items
+      items:
+        type: object
+        properties:
+          question:
+            type: string
+            title: Question
+          answer:
+            type: string
+            title: Answer
+    allow_multiple:
+      type: boolean
+      title: 'Allow multiple open'
+      description: 'If false, only one item can be open at a time (uses name attribute).'
+      default: false
+    variant:
+      type: string
+      title: Variant
+      enum: [default, bordered, minimal]
+      default: default
+  required:
+    - items
+libraryOverrides:
+  css:
+    component:
+      faq-accordion.css: {}

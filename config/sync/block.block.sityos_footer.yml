@@ -1,0 +1,25 @@
+uuid: 49e387f1-5fe1-42d8-858d-4e6de80a2ce0
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - sityos
+id: sityos_footer
+theme: sityos
+region: footer_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

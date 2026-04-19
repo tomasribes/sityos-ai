@@ -1,0 +1,29 @@
+uuid: 0d2210a0-785d-441a-b718-b87fb8717326
+langcode: en
+status: true
+dependencies:
+  theme:
+    - sityos_automate_olivero
+_core:
+  default_config_hash: dY7_Wihz9ohfBPKP554_brUfc9nPaecShShmC_VTGRM
+id: sityos_automate_olivero_page_title
+theme: sityos_automate_olivero
+region: content_above
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      article: article
+      tutorial: tutorial
+      use_case: use_case

@@ -1,0 +1,67 @@
+{#
+  Card component — Tech/SaaS glassmorphism variant.
+
+  Props:
+    - title (string, required)
+    - url (string, required)
+    - description (string)
+    - image_url, image_alt (string)
+    - label (string): Badge text
+    - label_color: blue | green | purple — default: purple
+    - date, reading_time (string)
+    - variant: standard | featured | horizontal — default: standard
+#}
+{% set variant = variant ?? 'standard' %}
+{% set label_color = label_color ?? 'purple' %}
+
+<article class="sao-card sao-card--{{ variant }}">
+  <a class="sao-card__link" href="{{ url }}" aria-label="{{ title }}">
+    {% if picture_sources is defined and picture_sources %}
+      <div class="sao-card__media">
+        <picture>
+          {% for source in picture_sources %}
+            <source type="{{ source.type }}" srcset="{{ source.srcset }}" sizes="{{ source.sizes }}">
+          {% endfor %}
+          <img
+            src="{{ image_url ?? '' }}"
+            alt="{{ image_alt ?? '' }}"
+            loading="lazy"
+            decoding="async"
+            width="{{ image_width ?? 640 }}"
+            height="{{ image_height ?? 360 }}"
+          >
+        </picture>
+      </div>
+    {% elseif image_url %}
+      <div class="sao-card__media">
+        <img src="{{ image_url }}" alt="{{ image_alt ?? '' }}" loading="lazy" decoding="async" />
+      </div>
+    {% endif %}
+
+    <div class="sao-card__body">
+      {% if label %}
+        <span class="sao-card__label sao-card__label--{{ label_color }}">
+          {{ label }}
+        </span>
+      {% endif %}
+
+      <h3 class="sao-card__title">{{ title }}</h3>
+
+      {% if description %}
+        <p class="sao-card__description">{{ description }}</p>
+      {% endif %}
+
+      <div class="sao-card__footer">
+        {% if date or reading_time %}
+          <span class="sao-card__meta">
+            {% if date %}{{ date }}{% endif %}
+            {% if date and reading_time %} &middot; {% endif %}
+            {% if reading_time %}{{ reading_time }}{% endif %}
+          </span>
+        {% endif %}
+
+        <span class="sao-card__arrow" aria-hidden="true">&rarr;</span>
+      </div>
+    </div>
+  </a>
+</article>

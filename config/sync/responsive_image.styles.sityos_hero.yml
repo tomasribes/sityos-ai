@@ -1,0 +1,27 @@
+uuid: 58e71021-439f-4d24-8980-fd41ad1c512e
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.sityos_hero_480w
+    - image.style.sityos_hero_800w
+    - image.style.sityos_hero_1200w
+    - image.style.sityos_hero_1440w
+    - image.style.sityos_hero_2560w
+id: sityos_hero
+label: 'Sityos Hero (AVIF, 16:9)'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 1400px) 1400px, 100vw'
+      sizes_image_styles:
+        - sityos_hero_480w
+        - sityos_hero_800w
+        - sityos_hero_1200w
+        - sityos_hero_1440w
+        - sityos_hero_2560w
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: sityos_hero_1440w

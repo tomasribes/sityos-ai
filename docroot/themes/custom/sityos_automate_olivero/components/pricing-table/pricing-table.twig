@@ -1,0 +1,109 @@
+{#
+  Pricing Table — plans with billing toggle.
+
+  Props:
+    - heading (string)
+    - plans (array of {name, price_monthly, price_annual, period, description, features[{text, tooltip}], cta_label, cta_url, highlighted})
+    - billing_toggle (bool): show monthly/annual toggle — default: true
+#}
+{% set billing_toggle = billing_toggle ?? true %}
+
+<section class="sao-pricing" aria-label="{{ heading ?? 'Pricing plans'|t }}">
+  {% if heading %}
+    <h2 class="sao-pricing__heading">{{ heading }}</h2>
+  {% endif %}
+
+  {% if billing_toggle %}
+    <fieldset class="sao-pricing__toggle">
+      <legend class="visually-hidden">{{ 'Billing period'|t }}</legend>
+      <label class="sao-pricing__toggle-label" for="sao-billing-toggle">
+        <span class="sao-pricing__toggle-option" data-billing-label="monthly">{{ 'Monthly'|t }}</span>
+        <input
+          type="checkbox"
+          id="sao-billing-toggle"
+          class="sao-pricing__toggle-input"
+          role="switch"
+          aria-label="{{ 'Switch to annual billing'|t }}"
+        />
+        <span class="sao-pricing__toggle-track" aria-hidden="true">
+          <span class="sao-pricing__toggle-thumb"></span>
+        </span>
+        <span class="sao-pricing__toggle-option" data-billing-label="annual">{{ 'Annual'|t }}</span>
+        <span class="sao-pricing__toggle-badge">{{ 'Save 20%'|t }}</span>
+      </label>
+    </fieldset>
+  {% endif %}
+
+  <div class="sao-pricing__plans" role="list">
+    {% for plan in plans %}
+      <article
+        class="sao-pricing__plan {{ plan.highlighted ? 'sao-pricing__plan--highlighted' : '' }}"
+        role="listitem"
+        {% if plan.highlighted %}aria-current="true"{% endif %}
+      >
+        {% if plan.highlighted %}
+          <div class="sao-pricing__plan-badge">{{ 'Most popular'|t }}</div>
+        {% endif %}
+
+        <h3 class="sao-pricing__plan-name">{{ plan.name }}</h3>
+
+        {% if plan.description %}
+          <p class="sao-pricing__plan-description">{{ plan.description }}</p>
+        {% endif %}
+
+        <div class="sao-pricing__price">
+          <span class="sao-pricing__price-monthly" data-billing="monthly">
+            <span class="sao-pricing__price-value">{{ plan.price_monthly }}</span>
+          </span>
+          <span class="sao-pricing__price-annual" data-billing="annual">
+            <span class="sao-pricing__price-value">{{ plan.price_annual }}</span>
+          </span>
+          {% if plan.period %}
+            <span class="sao-pricing__price-period">/{{ plan.period }}</span>
+          {% endif %}
+        </div>
+
+        {% if plan.cta_label and plan.cta_url %}
+          {% include 'sityos_automate_olivero:cta-button' with {
+            label: plan.cta_label,
+            url: plan.cta_url,
+            variant: plan.highlighted ? 'primary' : 'secondary',
+            size: 'md',
+          } only %}
+        {% endif %}
+
+        {% if plan.features %}
+          <ul class="sao-pricing__features">
+            {% for feature in plan.features %}
+              <li class="sao-pricing__feature">
+                <svg class="sao-pricing__feature-check" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                  <path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z" fill="currentColor"/>
+                </svg>
+                <span>{{ feature.text }}</span>
+                {% if feature.tooltip %}
+                  <button
+                    class="sao-pricing__feature-info"
+                    popovertarget="tooltip-{{ loop.parent.loop.index }}-{{ loop.index }}"
+                    aria-label="{{ 'More info about: %feature'|t({'%feature': feature.text}) }}"
+                  >
+                    <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+                      <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                      <path d="M8 7v4M8 5h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                  </button>
+                  <div
+                    id="tooltip-{{ loop.parent.loop.index }}-{{ loop.index }}"
+                    popover
+                    class="sao-pricing__tooltip"
+                  >
+                    {{ feature.tooltip }}
+                  </div>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>

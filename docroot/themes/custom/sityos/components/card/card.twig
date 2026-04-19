@@ -1,0 +1,55 @@
+{#
+  Card component — editorial content card.
+
+  Props:
+    - title (string, required)
+    - url (string, required)
+    - description (string)
+    - image_url (string): Card thumbnail
+    - image_alt (string)
+    - label (string): Badge text
+    - label_color (string): purple | blue | green — default: purple
+    - date (string): Published date
+    - reading_time (string): e.g. "5 min read"
+    - variant (string): standard | featured | horizontal — default: standard
+#}
+{% set variant = variant ?? 'standard' %}
+{% set label_color = label_color ?? 'purple' %}
+
+<article class="sityos-card sityos-card--{{ variant }}">
+  <a class="sityos-card__link" href="{{ url }}" aria-label="{{ title }}">
+    {% if image_url %}
+      <div class="sityos-card__media">
+        <img src="{{ image_url }}" alt="{{ image_alt ?? '' }}" loading="lazy" />
+      </div>
+    {% endif %}
+
+    <div class="sityos-card__body">
+      {% if label %}
+        <span class="sityos-card__label sityos-card__label--{{ label_color }}">
+          {{ label }}
+        </span>
+      {% endif %}
+
+      <h3 class="sityos-card__title">{{ title }}</h3>
+
+      {% if description %}
+        <p class="sityos-card__description">{{ description }}</p>
+      {% endif %}
+
+      <div class="sityos-card__footer">
+        {% if date or reading_time %}
+          <span class="sityos-card__meta">
+            {% if date %}{{ date }}{% endif %}
+            {% if date and reading_time %} · {% endif %}
+            {% if reading_time %}{{ reading_time }}{% endif %}
+          </span>
+        {% endif %}
+
+        <span class="sityos-card__cta" aria-hidden="true">
+          {{ 'Read more'|t }} →
+        </span>
+      </div>
+    </div>
+  </a>
+</article>

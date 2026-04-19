@@ -1,0 +1,10 @@
+sityos_automate_olivero.settings:
+  type: theme_settings
+  label: 'Sityos Automate Olivero settings'
+  mapping:
+    base_primary_color:
+      type: string
+      label: 'Base primary color'
+    color_mode_default:
+      type: string
+      label: 'Default color mode (light, dark, or system)'

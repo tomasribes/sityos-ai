@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies: {}
+_core:
+  default_config_hash: sityos_tutorial_type
+name: Tutorial
+type: tutorial
+description: 'Step-by-step guides covering automation tools, AI workflows, and productivity techniques.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

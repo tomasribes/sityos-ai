@@ -1,0 +1,29 @@
+# Live Environment Performance Configuration
+# Maximum performance settings for production
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: system.performance
+label: 'System performance'
+module: system
+description: ''
+theme: ''
+weight: 0
+provider: null
+plugin: null
+settings: {  }
+visibility: {  }
+configuration:
+  css:
+    preprocess: true
+    gzip: true
+  js:
+    preprocess: true
+    gzip: true
+  cache:
+    page:
+      max_age: 3600
+  response:
+    gzip: true

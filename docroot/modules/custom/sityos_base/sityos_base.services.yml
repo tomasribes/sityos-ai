@@ -1,0 +1,7 @@
+services:
+  sityos_base.helper:
+    class: Drupal\sityos_base\Service\SityosHelperService
+    arguments:
+      - '@config.factory'
+      - '@language_manager'
+      - '@datetime.time'

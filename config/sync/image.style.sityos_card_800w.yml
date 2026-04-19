@@ -1,0 +1,25 @@
+uuid: e945572f-be9a-4162-9629-33be18470713
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: sityos_card_800w
+label: 'Sityos Card 800w (AVIF)'
+effects:
+  aa181edc-1d17-47da-83c3-99225cc03b84:
+    uuid: aa181edc-1d17-47da-83c3-99225cc03b84
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 450
+      crop_type: focal_point
+    label: ''
+  2b3ac2fd-0760-4614-a58c-3b3b562ee459:
+    uuid: 2b3ac2fd-0760-4614-a58c-3b3b562ee459
+    id: image_convert_avif
+    weight: 2
+    data:
+      extension: webp
+    label: ''

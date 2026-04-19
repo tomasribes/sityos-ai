@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Sityos Base module hooks and implementations.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function sityos_base_help(string $route_name, RouteMatchInterface $route_match): string {
+  return match ($route_name) {
+    'help.page.sityos_base' => '<p>' . t('Foundation module for Sityos Automate.') . '</p>',
+    default => '',
+  };
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ *
+ * Pushes Drupal context variables into the GTM dataLayer so GTM tags
+ * can use language, content type, node ID, and auth state as dimensions.
+ */
+function sityos_base_page_attachments_alter(array &$attachments): void {
+  $route_match = \Drupal::routeMatch();
+  $node = $route_match->getParameter('node');
+  $current_user = \Drupal::currentUser();
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  $data_layer = [
+    'drupalLanguage' => $language,
+    'drupalContentType' => $node ? $node->bundle() : NULL,
+    'drupalNodeId' => $node ? (int) $node->id() : NULL,
+    'drupalIsLoggedIn' => !$current_user->isAnonymous(),
+  ];
+
+  $attachments['#attached']['html_head'][] = [
+    [
+      '#type' => 'html_tag',
+      '#tag' => 'script',
+      '#value' => 'window.dataLayer = window.dataLayer || []; window.dataLayer.push(' . json_encode($data_layer) . ');',
+      '#attributes' => [],
+      '#weight' => -100,
+    ],
+    'sityos_datalayer',
+  ];
+}

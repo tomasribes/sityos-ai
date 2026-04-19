@@ -1,0 +1,20 @@
+uuid: e7de9bc5-6dd5-4673-b215-be276c802e73
+langcode: en
+status: true
+dependencies:
+  theme:
+    - sityos_automate_olivero
+_core:
+  default_config_hash: bXIY_bcTLD1-0gwNQhWPHANNy6hQa_RxJgvHxKhNS2E
+id: sityos_automate_olivero_primary_admin_actions
+theme: sityos_automate_olivero
+region: highlighted
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

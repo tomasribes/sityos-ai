@@ -1,0 +1,29 @@
+# Development Performance Configuration
+# Disabled preprocessing for easier development
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: system.performance
+label: 'System performance'
+module: system
+description: ''
+theme: ''
+weight: 0
+provider: null
+plugin: null
+settings: {  }
+visibility: {  }
+configuration:
+  css:
+    preprocess: false
+    gzip: false
+  js:
+    preprocess: false
+    gzip: false
+  cache:
+    page:
+      max_age: 0
+  response:
+    gzip: false

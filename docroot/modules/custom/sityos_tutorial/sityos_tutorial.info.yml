@@ -1,0 +1,8 @@
+name: 'Sityos Tutorial'
+type: module
+description: 'Tutorial content type hooks and business logic for Sityos Automate.'
+package: 'Sityos'
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - sityos:sityos_base

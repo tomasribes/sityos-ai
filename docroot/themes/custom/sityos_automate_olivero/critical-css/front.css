@@ -1,0 +1,141 @@
+/* === sityos_automate_olivero: front.css
+ * Critical CSS for homepage (/).
+ * SAO Hero component above the fold.
+ */
+
+.sao-hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 70vh;
+  padding: 4rem 1rem;
+  overflow: hidden;
+  background-color: #fafbfc;
+  color: #0a0a0a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-color-mode]) .sao-hero {
+    background-color: #0a0b0f;
+    color: #f0f0f5;
+  }
+}
+
+[data-color-mode="dark"] .sao-hero {
+  background-color: #0a0b0f;
+  color: #f0f0f5;
+}
+
+.sao-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 1120px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 700ms cubic-bezier(0, 0, 0.2, 1),
+    transform 700ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.sao-hero__eyebrow {
+  display: inline-block;
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0066ff;
+  width: fit-content;
+}
+
+.sao-hero__headline {
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #0a0a0a;
+  max-width: 18ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-color-mode]) .sao-hero__headline { color: #f0f0f5; }
+}
+
+[data-color-mode="dark"] .sao-hero__headline { color: #f0f0f5; }
+
+.sao-hero__headline em {
+  font-style: normal;
+  background: linear-gradient(135deg, #0066ff 0%, #00c853 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sao-hero__subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #4a5568;
+  max-width: 50ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-color-mode]) .sao-hero__subtitle { color: #a0a4b0; }
+}
+
+[data-color-mode="dark"] .sao-hero__subtitle { color: #a0a4b0; }
+
+.sao-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Gradient mesh background */
+.sao-hero__mesh {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(0, 102, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 200, 83, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(0, 102, 255, 0.08) 0%, transparent 50%);
+  opacity: 0.6;
+}
+
+/* CTA buttons — needed for LCP visible CTA */
+.sao-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  border-radius: 0.625rem;
+  cursor: pointer;
+  padding: 0.625rem 1.5rem;
+  font-size: 1rem;
+  min-height: 2.75rem;
+}
+
+.sao-cta--primary {
+  background: linear-gradient(135deg, #0066ff 0%, #00c853 100%);
+  color: #ffffff;
+}
+
+.sao-cta--secondary {
+  background: transparent;
+  color: #0066ff;
+  border: 1.5px solid #0066ff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sao-hero__content { transition: none; }
+}

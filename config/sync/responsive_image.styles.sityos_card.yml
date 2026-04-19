@@ -1,0 +1,25 @@
+uuid: 63c028e3-8535-4241-88cc-1a39fecfd6ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.sityos_card_320w
+    - image.style.sityos_card_480w
+    - image.style.sityos_card_640w
+    - image.style.sityos_card_800w
+id: sityos_card
+label: 'Sityos Card (AVIF, 16:9)'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width: 1300px) 370px, (min-width: 700px) calc(50vw - 24px), calc(100vw - 32px)'
+      sizes_image_styles:
+        - sityos_card_320w
+        - sityos_card_480w
+        - sityos_card_640w
+        - sityos_card_800w
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+breakpoint_group: responsive_image
+fallback_image_style: sityos_card_480w

@@ -1,0 +1,27 @@
+{#
+  Use Case node — full page view.
+  hero_image_data is set by sityos_automate_olivero_preprocess_node().
+#}
+{% set hero_props = {
+  headline: label|render|striptags|trim,
+  eyebrow: 'Use Case'|t,
+  overlay_opacity: 0.45,
+} %}
+{% if hero_image_data is defined %}
+  {% set hero_props = hero_props | merge(hero_image_data) %}
+{% endif %}
+
+{% include 'sityos_automate_olivero:hero' with hero_props only %}
+
+<div class="layout-container sao-node-use-case">
+  <article{{ attributes }}>
+    <div class="sao-node__body">
+      {{ content | without('field_media_image', 'field_tags') }}
+    </div>
+    {% if content.field_tags %}
+      <div class="sao-node__tags">
+        {{ content.field_tags }}
+      </div>
+    {% endif %}
+  </article>
+</div>

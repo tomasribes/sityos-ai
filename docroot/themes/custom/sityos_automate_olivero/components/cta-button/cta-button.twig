@@ -1,0 +1,31 @@
+{#
+  CTA Button — Tech/SaaS variant.
+
+  Props:
+    - label (string, required)
+    - url (string, required)
+    - variant: primary | secondary | ghost | gradient — default: primary
+    - size: sm | md | lg — default: md
+    - external (bool): opens in new tab — default: false
+#}
+{% set variant = variant ?? 'primary' %}
+{% set size = size ?? 'md' %}
+{% set external = external ?? false %}
+{% set target = external ? '_blank' : '_self' %}
+{% set rel = external ? 'noopener noreferrer' : '' %}
+
+<a
+  class="sao-cta sao-cta--{{ variant }} sao-cta--{{ size }}"
+  href="{{ url }}"
+  target="{{ target }}"
+  {% if rel %}rel="{{ rel }}"{% endif %}
+  {% if external %}aria-label="{{ label }} {{ '(opens in new tab)'|t }}"{% endif %}
+>
+  <span class="sao-cta__label">{{- label -}}</span>
+  {% if external %}
+    <svg class="sao-cta__external-icon" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+      <path d="M3.5 3.5h5V5h-3.29l6.29 6.29-1.06 1.06L4.15 6.06V9.5H2.65v-6z" fill="currentColor"/>
+    </svg>
+  {% endif %}
+  <span class="sao-cta__shimmer" aria-hidden="true"></span>
+</a>

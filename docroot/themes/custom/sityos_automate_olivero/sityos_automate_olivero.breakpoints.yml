@@ -1,0 +1,30 @@
+sityos_automate_olivero.sm:
+  label: Small
+  mediaQuery: 'all and (min-width: 500px)'
+  weight: 0
+  multipliers:
+    - 1x
+sityos_automate_olivero.md:
+  label: Medium
+  mediaQuery: 'all and (min-width: 700px)'
+  weight: 1
+  multipliers:
+    - 1x
+sityos_automate_olivero.lg:
+  label: Large
+  mediaQuery: 'all and (min-width: 1000px)'
+  weight: 2
+  multipliers:
+    - 1x
+sityos_automate_olivero.xl:
+  label: X-Large
+  mediaQuery: 'all and (min-width: 1300px)'
+  weight: 3
+  multipliers:
+    - 1x
+sityos_automate_olivero.2xl:
+  label: 2X-Large
+  mediaQuery: 'all and (min-width: 1536px)'
+  weight: 4
+  multipliers:
+    - 1x

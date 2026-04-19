@@ -1,0 +1,108 @@
+# MySQL Production Configuration for 1GB RAM Server
+# Optimized for Sityos.com Drupal installation
+
+[mysqld]
+# Basic settings
+datadir = /var/lib/mysql
+tmpdir = /tmp
+socket = /var/run/mysqld/mysqld.sock
+port = 3306
+user = mysql
+bind-address = 0.0.0.0
+
+# Character set
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+init-connect = 'SET NAMES utf8mb4'
+
+# Memory optimization for 1GB RAM
+# Total memory usage: ~400-500MB
+innodb_buffer_pool_size = 256M        # 25% of RAM
+innodb_log_file_size = 64M            # 6.25% of RAM
+innodb_log_buffer_size = 16M          # 1.5% of RAM
+key_buffer_size = 32M                 # 3% of RAM
+sort_buffer_size = 4M                 # For sorting operations
+read_buffer_size = 2M                 # For sequential scans
+read_rnd_buffer_size = 8M             # For random reads
+tmp_table_size = 32M                 # Temporary tables in memory
+max_heap_table_size = 32M             # MEMORY tables
+join_buffer_size = 4M                 # For joins without indexes
+
+# Connection settings
+max_connections = 50                   # Reduced for 1GB RAM
+max_connect_errors = 1000
+connect_timeout = 10
+wait_timeout = 600
+interactive_timeout = 600
+
+# Query cache (disabled in MySQL 8 by default, but we can enable query cache alternative)
+# query_cache_type = 1
+# query_cache_size = 32M
+# query_cache_limit = 2M
+
+# InnoDB settings for performance
+innodb_flush_method = O_DIRECT
+innodb_flush_log_at_trx_commit = 2   # Less durable but faster
+innodb_file_per_table = 1
+innodb_open_files = 400
+innodb_io_capacity = 200
+innodb_io_capacity_max = 400
+innodb_read_io_threads = 4
+innodb_write_io_threads = 4
+innodb_thread_concurrency = 8
+innodb_lock_wait_timeout = 50
+
+# MyISAM settings (Drupal mostly uses InnoDB)
+myisam_sort_buffer_size = 8M
+myisam_max_sort_file_size = 256M
+myisam_recover_options = BACKUP
+
+# Binary logging (disable for performance unless needed for replication)
+# log-bin = mysql-bin
+# binlog_format = ROW
+# expire_logs_days = 7
+# max_binlog_size = 100M
+
+# Error logging
+log_error = /var/log/mysql/error.log
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql/slow.log
+long_query_time = 2
+log_queries_not_using_indexes = 1
+
+# General performance settings
+table_open_cache = 200
+open_files_limit = 65535
+table_definition_cache = 200
+thread_stack = 256K
+thread_cache_size = 8
+
+# Security settings
+local-infile = 0
+skip-show-database = 1
+
+# Drupal-specific optimizations
+sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO
+
+[mysql]
+default-character-set = utf8mb4
+
+[mysqldump]
+quick
+max_allowed_packet = 256M
+default-character-set = utf8mb4
+
+[isamchk]
+key_buffer = 32M
+sort_buffer = 32M
+read_buffer = 8M
+write_buffer = 8M
+
+[myisamchk]
+key_buffer = 32M
+sort_buffer = 32M
+read_buffer = 8M
+write_buffer = 8M
+
+[mysqlhotcopy]
+interactive-timeout

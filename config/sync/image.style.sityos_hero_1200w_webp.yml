@@ -1,0 +1,25 @@
+uuid: d81cd80a-1f08-474a-a380-d8262b0a549c
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: sityos_hero_1200w_webp
+label: 'Sityos Hero 1200w (WebP)'
+effects:
+  c05df2a0-793d-4398-a634-cabcc1159c35:
+    uuid: c05df2a0-793d-4398-a634-cabcc1159c35
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 675
+      crop_type: focal_point
+    label: ''
+  e49aa238-8841-4994-ad4b-8484ce6d8050:
+    uuid: e49aa238-8841-4994-ad4b-8484ce6d8050
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp
+    label: ''

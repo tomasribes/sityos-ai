@@ -1,0 +1,106 @@
+{#
+/**
+ * @file
+ * page.html.twig — Page layout template for Sityos Automate.
+ *
+ * Available variables:
+ *   - node: Node entity (on node pages).
+ *   - is_front: TRUE if this is the front page.
+ *   - logged_in: TRUE if the user is logged in.
+ *   - is_admin: TRUE if the user has admin role.
+ */
+#}
+
+<div id="page-wrapper">
+
+  {# ── Header ─────────────────────────────────────────────────────────────── #}
+  {% if page.header or page.primary_menu %}
+    <header id="header" class="site-header" role="banner">
+      <div class="layout-container site-header__inner">
+        {% if page.header %}
+          <div class="site-header__branding">
+            {{ page.header }}
+          </div>
+        {% endif %}
+
+        {% if page.primary_menu %}
+          <nav class="site-header__nav" aria-label="{{ 'Primary navigation'|t }}">
+            {{ page.primary_menu }}
+          </nav>
+        {% endif %}
+
+        {% if page.secondary_menu %}
+          <div class="site-header__lang">
+            {{ page.secondary_menu }}
+          </div>
+        {% endif %}
+      </div>
+    </header>
+  {% endif %}
+
+  {# ── Highlighted / Flash messages ────────────────────────────────────────── #}
+  {% if page.highlighted %}
+    <div class="layout-container">
+      {{ page.highlighted }}
+    </div>
+  {% endif %}
+
+  {# ── Main content ────────────────────────────────────────────────────────── #}
+  <main id="main-content" role="main" tabindex="-1">
+
+    {% if page.breadcrumb %}
+      <div class="layout-container">
+        {{ page.breadcrumb }}
+      </div>
+    {% endif %}
+
+    <div class="layout-container">
+      {% if page.sidebar_first or page.sidebar_second %}
+        <div class="layout-main">
+          <div class="layout-main__content" role="region" aria-label="{{ 'Content'|t }}">
+            {{ page.content }}
+          </div>
+          {% if page.sidebar_first %}
+            <aside class="layout-main__sidebar" role="complementary" aria-label="{{ 'Sidebar'|t }}">
+              {{ page.sidebar_first }}
+            </aside>
+          {% endif %}
+          {% if page.sidebar_second %}
+            <aside class="layout-main__sidebar layout-main__sidebar--second" role="complementary">
+              {{ page.sidebar_second }}
+            </aside>
+          {% endif %}
+        </div>
+      {% else %}
+        <div role="region" aria-label="{{ 'Content'|t }}">
+          {{ page.content }}
+        </div>
+      {% endif %}
+    </div>
+
+  </main>
+
+  {# ── Footer ──────────────────────────────────────────────────────────────── #}
+  {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
+    <footer id="footer" class="site-footer" role="contentinfo">
+      <div class="layout-container site-footer__inner">
+        {% if page.footer_first %}
+          <div class="site-footer__col">{{ page.footer_first }}</div>
+        {% endif %}
+        {% if page.footer_second %}
+          <div class="site-footer__col">{{ page.footer_second }}</div>
+        {% endif %}
+        {% if page.footer_third %}
+          <div class="site-footer__col">{{ page.footer_third }}</div>
+        {% endif %}
+        {% if page.footer_fourth %}
+          <div class="site-footer__col">{{ page.footer_fourth }}</div>
+        {% endif %}
+      </div>
+      <div class="layout-container site-footer__bottom">
+        <p>&copy; {{ "now"|date("Y") }} Sityos Automate. All rights reserved.</p>
+      </div>
+    </footer>
+  {% endif %}
+
+</div>{# end #page-wrapper #}

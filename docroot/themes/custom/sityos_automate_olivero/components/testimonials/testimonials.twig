@@ -1,0 +1,60 @@
+{#
+  Testimonials — blockquote carousel/grid.
+
+  Props:
+    - heading (string)
+    - items (array of {quote, author, role, company, avatar_url})
+    - variant: carousel | grid | single — default: carousel
+#}
+{% set variant = variant ?? 'carousel' %}
+
+<section class="sao-testimonials sao-testimonials--{{ variant }}"
+  {% if variant == 'carousel' %}
+    role="region"
+    aria-label="{{ heading ?? 'Testimonials'|t }}"
+    aria-roledescription="{{ 'carousel'|t }}"
+  {% endif %}
+>
+  {% if heading %}
+    <h2 class="sao-testimonials__heading">{{ heading }}</h2>
+  {% endif %}
+
+  <div class="sao-testimonials__track">
+    {% for item in items %}
+      <div class="sao-testimonials__slide"
+        {% if variant == 'carousel' %}
+          role="group"
+          aria-label="{{ 'Testimonial %index of %total'|t({'%index': loop.index, '%total': items|length}) }}"
+        {% endif %}
+      >
+        <blockquote class="sao-testimonials__card">
+          <p class="sao-testimonials__quote">{{ item.quote }}</p>
+
+          <footer class="sao-testimonials__author">
+            {% if item.avatar_url %}
+              <img
+                class="sao-testimonials__avatar"
+                src="{{ item.avatar_url }}"
+                alt=""
+                loading="lazy"
+                width="48"
+                height="48"
+              />
+            {% endif %}
+
+            <div class="sao-testimonials__info">
+              <cite class="sao-testimonials__name">{{ item.author }}</cite>
+              {% if item.role or item.company %}
+                <span class="sao-testimonials__role">
+                  {% if item.role %}{{ item.role }}{% endif %}
+                  {% if item.role and item.company %}, {% endif %}
+                  {% if item.company %}{{ item.company }}{% endif %}
+                </span>
+              {% endif %}
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    {% endfor %}
+  </div>
+</section>

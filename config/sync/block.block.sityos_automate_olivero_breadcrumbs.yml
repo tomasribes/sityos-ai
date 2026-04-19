@@ -1,0 +1,22 @@
+uuid: 8cfb0e9d-cdab-467c-b0a3-6325514c1013
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - sityos_automate_olivero
+_core:
+  default_config_hash: rUKMsaj4XvIHtU3kRiHIA6Rkn4IHzCkhTiUZudMkp14
+id: sityos_automate_olivero_breadcrumbs
+theme: sityos_automate_olivero
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

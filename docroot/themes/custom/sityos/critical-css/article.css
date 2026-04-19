@@ -1,0 +1,181 @@
+/* === sityos: article.css | 2026-04-06 ===
+ * Critical CSS for Article nodes.
+ * Covers: hero image, header badges row, tag pills, title, meta row, prose width.
+ * Below-fold (download card, footer, comments) defer to style.min.css.
+ */
+
+/* ── Hero image ─────────────────────────────────────────────────────────────── */
+
+.article-hero-image {
+  position: relative;
+  width: calc(100% + 2rem);
+  margin-inline: -1rem;
+  margin-bottom: 2.5rem;
+  max-height: 520px;
+  overflow: hidden;
+}
+
+.article-hero-image img {
+  width: 100%;
+  height: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border: none;
+  margin-block: 0;
+}
+
+.article-hero-image__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(15, 15, 19, 0.6) 75%,
+    #0f0f13 100%
+  );
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .article-hero-image {
+    width: calc(100% + 3rem);
+    margin-inline: -1.5rem;
+    border-radius: 0.75rem;
+  }
+
+  .article-hero-image img {
+    border-radius: 0.75rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .article-hero-image {
+    width: calc(100% + 4rem);
+    margin-inline: -2rem;
+  }
+}
+
+/* ── Node header ────────────────────────────────────────────────────────────── */
+
+.node__header {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #2a2a32;
+}
+
+/* ── Badges row ─────────────────────────────────────────────────────────────── */
+
+.node__header-badges {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.node__type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 0;
+}
+
+.node__type-badge--article {
+  background: rgba(124, 58, 237, 0.15);
+  color: #a78bfa;
+  border: 1px solid rgba(124, 58, 237, 0.25);
+}
+
+/* ── Tag pills in header — gold accent ─────────────────────────────────────── */
+
+.node__header-tags {
+  display: contents;
+}
+
+.node__header-tags .field--name-field-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.node__header-tags .field--name-field-tags .field__item {
+  display: inline-flex;
+}
+
+.node__header-tags .field--name-field-tags a {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(212, 168, 83, 0.12);
+  color: #D4A853;
+  border: 1px solid rgba(212, 168, 83, 0.2);
+  text-decoration: none;
+}
+
+/* ── Title — editorial serif ───────────────────────────────────────────────── */
+
+.node__title {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #F0EDE8;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Meta row ───────────────────────────────────────────────────────────────── */
+
+.node__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #7A7770;
+}
+
+.node__author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #9E9A92;
+  font-weight: 500;
+}
+
+.node__date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #7A7770;
+}
+
+.node__reading-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #7A7770;
+}
+
+.node__meta-icon {
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+/* ── Constrained prose width ────────────────────────────────────────────────── */
+
+.node--type-article .node__content {
+  max-width: 720px;
+  margin-inline: auto;
+}

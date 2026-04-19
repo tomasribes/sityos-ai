@@ -1,0 +1,25 @@
+uuid: f4beed6e-69a2-4e89-a6b0-405e1f5fec36
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: sityos_hero_1440w_webp
+label: 'Sityos Hero 1440w (WebP)'
+effects:
+  a4bf947a-3ba9-4076-b24a-e57231f0506b:
+    uuid: a4bf947a-3ba9-4076-b24a-e57231f0506b
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1440
+      height: 810
+      crop_type: focal_point
+    label: ''
+  2776256b-d457-4514-ba56-600023590275:
+    uuid: 2776256b-d457-4514-ba56-600023590275
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp
+    label: ''

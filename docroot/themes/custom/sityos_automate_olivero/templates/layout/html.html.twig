@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * Sityos Automate Olivero override for the basic HTML structure.
+ *
+ * Changes from Olivero:
+ * - Inline blocking script in <head> to set data-color-mode BEFORE CSS,
+ *   preventing FOUC (Flash of Unstyled Content) on color mode.
+ * - data-color-mode attribute on <html> for CSS dark/light targeting.
+ */
+#}
+{%
+  set body_classes = [
+    logged_in ? 'user-logged-in',
+    not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+    node_type ? 'page-node-type-' ~ node_type|clean_class,
+    db_offline ? 'db-offline',
+  ]
+%}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+  <head>
+    {# Anti-FOUC: set color mode from localStorage BEFORE any CSS paints. #}
+    <script>
+      (function() {
+        var mode = null;
+        try { mode = localStorage.getItem('sao-color-mode'); } catch(e) {}
+        if (mode === 'light' || mode === 'dark') {
+          document.documentElement.setAttribute('data-color-mode', mode);
+        } else {
+          // Respect system preference as default.
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-color-mode', 'dark');
+          } else {
+            document.documentElement.setAttribute('data-color-mode', 'light');
+          }
+        }
+      })();
+    </script>
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+    {# Preload Inter font for fastest LCP. #}
+    <link rel="preload" href="/{{ sao_path }}/fonts/inter/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/{{ sao_path }}/fonts/inter/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    {% include '@olivero/includes/preload.twig' with {olivero_path: olivero_path} only %}
+    {{ noscript_styles }}
+  </head>
+  <body{{ attributes.addClass(body_classes) }}>
+    {#
+      Keyboard navigation/accessibility link to main content section in
+      page.html.twig.
+    #}
+    <a href="#main-content" class="visually-hidden focusable skip-link">
+      {{ 'Skip to main content'|t }}
+    </a>
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+    <js-bottom-placeholder token="{{ placeholder_token }}">
+  </body>
+</html>

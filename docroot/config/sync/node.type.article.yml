@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies: {}
+_core:
+  default_config_hash: sityos_article_type
+name: Article
+type: article
+description: 'Editorial content: news, insights, and updates about AI and automation.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,25 @@
+uuid: 9ed573cb-b8c3-4606-af55-acceb8c8a0e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: sityos_hero_2560w
+label: 'Sityos Hero 2560w (AVIF)'
+effects:
+  94a3a1f2-25ce-420f-8774-8b54e8dbc9a3:
+    uuid: 94a3a1f2-25ce-420f-8774-8b54e8dbc9a3
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 2560
+      height: 1440
+      crop_type: focal_point
+    label: ''
+  ffdb62bc-66a5-435d-aff5-918ee98a047f:
+    uuid: ffdb62bc-66a5-435d-aff5-918ee98a047f
+    id: image_convert_avif
+    weight: 2
+    data:
+      extension: webp
+    label: ''

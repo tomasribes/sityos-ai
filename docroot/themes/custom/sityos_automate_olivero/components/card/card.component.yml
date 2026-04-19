@@ -1,0 +1,54 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json'
+name: Card
+status: experimental
+description: 'Content card with glassmorphism, container queries, and responsive variants.'
+group: 'Sityos Automate'
+props:
+  type: object
+  properties:
+    title:
+      type: string
+      title: Title
+      description: 'Card heading text.'
+    description:
+      type: string
+      title: Description
+      description: 'Short summary (1-2 sentences).'
+    url:
+      type: string
+      title: URL
+      description: 'Link target.'
+    image_url:
+      type: string
+      title: 'Image URL'
+      description: 'Card thumbnail image.'
+    image_alt:
+      type: string
+      title: 'Image alt text'
+    label:
+      type: string
+      title: Label
+      description: 'Badge label (e.g. "Article", "Tutorial").'
+    label_color:
+      type: string
+      title: 'Label color'
+      enum: [blue, green, purple]
+      default: purple
+    date:
+      type: string
+      title: Date
+    reading_time:
+      type: string
+      title: 'Reading time'
+    variant:
+      type: string
+      title: Variant
+      enum: [standard, featured, horizontal]
+      default: standard
+  required:
+    - title
+    - url
+libraryOverrides:
+  css:
+    component:
+      card.css: {}

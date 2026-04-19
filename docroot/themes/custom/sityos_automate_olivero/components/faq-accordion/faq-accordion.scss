@@ -1,0 +1,133 @@
+// ─── FAQ Accordion component ──────────────────────────────────────────────────
+// Uses native <details>/<summary> for built-in a11y (no JS).
+// Variants: default, bordered, minimal.
+// interpolate-size: allow-keywords for smooth height transition.
+
+.sao-faq {
+  padding: var(--sao-section-gap-sm) 0;
+  max-width: 800px;
+  margin: 0 auto;
+  interpolate-size: allow-keywords;
+}
+
+.sao-faq__heading {
+  font-family: var(--font-sans);
+  font-size: var(--sao-type-headline);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--sao-text-primary);
+  text-align: center;
+  margin: 0 0 var(--sao-space-12);
+}
+
+.sao-faq__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sao-space-3);
+}
+
+.sao-faq__item {
+  border-radius: var(--sao-radius-lg);
+  overflow: hidden;
+  transition: background-color var(--sao-duration-fast) var(--sao-easing-standard);
+}
+
+// Variant: default
+.sao-faq--default .sao-faq__item {
+  background: var(--sao-bg-elevated);
+  border: 1px solid var(--sao-bg-border);
+
+  &[open] { border-color: var(--sao-accent); }
+}
+
+// Variant: bordered
+.sao-faq--bordered .sao-faq__item {
+  border-bottom: 1px solid var(--sao-bg-border);
+  border-radius: 0;
+}
+
+// Variant: minimal
+.sao-faq--minimal .sao-faq__item {
+  background: transparent;
+}
+
+// Question (summary element)
+.sao-faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sao-space-4);
+  padding: var(--sao-space-6);
+  font-family: var(--font-sans);
+  font-size: var(--sao-type-body-lg);
+  font-weight: 600;
+  color: var(--sao-text-primary);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: color var(--sao-duration-fast) var(--sao-easing-standard);
+
+  &::-webkit-details-marker { display: none; }
+  &::marker { display: none; content: ""; }
+  &:hover   { color: var(--sao-accent); }
+
+  &:focus-visible {
+    outline: 2px solid var(--sao-accent);
+    outline-offset: -2px;
+    border-radius: var(--sao-radius-md);
+  }
+}
+
+.sao-faq--minimal .sao-faq__question {
+  padding: var(--sao-space-4) 0;
+}
+
+// Chevron icon
+.sao-faq__icon {
+  flex-shrink: 0;
+  color: var(--sao-text-muted);
+  transition: transform var(--sao-duration-base) var(--sao-easing-spring);
+}
+
+.sao-faq__item[open] .sao-faq__icon {
+  transform: rotate(180deg);
+}
+
+// Answer
+.sao-faq__answer {
+  height: 0;
+  overflow: hidden;
+  transition: height var(--sao-duration-base) var(--sao-easing-standard);
+}
+
+.sao-faq__item[open] .sao-faq__answer {
+  height: auto;
+}
+
+.sao-faq__answer-content {
+  padding: 0 var(--sao-space-6) var(--sao-space-6);
+  font-size: var(--sao-type-body);
+  line-height: 1.7;
+  color: var(--sao-text-secondary);
+
+  & p {
+    margin: 0 0 var(--sao-space-4);
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  & a { color: var(--sao-accent); }
+}
+
+.sao-faq--minimal .sao-faq__answer-content {
+  padding: 0 0 var(--sao-space-4);
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .sao-faq__icon,
+  .sao-faq__answer,
+  .sao-faq__item {
+    transition: none;
+  }
+}

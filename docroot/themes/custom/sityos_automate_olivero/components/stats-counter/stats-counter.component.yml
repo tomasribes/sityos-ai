@@ -1,0 +1,43 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json'
+name: 'Stats Counter'
+status: experimental
+description: 'Animated number counters with IntersectionObserver, @property animation, and tabular-nums.'
+group: 'Sityos Automate'
+props:
+  type: object
+  properties:
+    items:
+      type: array
+      title: Items
+      items:
+        type: object
+        properties:
+          value:
+            type: integer
+            title: 'Numeric value'
+          suffix:
+            type: string
+            title: 'Suffix (e.g. %, +, K)'
+          label:
+            type: string
+            title: 'Description label'
+    variant:
+      type: string
+      title: Variant
+      enum: [row, grid]
+      default: row
+    animate:
+      type: boolean
+      title: 'Enable count-up animation'
+      default: true
+  required:
+    - items
+libraryOverrides:
+  css:
+    component:
+      stats-counter.css: {}
+  js:
+    stats-counter.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

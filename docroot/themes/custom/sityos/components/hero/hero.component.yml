@@ -1,0 +1,45 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json'
+name: Hero
+status: experimental
+description: 'Full-bleed editorial hero with background image, gradient overlay, and CTA actions.'
+group: Sityos
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+      title: Eyebrow
+      description: 'Category label above headline (e.g. "AI Automation").'
+    headline:
+      type: string
+      title: Headline
+      description: 'Main hero heading. Supports <em> for accent color.'
+    subtitle:
+      type: string
+      title: Subtitle
+      description: 'Supporting paragraph below the headline.'
+    image_url:
+      type: string
+      title: 'Background image URL'
+      description: 'Full-bleed background image. Falls back to dark gradient when empty.'
+    image_alt:
+      type: string
+      title: 'Background image alt text'
+    cta_primary_label:
+      type: string
+      title: 'Primary CTA label'
+    cta_primary_url:
+      type: string
+      title: 'Primary CTA URL'
+    cta_secondary_label:
+      type: string
+      title: 'Secondary CTA label'
+    cta_secondary_url:
+      type: string
+      title: 'Secondary CTA URL'
+    overlay_opacity:
+      type: number
+      title: 'Overlay opacity'
+      description: '0-1. Default 0.6. Higher values darken the overlay over the image.'
+  required:
+    - headline

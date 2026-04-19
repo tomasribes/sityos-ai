@@ -1,0 +1,22 @@
+uuid: 65c09db8-b3d3-4da8-8f4d-0587fea8bbbc
+langcode: en
+status: true
+dependencies:
+  theme:
+    - sityos_automate_olivero
+_core:
+  default_config_hash: 3KAyDgB3FHENrBwroAUcCPvkfPHBMFcRDnsZFyFMuwc
+id: sityos_automate_olivero_secondary_local_tasks
+theme: sityos_automate_olivero
+region: highlighted
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

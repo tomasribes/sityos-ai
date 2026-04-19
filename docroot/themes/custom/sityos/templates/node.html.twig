@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * node.html.twig — Node template for Sityos Automate.
+ *
+ * Available variables:
+ *   - node: Node entity.
+ *   - label: Node title.
+ *   - content: Content items (rendered fields).
+ *   - url: Direct URL to the node.
+ *   - date: Formatted creation date.
+ *   - author_name: Display name of the author.
+ *   - view_mode: The view mode (full, teaser, etc.).
+ *   - logged_in: TRUE if the user is logged in.
+ *   - node_type: Bundle machine name.
+ */
+#}
+
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle,
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  not node.isPublished() ? 'node--unpublished',
+] %}
+
+<article{{ attributes.addClass(classes) }}>
+
+  {% if not page %}
+    {# Teaser / card view: render as compact listing item. #}
+    <h3 class="node__title">
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h3>
+  {% else %}
+    {# Full page view #}
+    <header class="node__header">
+      <h1 class="node__title">{{ label }}</h1>
+      <div class="node__meta">
+        {% if author_name %}
+          <span class="node__author">{{ author_name }}</span>
+        {% endif %}
+        <time class="node__date" datetime="{{ node.getCreatedTime()|date('c') }}">
+          {{ date }}
+        </time>
+      </div>
+    </header>
+  {% endif %}
+
+  <div class="node__content">
+    {{ content }}
+  </div>
+
+</article>

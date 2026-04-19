@@ -1,0 +1,34 @@
+# Configuration Ignore - Sityos Automate
+# These configurations should NEVER be exported to version control
+
+# Database and file system settings
+core.extension:
+  module:
+    dblog: false
+    views_ui: false
+
+# System file paths
+system.file:
+  path:
+    temporary: ignore
+    private: ignore
+
+# Cron and performance settings that vary by environment
+system.cron: ignore
+system.performance: ignore
+system.logging: ignore
+
+# Development services
+development.services.yml: ignore
+
+# User session configurations
+user.settings: ignore
+
+# Environment-specific URLs and settings
+system.site: ignore
+
+# Redis cache settings (environment-specific)
+redis.settings: ignore
+
+# Any configuration containing sensitive keys or tokens
+# Add specific module configurations here as needed

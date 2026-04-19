@@ -1,0 +1,39 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json'
+name: 'CTA Button'
+status: experimental
+description: 'Call-to-action button with primary, secondary, ghost, and gradient variants.'
+group: 'Sityos Automate'
+props:
+  type: object
+  properties:
+    label:
+      type: string
+      title: Label
+      description: 'Button text.'
+    url:
+      type: string
+      title: URL
+      description: 'Link target.'
+    variant:
+      type: string
+      title: Variant
+      description: 'Visual variant.'
+      enum: [primary, secondary, ghost, gradient]
+      default: primary
+    size:
+      type: string
+      title: Size
+      enum: [sm, md, lg]
+      default: md
+    external:
+      type: boolean
+      title: 'External link'
+      description: 'Opens in new tab if true.'
+      default: false
+  required:
+    - label
+    - url
+libraryOverrides:
+  css:
+    component:
+      cta-button.css: {}

@@ -1,0 +1,3 @@
+self:
+  uri: '${SITE_URL:-http://localhost}'
+  root: /var/www/html/docroot

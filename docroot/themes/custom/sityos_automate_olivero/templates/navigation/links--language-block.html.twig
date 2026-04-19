@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * links--language-block.html.twig — Language switcher dropdown.
+ *
+ * Variables:
+ *   - links: Language links keyed by language code (en, es, ca).
+ *   - current_lang: Active language code, set via preprocess hook.
+ *
+ * Each item in `links` provides:
+ *   - item.link: Render array for the <a> element (null if current lang).
+ *   - item.text: Language name label.
+ */
+#}
+{% if links %}
+  {# Extract the current language label from the links array (uses Drupal's native name). #}
+  {% set current_lang_label = '' %}
+  {% for key, item in links %}
+    {% if key == current_lang %}{% set current_lang_label = item.text|render|striptags|trim %}{% endif %}
+  {% endfor %}
+
+  <div class="lang-switcher" data-lang-switcher>
+
+    <button
+      class="lang-switcher__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-label="{{ 'Switch language'|t }}"
+    >
+      <img class="language-icon" src="{{ current_lang_flag_url }}" width="16" height="12" alt="{{ current_lang_label }}" loading="lazy" />
+      <span class="lang-switcher__name">{{ current_lang_label }}</span>
+      <svg class="lang-switcher__arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
+        <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <ul class="lang-switcher__dropdown" role="listbox" aria-label="{{ 'Available languages'|t }}">
+      {% for key, item in links %}
+        {% if key != current_lang %}
+          <li class="lang-switcher__option" role="option">
+            {{ item.link }}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+  </div>
+{% endif %}

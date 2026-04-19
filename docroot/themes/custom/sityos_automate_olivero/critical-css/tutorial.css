@@ -1,0 +1,67 @@
+/* === sityos_automate_olivero: tutorial.css
+ * Critical CSS for Tutorial nodes (full view mode).
+ */
+
+.node__header {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-color-mode]) .node__header { border-bottom-color: #2a2b36; }
+}
+
+[data-color-mode="dark"] .node__header { border-bottom-color: #2a2b36; }
+
+.node__header-badges {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.node__type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 0;
+}
+
+/* Tutorial badge — green (semantic identifier) */
+.node__type-badge--tutorial {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.node__title {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #0a0a0a;
+  margin-bottom: 1.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-color-mode]) .node__title { color: #f0f0f5; }
+}
+
+[data-color-mode="dark"] .node__title { color: #f0f0f5; }
+
+.node__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #718096;
+}

@@ -1,0 +1,196 @@
+// === sityos: hero.scss ===
+// Editorial full-bleed hero — background image, gradient overlay,
+// left-aligned editorial content, scroll-line indicator.
+
+@use '../../sass/abstracts/variables' as *;
+@use '../../sass/abstracts/mixins' as *;
+
+// ─── Keyframes ────────────────────────────────────────────────────────────────
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-line {
+  0% {
+    transform: scaleY(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
+.sityos-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100svh;
+  overflow: hidden;
+
+  @include respond-up(lg) {
+    min-height: 85vh;
+  }
+
+  // ── Background image ────────────────────────────────────────────────────────
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  // ── Dark gradient overlay ───────────────────────────────────────────────────
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to top,
+      rgba($color-bg-base, var(--hero-overlay-opacity, 0.6)) 0%,
+      rgba($color-bg-base, 0.3) 40%,
+      rgba($color-bg-base, 0.1) 100%
+    );
+  }
+
+  // ── Content block ───────────────────────────────────────────────────────────
+
+  &__content {
+    position: relative;
+    z-index: $z-base + 1;
+    width: 100%;
+    max-width: $container-editorial;
+    padding-bottom: $section-gap-md;
+    text-align: left;
+  }
+
+  // ── Eyebrow ─────────────────────────────────────────────────────────────────
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    font-family: $font-primary;
+    font-size: $type-label;
+    font-weight: $font-weight-semibold;
+    color: $color-accent;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: $space-4;
+
+    animation: hero-fade-in $motion-duration-enter $motion-easing-enter both;
+    animation-delay: 0ms;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: $color-accent;
+    }
+  }
+
+  // ── Headline ────────────────────────────────────────────────────────────────
+
+  &__headline {
+    font-family: $font-display;
+    font-size: $type-hero;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    color: $color-text-primary;
+    margin-bottom: $space-6;
+    max-width: 14ch;
+
+    animation: hero-fade-in $motion-duration-enter $motion-easing-enter both;
+    animation-delay: 150ms;
+
+    em {
+      font-style: normal;
+      color: $color-accent;
+    }
+  }
+
+  // ── Subtitle ────────────────────────────────────────────────────────────────
+
+  &__subtitle {
+    font-family: $font-primary;
+    font-size: $type-body-lg;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    max-width: 560px;
+    margin-bottom: $space-10;
+
+    animation: hero-fade-in $motion-duration-enter $motion-easing-enter both;
+    animation-delay: 300ms;
+  }
+
+  // ── CTA actions ─────────────────────────────────────────────────────────────
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-4;
+
+    animation: hero-fade-in $motion-duration-enter $motion-easing-enter both;
+    animation-delay: 450ms;
+  }
+
+  // ── Scroll indicator ────────────────────────────────────────────────────────
+
+  &__scroll {
+    position: absolute;
+    bottom: $space-8;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: $z-base + 1;
+  }
+
+  &__scroll-line {
+    display: block;
+    width: 1px;
+    height: 48px;
+    background: $color-accent;
+    transform-origin: top center;
+    animation: scroll-line 2s $motion-easing-standard infinite;
+  }
+}
+
+// ─── Reduced motion ───────────────────────────────────────────────────────────
+
+@media (prefers-reduced-motion: reduce) {
+  .sityos-hero {
+    &__eyebrow,
+    &__headline,
+    &__subtitle,
+    &__actions {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    &__scroll-line {
+      animation: none;
+    }
+  }
+}

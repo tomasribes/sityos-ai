@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Sityos Tutorial module hooks.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_node_presave().
+ */
+function sityos_tutorial_node_presave(NodeInterface $node): void {
+  if ($node->bundle() !== 'tutorial') {
+    return;
+  }
+  // Placeholder: add pre-save business logic for tutorials here.
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view() for node entities.
+ */
+function sityos_tutorial_node_view(array &$build, EntityInterface $entity, mixed $display, string $view_mode): void {
+  if ($entity->bundle() !== 'tutorial') {
+    return;
+  }
+  // Placeholder: add view-time alterations for tutorials here.
+}

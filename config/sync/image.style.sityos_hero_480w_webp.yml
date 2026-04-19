@@ -1,0 +1,25 @@
+uuid: 7c146bcb-1997-496f-b39d-d3cca10a6b18
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: sityos_hero_480w_webp
+label: 'Sityos Hero 480w (WebP)'
+effects:
+  a4ae4a8a-81f7-405a-97bd-9a3ca184b8c6:
+    uuid: a4ae4a8a-81f7-405a-97bd-9a3ca184b8c6
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 480
+      height: 270
+      crop_type: focal_point
+    label: ''
+  3a13f0d2-c919-4221-95cf-5e1b5031d87a:
+    uuid: 3a13f0d2-c919-4221-95cf-5e1b5031d87a
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp
+    label: ''

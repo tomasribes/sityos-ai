@@ -1,0 +1,36 @@
+name: Sityos
+type: theme
+description: 'Sityos Automate custom theme. Editorial magazine design — dark background, gold accents, Playfair Display headlines. Bootstrap Barrio subtheme.'
+package: Sityos
+core_version_requirement: ^11
+base theme: bootstrap_barrio
+
+libraries:
+  - sityos/global
+
+libraries-override: {}
+
+regions:
+  header: Header
+  primary_menu: 'Primary Menu'
+  secondary_menu: 'Secondary Menu'
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: 'Sidebar First'
+  sidebar_second: 'Sidebar Second'
+  footer_first: 'Footer First'
+  footer_second: 'Footer Second'
+  footer_third: 'Footer Third'
+  footer_fourth: 'Footer Fourth'
+
+# Bootstrap Barrio theme settings
+features:
+  node_user_picture: true
+  comment_user_picture: true
+  comment_user_verification: true
+
+# Enable single directory components.
+components:
+  namespaces:
+    sityos: components

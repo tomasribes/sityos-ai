@@ -1,0 +1,25 @@
+uuid: b2806da7-9f7b-4811-a29f-2ae382b10970
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: sityos_card_480w_webp
+label: 'Sityos Card 480w (WebP)'
+effects:
+  84d7ae18-d7bd-474d-816d-d2558f027c9f:
+    uuid: 84d7ae18-d7bd-474d-816d-d2558f027c9f
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 480
+      height: 270
+      crop_type: focal_point
+    label: ''
+  0e203c57-bcf8-4f69-816d-92ccbc8971a9:
+    uuid: 0e203c57-bcf8-4f69-816d-92ccbc8971a9
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp
+    label: ''

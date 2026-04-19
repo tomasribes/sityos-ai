@@ -1,0 +1,25 @@
+uuid: 551319b0-0ab4-4eb8-9513-b945ea44324a
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: sityos_card_320w
+label: 'Sityos Card 320w (AVIF)'
+effects:
+  f021f195-6f6e-4f28-97be-525949c12031:
+    uuid: f021f195-6f6e-4f28-97be-525949c12031
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 320
+      height: 180
+      crop_type: focal_point
+    label: ''
+  ae537e6a-327a-4f37-9588-1b950d653299:
+    uuid: ae537e6a-327a-4f37-9588-1b950d653299
+    id: image_convert_avif
+    weight: 2
+    data:
+      extension: webp
+    label: ''

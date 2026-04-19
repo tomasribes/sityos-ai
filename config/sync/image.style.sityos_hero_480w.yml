@@ -1,0 +1,25 @@
+uuid: acf775e3-fa95-4670-a014-d5ab901fd6b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: sityos_hero_480w
+label: 'Sityos Hero 480w (AVIF)'
+effects:
+  29247ddd-8f4e-4674-8aad-48ec98a248cc:
+    uuid: 29247ddd-8f4e-4674-8aad-48ec98a248cc
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 480
+      height: 270
+      crop_type: focal_point
+    label: ''
+  4d775282-67ea-4768-97d6-48060f93fe1d:
+    uuid: 4d775282-67ea-4768-97d6-48060f93fe1d
+    id: image_convert_avif
+    weight: 2
+    data:
+      extension: webp
+    label: ''

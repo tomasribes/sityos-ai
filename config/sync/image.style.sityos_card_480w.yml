@@ -1,0 +1,25 @@
+uuid: 8c5071dd-2567-42cc-baaa-ba5da0a7c48f
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: sityos_card_480w
+label: 'Sityos Card 480w (AVIF)'
+effects:
+  8d6600a9-ff90-4f09-ae91-67b6168e4cba:
+    uuid: 8d6600a9-ff90-4f09-ae91-67b6168e4cba
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 480
+      height: 270
+      crop_type: focal_point
+    label: ''
+  9f12d736-0bd9-4c74-b35a-1af9b9bbe025:
+    uuid: 9f12d736-0bd9-4c74-b35a-1af9b9bbe025
+    id: image_convert_avif
+    weight: 2
+    data:
+      extension: webp
+    label: ''

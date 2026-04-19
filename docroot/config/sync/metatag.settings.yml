@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - metatag
+id: metatag.settings
+# Entities where metatag is enabled by default
+entity_type_groups:
+  node:
+    article: article
+    page: page
+    tutorial: tutorial
+    use_case: use_case

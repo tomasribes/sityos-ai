@@ -1,0 +1,19 @@
+# Live Environment Logging Configuration
+# Minimal error logging for production
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: system.logging
+label: 'System logging'
+module: system
+description: ''
+theme: ''
+weight: 0
+provider: null
+plugin: null
+settings: {  }
+visibility: {  }
+configuration:
+  error_level: hide
