@@ -1,0 +1,11 @@
+name: Views Slick Animation
+description: custom views use Views Slick Animation .
+package: custom
+type: module
+core_version_requirement: ^9 || ^10 || ^11
+dependencies:
+  - drupal:views
+# Information added by Drupal.org packaging script on 2024-12-03
+version: '3.5.0'
+project: 'views_slick_animate'
+datestamp: 1733236093

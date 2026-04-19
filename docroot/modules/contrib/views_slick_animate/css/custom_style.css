@@ -1,0 +1,96 @@
+.views-slick-animate .slick-slider .card{
+    overflow: hidden;
+}
+  
+  .zoomInImage {
+    -webkit-animation-name: zoomInImage;
+    animation-name: zoomInImage;
+  }
+  .views-slick-animate .img-zoomInImage{
+    opacity: 1 !important;
+    animation-duration: 5s;
+    transition: all 1s ease-in-out;
+  }
+  
+  .views-slick-animate .img-zoomInImage[data-animation-in]{
+    opacity: 0;
+    animation-duration: 1.5s;
+    transition: opacity 0.5s ease 0.4s;
+    transition: 1s;
+  }  
+  .views-slick-animate .image-media,
+  .views-slick-animate .slide__media .media{
+    overflow: hidden;
+  }
+  
+  @keyframes zoomInImage {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+    to {
+      transform: scale3d(1.1, 1.1, 1.1);
+    }
+  }
+  
+  @keyframes zoomOutImage {
+    from {
+      transform: scale3d(1.1, 1.1, 1.1);
+          
+    }
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
+  .zoomOutImage {
+    -webkit-animation-name: zoomOutImage;
+    animation-name: zoomOutImage;
+  }
+  
+  
+  .views-slick-animate .content-relative{
+    position: relative;
+  }
+  .views-slick-animate .content-relative .slick_slide_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  
+  .views-slick-animate .content-relative .slick_slide_content.slideInLeft{
+    left: 15%;
+    transform: translate(-15%, -50%);
+  }
+  
+  .views-slick-animate .content-relative .slick_slide_content.slideInRight{
+    right: 15%;
+    left: auto;
+    transform: translate(5%, -50%);
+  }
+  
+  .views-slick-animate .content-relative .slick_slide_content.slideInUp{
+    transform: translate(-50%, -50%);
+  }
+  
+  .views-slick-animate .content-relative .slick_slide_content.slideInDown{
+    bottom: 15%;
+    transform: translate(-50%, -50%);
+  }
+
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+
+.views-slick-animate .slick-prev:before,
+.views-slick-animate .slick-next:before {
+    color: #000;
+    font-size: 35px;
+}
+
+.views-slick-animate .slick-prev,
+.views-slick-animate .slick-next {
+  z-index: 10;
+}

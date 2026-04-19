@@ -1,0 +1,60 @@
+slickanimatesettings:
+  css:
+    component:
+      css/custom_style.css: {}
+  js:
+    js/slick-slider-animation.js: {}
+  dependencies:
+    - core/jquery
+    - core/once
+    - core/drupalSettings 
+    
+slicklib:
+  js:
+    js/slickjs/slick.min.js: {}
+    /libraries/slick/slick/slick.js: {}
+  css:
+    component:
+      css/slickcss/slick-theme.min.css: {}
+      css/slickcss/slick.min.css: {}
+      # libraries
+      /libraries/slick/slick/slick.css: {}
+      /libraries/slick/slick/slick-theme.css: {}
+
+  dependencies:
+    - core/jquery
+    - core/once
+    - core/drupalSettings 
+
+basiced:
+  css:
+    component:
+      css/slick-basic-style.css: {}
+  dependencies:
+    - core/jquery
+    - core/once
+    - core/drupalSettings 
+
+animated:
+  js:
+    js/slick-animation.min.js: {}
+  css:
+    component:
+      css/slick-basic-style.css: {}
+      css/animate.css: {}
+  dependencies:
+    - core/jquery
+    - core/once
+    - core/drupalSettings
+
+slick_slide_cdn:
+  js:
+    //cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js: {}
+  css:
+    component:
+      //cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css: {}
+      //cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css: {}
+  dependencies:
+    - core/jquery
+    - core/once
+    - core/drupalSettings

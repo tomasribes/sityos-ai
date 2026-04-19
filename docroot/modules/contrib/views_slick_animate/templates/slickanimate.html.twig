@@ -1,0 +1,150 @@
+{#
+/**
+ * @file slickanimate.html.twig
+ * Default simple view template to display views slick animate.
+ *
+ *
+ * - columns: Contains rows grouped by columns.
+ * - rows: Contains a nested array of rows. Each row contains an array of
+ *   columns.
+ * - column_type: Contains a number (default views slick animate system column type).
+ * - slide: null - Apply to all items
+
+ * @ingroup views_templates
+ */
+#}
+
+{%
+  set classes = [
+    'views-slick-animate',
+  ]
+%}
+
+{% if slick_styles =='basic' %}
+  {{ attach_library('views_slick_animate/slicklib') }}
+  {{ attach_library('views_slick_animate/basiced') }}
+ {% else %}
+  {{ attach_library('views_slick_animate/slick_slide_cdn') }}
+{% endif %}
+
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+
+<div class="views-slick-animate {{ slick_styles }}-styles">
+
+{% if animate_make == false %}
+      {# default style #}
+    {% if modelview == "default" %}
+      <div {{ attributes.addClass(classes) }} id="{{ id }}">
+        {% for row in rows -%}
+          <div class="slide_default" >{{ row }}</div>
+        {%- endfor %}
+      </div>
+    {% endif %}
+
+      {# card style #}
+    {% if modelview == "card" %}
+      <div {{ attributes.addClass(classes) }} id="{{ id }}">
+        {% for key, row in rows -%}
+          <div  {{ row.attributes.addClass(classes) }}>
+            {% if row.slickSlideImage %}
+              {{ row.slickSlideImage }}
+            {% endif %}
+              <div class="card-body">
+                {% if row.slickSlideSubtitle %}
+                  <div class="animated">{{ row.slickSlideSubtitle }}</div>
+                {% endif %}
+                {% if row.slickSlideTitle %}
+                  <div class="card-title">{{ row.slickSlideTitle }}</div>
+                {% endif %}
+                {% if row.slickSlideDescription %}
+                  <div  class="animated">{{ row.slickSlideDescription }}</div>
+                {% endif %}
+                {% if row.slickSlideButton %}
+                  <div class="animated">{{ row.slickSlideButton }}</div>
+                {% endif %}
+              </div>
+          </div>
+        {%- endfor %}
+      </div>
+    {% endif %}
+
+      {# hero_banner style #}
+    {% if modelview =="hero_banner" %}
+      <div {{ attributes.addClass(classes) }} id="{{ id }}">
+        {% for key, row in rows -%}
+          <div  {{ row.attributes.addClass(classes) }}>
+            {% if row.slickslideimage %}
+              {{ row.slickslideimage }}
+            {% endif %}
+            {% if row.content %}
+              {% set getanimatetype = row.position_content|split('__') %}
+              <div class="slick_slide_content {{ getanimatetype.1 }}">
+                {% for key, row in row.content -%}
+                  {{row}}
+                {%- endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {%- endfor %}
+      </div>
+    {% endif %}
+{% else %}
+  {{ attach_library('views_slick_animate/animated') }}
+  {# default and hero_banner style#}
+  {% if (modelview == "default") or (modelview == "hero_banner") %}
+    <div class="slide_hero_banner content-relative animate-auto-{{autoanimate}}">
+      <div {{ attributes.addClass(classes) }} id="{{ id }}">
+        {% for key, row in rows -%}
+          <div  {{ row.attributes.addClass(classes) }}>
+            {% if row.slickslideimage %}
+              <div class="image-media"><div  class="animated img-zoomInImage" data-animation-in="{{row.imageanimation}}"> {{ row.slickslideimage }} </div></div>
+            {% endif %}
+            {% if row.content %}
+              {% set getanimatetype = row.position_content|split('__') %}
+              <div class="slick_slide_content {{ getanimatetype.1 }}">
+                {% for content_key, content_row in row.content -%}
+                  {% if content_row %}
+                    <div class="animated" data-animation-in="{{ row.animation[content_key] }}">{{ content_row }} </div>
+                  {% endif %}
+                {%- endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {%- endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if modelview == "card" %}
+    <div class="slide_card content-relative animate-auto-{{autoanimate}}">
+      <div {{ attributes.addClass(classes) }} id="{{ id }}">
+        {% for key, row in rows -%}
+          <div  {{ row.attributes.addClass(classes) }}>
+            {% if row.slickSlideImage %}
+              <div class="image-media"><div class="animated img-zoomInImage" data-animation-in="{{row.imageanimation}}"> {{ row.slickSlideImage }} </div></div>
+            {% endif %}
+
+              <div class="card-body"> 
+                {% if row.slickSlideSubtitle %}
+                  <div class="animated" data-animation-in="{{row.subtitleanimation}}">{{ row.slickSlideSubtitle }}</div>
+                {% endif %}
+                {% if row.slickSlideTitle %}
+                  <div class="card-title"> <div data-animation-in="{{row.titleanimation}}"> {{ row.slickSlideTitle }} </div> </div>
+                {% endif %}
+                {% if row.slickSlideDescription %}
+                  <div class="animated" data-animation-in="{{row.descriptionanimation}}">{{ row.slickSlideDescription }}</div>
+                {% endif %}
+                {% if row.slickSlideButton %}
+                  <div class="animated" data-animation-in="{{row.titleanimation}}">{{ row.slickSlideButton }}</div>
+                {% endif %}
+              </div>
+          </div>
+        {%- endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+{% endif %}
+</div>

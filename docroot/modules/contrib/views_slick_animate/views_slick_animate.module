@@ -1,0 +1,43 @@
+<?php 
+
+/**
+ * @file
+ * @This module is designed to enhance the feature of search with select option
+ */
+
+ use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function views_slick_animate_theme($existing, $type, $theme, $path) {
+  return [
+    'slickanimate' => [
+      'preprocess functions' => [
+        'template_preprocess_views_view_slickanimate',
+      ],
+      'file' => 'views_slick_animate.theme.inc',
+      '#attached' => [
+        'library' => [
+          'views_slick_animate/slickanimatesettings',
+        ],
+      ],
+    ],
+  ];
+}
+
+ /**
+  * Implements hook_help().
+  */
+ function views_slick_animate_help($route_name, RouteMatchInterface $route_match) {
+   switch ($route_name) {
+     case 'help.page.views_slick_animate':
+       $output = '';
+       $output .= '<h3>' . t('About') . '</h3>';
+       $output .= '<p>' . t('Slick is a powerful and performant slideshow Aniamte solution.') . '</p>';
+     $output .= '<p>'.  t('For more information related to module please visit <a href="https://www.drupal.org/project/views_slick_animate" target="_blank">project page</a>') . '</p>';
+       return $output;
+ 
+     default:
+   }
+ }

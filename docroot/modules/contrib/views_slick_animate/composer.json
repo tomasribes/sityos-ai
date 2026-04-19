@@ -1,0 +1,23 @@
+{
+  "name": "drupal/views_slick_animate",
+  "type": "drupal-module",
+  "description": "views Slick Animate",
+  "keywords": ["carousel", "slideshow", "Drupal", "views"],
+  "license": "MTL",
+  "homepage": "https://drupal.org/project/views_slick_animate",
+  "authors": [
+    {
+      "name": "poovarasan",
+      "homepage": "https://www.drupal.org/u/poovarasan",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/views_slick_animate",
+    "source": "https://git.drupalcode.org/project/views_slick_animate"
+  },
+  "require": {
+    "drupal/core": "^9 || ^10 || ^11"
+  }
+
+}
