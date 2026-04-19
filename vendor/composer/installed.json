@@ -9267,7 +9267,7 @@
             },
             "time": "2025-12-14T11:28:47+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "files": [
                     "src/Resources/core.php",
