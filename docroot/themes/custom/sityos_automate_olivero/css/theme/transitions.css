@@ -1,0 +1,136 @@
+/**
+ * @file
+ * View Transitions API + scroll-driven animations.
+ *
+ * Progressive enhancement: only applied in browsers that support these APIs.
+ */
+
+/* ========================================
+ * VIEW TRANSITIONS API
+ * Smooth page-level transitions between
+ * navigations (MPA with Drupal).
+ * ======================================== */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: sao-fade-out var(--sao-duration-base) var(--sao-easing-exit);
+}
+
+::view-transition-new(root) {
+  animation: sao-fade-in var(--sao-duration-base) var(--sao-easing-enter);
+}
+
+@keyframes sao-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes sao-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Assign view-transition-name to key elements for cross-fade */
+.site-header {
+  view-transition-name: site-header;
+}
+
+main {
+  view-transition-name: main-content;
+}
+
+.site-footer {
+  view-transition-name: site-footer;
+}
+
+/* Header stays fixed during transitions */
+::view-transition-old(site-header),
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+/* ========================================
+ * SCROLL-DRIVEN ANIMATIONS
+ * CSS-only reveal and parallax effects.
+ * ======================================== */
+
+/* Scroll-reveal for sections */
+.sao-reveal {
+  animation: sao-scroll-reveal linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+@keyframes sao-scroll-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered reveal for grid children */
+.sao-reveal-stagger > * {
+  animation: sao-scroll-reveal linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 35%;
+}
+
+.sao-reveal-stagger > *:nth-child(2) {
+  animation-range: entry 5% entry 40%;
+}
+
+.sao-reveal-stagger > *:nth-child(3) {
+  animation-range: entry 10% entry 45%;
+}
+
+.sao-reveal-stagger > *:nth-child(4) {
+  animation-range: entry 15% entry 50%;
+}
+
+/* Progress bar driven by scroll */
+.sao-scroll-progress {
+  animation: sao-progress-grow linear;
+  animation-timeline: scroll();
+  transform-origin: left;
+}
+
+@keyframes sao-progress-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ========================================
+ * REDUCED MOTION
+ * Disable all custom animations.
+ * ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .sao-reveal,
+  .sao-reveal-stagger > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.01ms;
+  }
+}

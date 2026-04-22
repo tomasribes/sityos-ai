@@ -1,0 +1,25 @@
+/**
+ * @file
+ * Footer restyling for Tech/SaaS aesthetic.
+ */
+
+.site-footer {
+  background-color: var(--sao-bg-elevated);
+  border-top: 1px solid var(--sao-bg-border);
+  padding-block: var(--sao-space-12);
+  margin-top: var(--sao-section-gap-md);
+}
+
+.site-footer__inner {
+  color: var(--sao-text-secondary);
+  font-size: var(--sao-type-label);
+}
+
+.site-footer a {
+  color: var(--sao-text-muted);
+  transition: color var(--sao-duration-fast) var(--sao-easing-standard);
+
+  &:hover {
+    color: var(--sao-accent);
+  }
+}

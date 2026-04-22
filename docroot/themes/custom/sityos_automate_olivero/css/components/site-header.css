@@ -1,0 +1,130 @@
+/**
+ * @file
+ * Site header overrides + color mode toggle button.
+ */
+
+/* Color mode toggle button */
+.color-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--sao-bg-border);
+  border-radius: var(--sao-radius-full);
+  background-color: var(--sao-bg-surface);
+  color: var(--sao-text-secondary);
+  cursor: pointer;
+  transition:
+    background-color var(--sao-duration-fast) var(--sao-easing-standard),
+    color var(--sao-duration-fast) var(--sao-easing-standard),
+    border-color var(--sao-duration-fast) var(--sao-easing-standard);
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: var(--sao-bg-hover);
+    color: var(--sao-accent);
+    border-color: var(--sao-accent);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--sao-accent);
+    outline-offset: 3px;
+  }
+}
+
+/* Toggle icons */
+.color-mode-toggle__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--sao-duration-base) var(--sao-easing-spring);
+}
+
+/* Sun icon (shown in dark mode → click to go light) */
+.color-mode-toggle__icon--sun {
+  display: none;
+}
+
+/* Moon icon (shown in light mode → click to go dark) */
+.color-mode-toggle__icon--moon {
+  display: block;
+}
+
+/* In dark mode: show sun, hide moon */
+[data-color-mode="dark"] .color-mode-toggle__icon--sun {
+  display: block;
+}
+
+[data-color-mode="dark"] .color-mode-toggle__icon--moon {
+  display: none;
+}
+
+/* System preference fallback */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-color-mode]) .color-mode-toggle__icon--sun {
+    display: block;
+  }
+
+  :root:not([data-color-mode]) .color-mode-toggle__icon--moon {
+    display: none;
+  }
+}
+
+/* Header flex container */
+.site-header__inner__container {
+  display: flex;
+  align-items: center;
+  gap: var(--sp0-5);
+}
+
+/* Desktop: nav takes all central space; right-side controls follow naturally */
+@media (min-width: 1200px) {
+  #header-nav {
+    flex-grow: 1;
+  }
+
+  /* Region is a flex row so main menu + account menu sit side by side */
+  .region-primary-menu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: var(--sp);
+  }
+
+  /* Main menu block grows to fill center */
+  #block-sityos-automate-olivero-main-menu {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Account menu anchored to the right edge of the nav */
+  #block-sityos-automate-olivero-account-menu {
+    flex-shrink: 0;
+    margin-inline-start: auto;
+  }
+}
+
+/* Mobile: lang switcher pushes right-side controls to the right */
+@media (max-width: 1199px) {
+  .header-lang {
+    margin-inline-start: auto;
+  }
+
+  .color-mode-toggle {
+    margin-inline-start: 0;
+  }
+
+  /* Account menu gets a visual separator from the main menu inside the drawer */
+  #block-sityos-automate-olivero-account-menu {
+    border-top: 1px solid var(--sao-bg-border);
+    padding-top: var(--sp);
+    margin-top: var(--sp0-5);
+  }
+}

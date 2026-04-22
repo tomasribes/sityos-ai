@@ -1,0 +1,147 @@
+.sao-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--sao-radius-md);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform var(--sao-duration-fast) var(--sao-easing-spring), box-shadow var(--sao-duration-fast) var(--sao-easing-standard);
+  -webkit-tap-highlight-color: transparent;
+}
+.sao-cta:hover {
+  transform: translateY(-1px);
+}
+.sao-cta:active {
+  transform: translateY(0) scale(0.98);
+}
+.sao-cta:focus-visible {
+  outline: 2px solid var(--sao-accent);
+  outline-offset: 3px;
+}
+
+.sao-cta--sm {
+  font-size: var(--sao-type-label);
+  padding: 0.5rem 1rem;
+  min-height: 2rem;
+}
+
+.sao-cta--md {
+  font-size: var(--sao-type-body);
+  padding: 0.625rem 1.5rem;
+  min-height: 2.75rem;
+}
+
+.sao-cta--lg {
+  font-size: var(--sao-type-body-lg);
+  padding: 0.875rem 2rem;
+  min-height: 3.25rem;
+}
+
+@media (pointer: coarse) {
+  .sao-cta--sm {
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+  }
+}
+.sao-cta--primary {
+  background: var(--sao-gradient-primary);
+  color: #ffffff;
+  box-shadow: var(--sao-shadow-sm);
+}
+.sao-cta--primary:hover {
+  box-shadow: var(--sao-shadow-glow);
+}
+
+.sao-cta--secondary {
+  background: transparent;
+  color: var(--sao-accent);
+  border: 1.5px solid var(--sao-accent);
+}
+.sao-cta--secondary:hover {
+  background: var(--sao-bg-hover);
+  box-shadow: var(--sao-shadow-glow);
+}
+
+.sao-cta--ghost {
+  background: transparent;
+  color: var(--sao-text-secondary);
+  border: 1px solid var(--sao-bg-border);
+}
+.sao-cta--ghost:hover {
+  color: var(--sao-accent);
+  border-color: var(--sao-accent);
+  background: var(--sao-bg-hover);
+}
+
+.sao-cta--gradient {
+  background: var(--sao-bg-elevated);
+  color: var(--sao-text-primary);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+.sao-cta--gradient::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: var(--sao-gradient-primary);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  z-index: -1;
+}
+.sao-cta--gradient:hover {
+  box-shadow: var(--sao-shadow-glow);
+}
+
+.sao-cta--primary .sao-cta__shimmer,
+.sao-cta--gradient .sao-cta__shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.2) 50%, transparent 60%);
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.sao-cta--primary:hover .sao-cta__shimmer,
+.sao-cta--gradient:hover .sao-cta__shimmer {
+  animation: sao-shimmer-sweep 0.6s ease-out forwards;
+}
+
+@keyframes sao-shimmer-sweep {
+  to {
+    transform: translateX(100%);
+  }
+}
+.sao-cta__external-icon {
+  flex-shrink: 0;
+  transition: transform var(--sao-duration-fast) var(--sao-easing-standard);
+}
+
+.sao-cta:hover .sao-cta__external-icon {
+  transform: translate(1px, -1px);
+}
+
+.sao-cta__label {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sao-cta {
+    transition: none;
+  }
+  .sao-cta--primary:hover .sao-cta__shimmer,
+  .sao-cta--gradient:hover .sao-cta__shimmer {
+    animation: none;
+  }
+}

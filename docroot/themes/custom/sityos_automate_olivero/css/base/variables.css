@@ -1,0 +1,133 @@
+/**
+ * @file
+ * Design tokens for Sityos Automate Olivero.
+ *
+ * Overrides Olivero's :root custom properties and adds
+ * new tokens with --sao-* namespace (Sityos Automate Olivero).
+ *
+ * Aesthetic: Tech/SaaS moderna (Linear, Vercel, Stripe).
+ */
+
+:root {
+  /* === Font overrides === */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+
+  /* === Olivero primary color override → Electric Blue === */
+  --color--primary-hue: 220;
+  --color--primary-saturation: 100%;
+  --color--primary-lightness: 50;
+
+  /* === Gray → cooler blue-gray === */
+  --color--gray-hue: 220;
+  --color--gray-saturation: 10%;
+
+  /* === Border radius → more rounded (SaaS) === */
+  --border-radius: 0.5rem;
+
+  /* ===================================================
+   * Custom tokens: --sao-* (Sityos Automate Olivero)
+   * =================================================== */
+
+  /* --- Accent colors --- */
+  --sao-accent: #0066ff;
+  --sao-accent-light: #3d8bff;
+  --sao-accent-dark: #0047b3;
+  --sao-accent-green: #00c853;
+  --sao-accent-green-light: #69f0ae;
+
+  /* --- Content-type badge colors (preserved semantic identifiers) --- */
+  --sao-badge-article: #7c3aed;
+  --sao-badge-tutorial: #10b981;
+  --sao-badge-usecase: #2563eb;
+
+  /* --- Gradients --- */
+  --sao-gradient-primary: linear-gradient(135deg, #0066ff 0%, #00c853 100%);
+  --sao-gradient-subtle: linear-gradient(135deg, rgba(0, 102, 255, 0.08) 0%, rgba(0, 200, 83, 0.04) 100%);
+  --sao-gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  --sao-gradient-mesh: radial-gradient(ellipse at 20% 50%, rgba(0, 102, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 200, 83, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(0, 102, 255, 0.08) 0%, transparent 50%);
+
+  /* --- Shadows --- */
+  --sao-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --sao-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --sao-shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+  --sao-shadow-glow: 0 0 24px rgba(0, 102, 255, 0.25);
+  --sao-shadow-glow-green: 0 0 24px rgba(0, 200, 83, 0.2);
+
+  /* --- Border radius --- */
+  --sao-radius-sm: 0.375rem;
+  --sao-radius-md: 0.625rem;
+  --sao-radius-lg: 1rem;
+  --sao-radius-xl: 1.5rem;
+  --sao-radius-full: 9999px;
+
+  /* --- Motion --- */
+  --sao-duration-fast: 150ms;
+  --sao-duration-base: 250ms;
+  --sao-duration-slow: 500ms;
+  --sao-duration-enter: 700ms;
+  --sao-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --sao-easing-enter: cubic-bezier(0, 0, 0.2, 1);
+  --sao-easing-exit: cubic-bezier(0.4, 0, 1, 1);
+  --sao-easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --sao-stagger-step: 80ms;
+
+  /* --- Fluid typography --- */
+  --sao-type-hero: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  --sao-type-display: clamp(2rem, 3vw + 1rem, 3.5rem);
+  --sao-type-headline: clamp(1.5rem, 2vw + 0.75rem, 2.5rem);
+  --sao-type-title: clamp(1.25rem, 1.5vw + 0.5rem, 1.75rem);
+  --sao-type-body-lg: 1.125rem;
+  --sao-type-body: 1rem;
+  --sao-type-label: 0.875rem;
+  --sao-type-meta: 0.75rem;
+
+  /* --- Spacing (4px base grid) --- */
+  --sao-space-1: 0.25rem;
+  --sao-space-2: 0.5rem;
+  --sao-space-3: 0.75rem;
+  --sao-space-4: 1rem;
+  --sao-space-6: 1.5rem;
+  --sao-space-8: 2rem;
+  --sao-space-10: 2.5rem;
+  --sao-space-12: 3rem;
+  --sao-space-16: 4rem;
+  --sao-space-20: 5rem;
+  --sao-space-24: 6rem;
+
+  /* --- Section gaps --- */
+  --sao-section-gap-sm: 3rem;
+  --sao-section-gap-md: 5rem;
+  --sao-section-gap-lg: 8rem;
+
+  /* --- Container widths --- */
+  --sao-container-editorial: 1120px;
+  --sao-container-wide: 1400px;
+
+  /* --- Z-index scale --- */
+  --sao-z-base: 1;
+  --sao-z-dropdown: 100;
+  --sao-z-sticky: 200;
+  --sao-z-fixed: 300;
+  --sao-z-modal: 400;
+  --sao-z-toast: 500;
+}
+
+/**
+ * Animatable custom properties (CSS @property).
+ * Used for counter animations and gradient transitions.
+ */
+@property --sao-counter-value {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --sao-gradient-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 135deg;
+}

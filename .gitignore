@@ -1,9 +1,17 @@
 # Sityos artifact — do not edit manually
+
+# Runtime secrets
 .env
+
+# Drupal user-generated content
 docroot/sites/*/files/
 private-files/
+
+# Generated on --setup, not committed
 docroot/sites/default/settings.local.php
 docroot/sites/default/services.local.yml
+
+# OS / editor
 .DS_Store
 Thumbs.db
 *.log

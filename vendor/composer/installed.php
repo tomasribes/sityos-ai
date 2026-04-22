@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'sityos/automate',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'a3bcfa5b96c13735cdceb0e37d44701d47870258',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -1011,9 +1011,9 @@
             'dev_requirement' => false,
         ),
         'sityos/automate' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'a3bcfa5b96c13735cdceb0e37d44701d47870258',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
