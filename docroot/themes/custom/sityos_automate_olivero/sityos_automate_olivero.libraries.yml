@@ -1,10 +1,6 @@
 global-styling:
   version: VERSION
   css:
-    base:
-      # Fonts kept standalone so @font-face loads at the earliest possible weight.
-      # Once confirmed fonts load correctly from style.min.css, this entry can be removed.
-      css/base/fonts.css: {}
     theme:
       css/style.min.css: {}
   dependencies:

@@ -41,6 +41,7 @@ services:
       DB_PASS: ${DB_PASS}
       DRUPAL_HASH_SALT: ${DRUPAL_HASH_SALT}
       SITE_URL: ${SITE_URL:-https://sityos.com}
+      APP_ENV: live
       ENVIRONMENT: production
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
       OPENAI_API_KEY: ${OPENAI_API_KEY}
