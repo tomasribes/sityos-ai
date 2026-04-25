@@ -1,0 +1,26 @@
+uuid: cdd2fae7-b580-4eeb-a34c-394b935c21b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - sityos_base
+  theme:
+    - sityos_automate_olivero
+_core:
+  default_config_hash: ''
+id: sityos_automate_olivero_sityos_hero_home
+theme: sityos_automate_olivero
+region: hero
+weight: 0
+provider: null
+plugin: sityos_hero_home
+settings:
+  id: sityos_hero_home
+  label: 'Hero Homepage'
+  label_display: '0'
+  provider: sityos_base
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

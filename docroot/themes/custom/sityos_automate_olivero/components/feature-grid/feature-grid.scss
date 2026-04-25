@@ -58,7 +58,7 @@
   &:hover {
     transform: translateY(-2px);
     box-shadow: var(--sao-shadow-md);
-    border-color: var(--sao-accent);
+    border-color: var(--gold-border);
   }
 }
 
@@ -88,9 +88,10 @@
   align-items: center;
   justify-content: center;
   margin-bottom: var(--sao-space-4);
-  background: var(--sao-gradient-subtle);
+  background: var(--gold-pale);
+  border: 1px solid var(--gold-line);
   border-radius: var(--sao-radius-md);
-  color: var(--sao-accent);
+  color: var(--gold);
 }
 
 .sao-feature-grid--minimal .sao-feature-grid__icon {

@@ -1,0 +1,26 @@
+uuid: 20e5e526-5430-4969-b273-62c22e5b2297
+langcode: en
+status: true
+dependencies:
+  module:
+    - sityos_base
+  theme:
+    - sityos_automate_olivero
+_core:
+  default_config_hash: ''
+id: sityos_automate_olivero_sityos_cta_central
+theme: sityos_automate_olivero
+region: content_below
+weight: 0
+provider: null
+plugin: sityos_cta_central
+settings:
+  id: sityos_cta_central
+  label: 'CTA Central'
+  label_display: '0'
+  provider: sityos_base
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

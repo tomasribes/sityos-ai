@@ -1,0 +1,37 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json'
+name: 'CTA Central'
+status: experimental
+description: 'Full-width conversion CTA section with accent gradient, primary/secondary CTAs, and microcopy.'
+group: 'Sityos Automate'
+props:
+  type: object
+  properties:
+    headline:
+      type: string
+      title: Headline
+    body:
+      type: string
+      title: Body
+    cta_primary_label:
+      type: string
+      title: 'Primary CTA label'
+    cta_primary_url:
+      type: string
+      title: 'Primary CTA URL'
+    cta_secondary_label:
+      type: string
+      title: 'Secondary CTA label'
+    cta_secondary_url:
+      type: string
+      title: 'Secondary CTA URL'
+    microcopy:
+      type: string
+      title: Microcopy
+  required:
+    - headline
+    - cta_primary_label
+    - cta_primary_url
+libraryOverrides:
+  css:
+    component:
+      cta-central.css: {}

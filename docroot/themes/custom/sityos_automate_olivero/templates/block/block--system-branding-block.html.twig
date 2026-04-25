@@ -1,0 +1,35 @@
+{% extends "block.html.twig" %}
+{#
+/**
+ * @file
+ * SAO override for the site branding block.
+ *
+ * Renders dark + light logos (CSS controls visibility per color mode).
+ * Logo URLs come from theme settings (admin/appearance/settings/sityos_automate_olivero)
+ * or fall back to images/ in the theme directory. Site name is intentionally
+ * omitted — the linked logo acts as the home link.
+ *
+ * Variables:
+ * - logo_dark_url:  URL to the dark mode logo (from preprocess hook).
+ * - logo_light_url: URL to the light mode logo (from preprocess hook).
+ */
+#}
+{% set attributes = attributes.addClass('site-branding') %}
+{% block content %}
+  <div class="site-branding__inner">
+    <a href="{{ path('<front>') }}" rel="home" class="site-branding__logo">
+      <img
+        class="site-logo site-logo--dark"
+        src="{{ logo_dark_url }}"
+        alt="{{ 'Home'|t }}"
+        fetchpriority="high"
+      />
+      <img
+        class="site-logo site-logo--light"
+        src="{{ logo_light_url }}"
+        alt="{{ 'Home'|t }}"
+        fetchpriority="high"
+      />
+    </a>
+  </div>
+{% endblock %}

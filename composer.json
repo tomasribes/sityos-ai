@@ -39,6 +39,7 @@
         "drupal/slick_views": "^3.0",
         "drupal/token": "^1.13",
         "drupal/views_slick_animate": "^3.5",
+        "drupal/webform": "^6.3@beta",
         "drupal/webp": "^1.0@alpha",
         "drupal/xmlsitemap": "^2.0",
         "drush/drush": "^13",

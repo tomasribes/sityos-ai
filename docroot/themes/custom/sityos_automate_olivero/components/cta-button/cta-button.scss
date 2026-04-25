@@ -1,5 +1,6 @@
 // ─── CTA Button component ─────────────────────────────────────────────────────
-// Variants: primary (gradient), secondary (outlined), ghost, gradient (animated border).
+// SITYOS AI Brand System v1.0
+// Variants: primary (solid gold), secondary (outlined), ghost (gold outline), gradient.
 // Sizes: sm, md, lg. Features: shimmer sweep, spring hover, 44px touch target.
 
 .sao-cta {
@@ -15,16 +16,19 @@
   border-radius: var(--sao-radius-md);
   cursor: pointer;
   overflow: hidden;
-  transition:
-    transform var(--sao-duration-fast) var(--sao-easing-spring),
-    box-shadow var(--sao-duration-fast) var(--sao-easing-standard);
   -webkit-tap-highlight-color: transparent;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      transform var(--dur-fast) var(--ease-spring),
+      box-shadow var(--dur-fast) var(--ease-standard);
+  }
 
   &:hover  { transform: translateY(-1px); }
   &:active { transform: translateY(0) scale(0.98); }
 
   &:focus-visible {
-    outline: 2px solid var(--sao-accent);
+    outline: 2px solid var(--gold-border);
     outline-offset: 3px;
   }
 }
@@ -56,16 +60,16 @@
   }
 }
 
-// Variant: primary (gradient fill)
+// Variant: primary (solid gold — Brand System spec)
 .sao-cta--primary {
-  background: var(--sao-gradient-primary);
-  color: #ffffff;
+  background: var(--gold);
+  color: var(--dark);   // dark text on gold for contrast
   box-shadow: var(--sao-shadow-sm);
 
-  &:hover { box-shadow: var(--sao-shadow-glow); }
+  &:hover { box-shadow: 0 0 24px rgba(201, 162, 39, 0.35); }
 }
 
-// Variant: secondary (outlined)
+// Variant: secondary (gold outlined)
 .sao-cta--secondary {
   background: transparent;
   color: var(--sao-accent);
@@ -73,24 +77,23 @@
 
   &:hover {
     background: var(--sao-bg-hover);
-    box-shadow: var(--sao-shadow-glow);
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.20);
   }
 }
 
-// Variant: ghost (minimal)
+// Variant: ghost (premium outline — gold border, gold text)
 .sao-cta--ghost {
   background: transparent;
-  color: var(--sao-text-secondary);
-  border: 1px solid var(--sao-bg-border);
+  color: var(--gold);
+  border: 1px solid var(--gold-border);
 
   &:hover {
-    color: var(--sao-accent);
-    border-color: var(--sao-accent);
-    background: var(--sao-bg-hover);
+    background: var(--gold-pale);
+    border-color: var(--gold);
   }
 }
 
-// Variant: gradient (animated gradient border)
+// Variant: gradient (animated gold border)
 .sao-cta--gradient {
   background: var(--sao-bg-elevated);
   color: var(--sao-text-primary);
@@ -104,7 +107,7 @@
     inset: -2px;
     border-radius: inherit;
     padding: 2px;
-    background: var(--sao-gradient-primary);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
     mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
@@ -113,7 +116,7 @@
     z-index: -1;
   }
 
-  &:hover { box-shadow: var(--sao-shadow-glow); }
+  &:hover { box-shadow: 0 0 24px rgba(201, 162, 39, 0.25); }
 }
 
 // Shimmer sweep (primary + gradient variants)
@@ -124,26 +127,31 @@
   background: linear-gradient(
     105deg,
     transparent 40%,
-    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.18) 50%,
     transparent 60%
   );
   transform: translateX(-100%);
   pointer-events: none;
 }
 
-.sao-cta--primary:hover .sao-cta__shimmer,
-.sao-cta--gradient:hover .sao-cta__shimmer {
-  animation: sao-shimmer-sweep 0.6s ease-out forwards;
-}
+@media (prefers-reduced-motion: no-preference) {
+  .sao-cta--primary:hover .sao-cta__shimmer,
+  .sao-cta--gradient:hover .sao-cta__shimmer {
+    animation: sao-shimmer-sweep 0.6s ease-out forwards;
+  }
 
-@keyframes sao-shimmer-sweep {
-  to { transform: translateX(100%); }
+  @keyframes sao-shimmer-sweep {
+    to { transform: translateX(100%); }
+  }
 }
 
 // External icon
 .sao-cta__external-icon {
   flex-shrink: 0;
-  transition: transform var(--sao-duration-fast) var(--sao-easing-standard);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform var(--dur-fast) var(--ease-standard);
+  }
 }
 
 .sao-cta:hover .sao-cta__external-icon {
@@ -156,12 +164,7 @@
   z-index: 1;
 }
 
-// Reduced motion
+// Reduced motion fallback
 @media (prefers-reduced-motion: reduce) {
   .sao-cta { transition: none; }
-
-  .sao-cta--primary:hover .sao-cta__shimmer,
-  .sao-cta--gradient:hover .sao-cta__shimmer {
-    animation: none;
-  }
 }

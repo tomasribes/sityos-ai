@@ -1,0 +1,36 @@
+{#
+  Social Proof — horizontal metrics + optional logo strip.
+
+  Props:
+    - intro_text (string): "Trusted by professionals at"
+    - logos (array of {name, svg}): company logos as inline SVG
+    - metrics (array of {value, label}): e.g. [{value: "50+", label: "Tutorials Published"}]
+#}
+
+<div class="sao-social-proof">
+  {% if intro_text or logos %}
+    <div class="sao-social-proof__logos-row">
+      {% if intro_text %}
+        <span class="sao-social-proof__intro">{{ intro_text }}</span>
+      {% endif %}
+      {% if logos %}
+        <ul class="sao-social-proof__logos" aria-label="{{ 'Partner logos'|t }}">
+          {% for logo in logos %}
+            <li class="sao-social-proof__logo" aria-label="{{ logo.name }}">
+              {{ logo.svg|raw }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <ul class="sao-social-proof__metrics" role="list">
+    {% for metric in metrics %}
+      <li class="sao-social-proof__metric" role="listitem">
+        <span class="sao-social-proof__metric-value">{{ metric.value }}</span>
+        <span class="sao-social-proof__metric-label">{{ metric.label }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

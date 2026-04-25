@@ -1,0 +1,42 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json'
+name: 'Social Proof'
+status: experimental
+description: 'Horizontal social proof bar with metrics strip and optional company logo row.'
+group: 'Sityos Automate'
+props:
+  type: object
+  properties:
+    intro_text:
+      type: string
+      title: 'Intro text'
+      description: 'e.g. "Trusted by professionals at"'
+    logos:
+      type: array
+      title: 'Company logos'
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+            title: 'Company name'
+          svg:
+            type: string
+            title: 'Inline SVG markup'
+    metrics:
+      type: array
+      title: Metrics
+      items:
+        type: object
+        properties:
+          value:
+            type: string
+            title: Value
+          label:
+            type: string
+            title: Label
+  required:
+    - metrics
+libraryOverrides:
+  css:
+    component:
+      social-proof.css: {}

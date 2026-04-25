@@ -1,0 +1,108 @@
+// ─── Social Proof Bar ──────────────────────────────────────────────────────────
+
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+.sao-social-proof {
+  padding: var(--sao-space-6) var(--sp2);
+  background-color: var(--sao-bg-surface);
+  border-block: 1px solid var(--sao-bg-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sao-space-4);
+  align-items: center;
+  text-align: center;
+
+  @include respond-up(md) {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.sao-social-proof__logos-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sao-space-4);
+  justify-content: center;
+
+  @include respond-up(md) {
+    justify-content: flex-start;
+  }
+}
+
+.sao-social-proof__intro {
+  font-size: var(--sao-type-label);   // was --sao-font-size-sm (orphaned token)
+  color: var(--sao-text-secondary);
+  white-space: nowrap;
+}
+
+.sao-social-proof__logos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sao-space-6);
+  align-items: center;
+
+  svg,
+  img {
+    height: 1.5rem;
+    width: auto;
+    opacity: 0.45;
+    filter: grayscale(1);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        opacity var(--dur-base) var(--ease-standard),
+        filter var(--dur-base) var(--ease-standard);
+    }
+  }
+
+  li:hover svg,
+  li:hover img {
+    opacity: 0.85;
+    filter: grayscale(0) sepia(0.4) saturate(1.2);   // subtle gold tint on hover
+  }
+}
+
+.sao-social-proof__metrics {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sao-space-8);
+  justify-content: center;
+
+  @include respond-up(md) {
+    justify-content: flex-end;
+  }
+}
+
+.sao-social-proof__metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sao-space-1);
+
+  @include respond-up(md) {
+    align-items: flex-end;
+  }
+}
+
+.sao-social-proof__metric-value {
+  font-size: var(--sao-type-title);   // was --sao-font-size-xl (orphaned token)
+  font-weight: 700;
+  color: var(--sao-accent);           // gold via token cascade
+  line-height: 1.2;
+}
+
+.sao-social-proof__metric-label {
+  font-size: var(--sao-type-meta);   // was --sao-font-size-xs (orphaned token)
+  color: var(--sao-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}

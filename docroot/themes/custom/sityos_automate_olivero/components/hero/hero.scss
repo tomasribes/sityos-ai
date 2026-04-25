@@ -71,14 +71,14 @@
   background: var(--sao-gradient-mesh);
   opacity: 0.6;
 
-  // Animated gradient orbs
+  // Animated gradient orbs — gold-pale radials for depth
   &::after {
     content: "";
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(circle at 30% 70%, rgba(0, 102, 255, 0.12) 0%, transparent 40%),
-      radial-gradient(circle at 70% 30%, rgba(0, 200, 83, 0.08) 0%, transparent 40%);
+      radial-gradient(circle at 30% 70%, var(--gold-pale) 0%, transparent 40%),
+      radial-gradient(circle at 70% 30%, rgba(201, 162, 39, 0.06) 0%, transparent 40%);
     animation: sao-mesh-drift 20s ease-in-out infinite alternate;
   }
 }
@@ -111,7 +111,7 @@
   font-family: var(--font-sans);
   font-size: var(--sao-type-meta);
   font-weight: #{$sao-weight-semibold};
-  letter-spacing: 0.1em;
+  letter-spacing: 0.20em;   // Brand System label spec: 0.20em for eyebrows
   text-transform: uppercase;
   color: var(--sao-accent);
   width: fit-content;
@@ -243,4 +243,11 @@
   .sao-hero__media    { animation: none; transform: none; }
   .sao-hero__mesh::after { animation: none; }
   .sao-hero__scroll-line { animation: none; opacity: 0.5; }
+}
+
+.sao-hero__microcopy {
+  font-size: var(--sao-font-size-sm, 0.875rem);
+  color: var(--sao-text-secondary);
+  opacity: 0.8;
+  margin-top: 0;
 }

@@ -37,6 +37,10 @@ props:
     cta_secondary_url:
       type: string
       title: 'Secondary CTA URL'
+    microcopy:
+      type: string
+      title: Microcopy
+      description: 'Trust signal text below CTAs.'
     variant:
       type: string
       title: Variant

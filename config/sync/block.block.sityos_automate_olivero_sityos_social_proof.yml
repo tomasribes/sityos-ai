@@ -1,0 +1,26 @@
+uuid: 0b17e977-0455-4b34-8a34-f2ca60b195e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - sityos_base
+  theme:
+    - sityos_automate_olivero
+_core:
+  default_config_hash: ''
+id: sityos_automate_olivero_sityos_social_proof
+theme: sityos_automate_olivero
+region: highlighted
+weight: 0
+provider: null
+plugin: sityos_social_proof
+settings:
+  id: sityos_social_proof
+  label: 'Social Proof Bar'
+  label_display: '0'
+  provider: sityos_base
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

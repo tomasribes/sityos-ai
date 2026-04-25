@@ -1,0 +1,26 @@
+uuid: eeca9403-8395-4f46-b9ff-668ad591f665
+langcode: en
+status: true
+dependencies:
+  module:
+    - sityos_base
+  theme:
+    - sityos_automate_olivero
+_core:
+  default_config_hash: ''
+id: sityos_automate_olivero_sityos_tutorials_cta
+theme: sityos_automate_olivero
+region: content
+weight: 3
+provider: null
+plugin: sityos_tutorials_cta
+settings:
+  id: sityos_tutorials_cta
+  label: 'Tutorials Section CTA'
+  label_display: '0'
+  provider: sityos_base
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

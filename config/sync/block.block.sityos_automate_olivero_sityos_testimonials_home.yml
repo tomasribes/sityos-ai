@@ -1,0 +1,26 @@
+uuid: ddf1a987-9b41-4576-9cec-d47ec1c35e34
+langcode: en
+status: true
+dependencies:
+  module:
+    - sityos_base
+  theme:
+    - sityos_automate_olivero
+_core:
+  default_config_hash: ''
+id: sityos_automate_olivero_sityos_testimonials_home
+theme: sityos_automate_olivero
+region: footer_top
+weight: 0
+provider: null
+plugin: sityos_testimonials_home
+settings:
+  id: sityos_testimonials_home
+  label: Testimonials
+  label_display: '0'
+  provider: sityos_base
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

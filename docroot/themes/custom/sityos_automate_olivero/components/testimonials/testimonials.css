@@ -57,7 +57,7 @@
   transition: border-color var(--sao-duration-base) var(--sao-easing-standard);
 }
 .sao-testimonials__card:hover {
-  border-color: var(--sao-accent);
+  border-color: var(--gold-border);
 }
 .sao-testimonials__card::before {
   content: "“";

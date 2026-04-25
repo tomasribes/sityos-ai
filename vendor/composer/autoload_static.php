@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5cf9a17096810590779a8aa7cb08afbf
+class ComposerStaticInit2ccf4a1c375f360712b07acfcbfe0ad6
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -3864,6 +3864,7 @@ class ComposerStaticInit5cf9a17096810590779a8aa7cb08afbf
         'OpenAI\\Exceptions\\ErrorException' => __DIR__ . '/..' . '/openai-php/client/src/Exceptions/ErrorException.php',
         'OpenAI\\Exceptions\\InvalidArgumentException' => __DIR__ . '/..' . '/openai-php/client/src/Exceptions/InvalidArgumentException.php',
         'OpenAI\\Exceptions\\RateLimitException' => __DIR__ . '/..' . '/openai-php/client/src/Exceptions/RateLimitException.php',
+        'OpenAI\\Exceptions\\ServerException' => __DIR__ . '/..' . '/openai-php/client/src/Exceptions/ServerException.php',
         'OpenAI\\Exceptions\\TransporterException' => __DIR__ . '/..' . '/openai-php/client/src/Exceptions/TransporterException.php',
         'OpenAI\\Exceptions\\UnknownEventException' => __DIR__ . '/..' . '/openai-php/client/src/Exceptions/UnknownEventException.php',
         'OpenAI\\Exceptions\\UnserializableResponse' => __DIR__ . '/..' . '/openai-php/client/src/Exceptions/UnserializableResponse.php',
@@ -4108,6 +4109,7 @@ class ComposerStaticInit5cf9a17096810590779a8aa7cb08afbf
         'OpenAI\\Responses\\Responses\\Streaming\\OutputTextAnnotationAdded' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Streaming/OutputTextAnnotationAdded.php',
         'OpenAI\\Responses\\Responses\\Streaming\\OutputTextDelta' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Streaming/OutputTextDelta.php',
         'OpenAI\\Responses\\Responses\\Streaming\\OutputTextDone' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Streaming/OutputTextDone.php',
+        'OpenAI\\Responses\\Responses\\Streaming\\RateLimits' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Streaming/RateLimits.php',
         'OpenAI\\Responses\\Responses\\Streaming\\ReasoningSummaryPart' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Streaming/ReasoningSummaryPart.php',
         'OpenAI\\Responses\\Responses\\Streaming\\ReasoningSummaryTextDelta' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Streaming/ReasoningSummaryTextDelta.php',
         'OpenAI\\Responses\\Responses\\Streaming\\ReasoningSummaryTextDone' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Streaming/ReasoningSummaryTextDone.php',
@@ -7238,10 +7240,10 @@ class ComposerStaticInit5cf9a17096810590779a8aa7cb08afbf
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5cf9a17096810590779a8aa7cb08afbf::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5cf9a17096810590779a8aa7cb08afbf::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit5cf9a17096810590779a8aa7cb08afbf::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit5cf9a17096810590779a8aa7cb08afbf::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit2ccf4a1c375f360712b07acfcbfe0ad6::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit2ccf4a1c375f360712b07acfcbfe0ad6::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit2ccf4a1c375f360712b07acfcbfe0ad6::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit2ccf4a1c375f360712b07acfcbfe0ad6::$classMap;
 
         }, null, ClassLoader::class);
     }

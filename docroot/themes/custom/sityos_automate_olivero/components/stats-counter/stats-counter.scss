@@ -39,7 +39,7 @@
 }
 
 .sao-stats__number {
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);   // Brand System: metric values in JetBrains Mono
   font-size: var(--sao-type-display);
   font-weight: #{$sao-weight-extrabold};
   letter-spacing: -0.03em;

@@ -57,6 +57,82 @@ function sityos_automate_olivero_preprocess_html(array &$variables): void {
       }
     }
   }
+
+  // Homepage SEO: Schema JSON-LD + meta description.
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  if ($is_front) {
+    $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+    [$meta_title, $meta_description] = match ($lang) {
+      'es' => [
+        'Sityos Automate — Tutoriales y Casos de Uso de Automatización IA',
+        'Flujos de trabajo IA prácticos, tutoriales paso a paso y casos de uso reales para equipos. Elimina el trabajo repetitivo y trabaja de forma más inteligente.',
+      ],
+      'ca' => [
+        "Sityos Automate — Tutorials i Casos d'Ús d'Automatització IA",
+        "Fluxos de treball IA pràctics, tutorials pas a pas i casos d'ús reals per a equips. Elimina la feina repetitiva i treballa de manera més intel·ligent.",
+      ],
+      default => [
+        'Sityos Automate — AI Workflow Automation Tutorials & Use Cases',
+        'Practical AI automation workflows, step-by-step tutorials, and real-world use cases for teams. Eliminate repetitive work and work smarter.',
+      ],
+    };
+
+    $variables['#attached']['html_head'][] = [
+      [
+        '#type' => 'html_tag',
+        '#tag' => 'meta',
+        '#attributes' => ['name' => 'description', 'content' => $meta_description],
+      ],
+      'meta_description_homepage',
+    ];
+
+    // Schema JSON-LD — Organization + WebSite.
+    // [DATO PLACEHOLDER] sameAs: replace [] with real social URLs before launch.
+    $schema = [
+      '@context' => 'https://schema.org',
+      '@graph' => [
+        [
+          '@type' => 'Organization',
+          'name' => 'Sityos Automate',
+          'url' => 'https://www.sityos.com/',
+          'logo' => 'https://www.sityos.com/themes/custom/sityos_automate_olivero/logo.svg',
+          'sameAs' => [],
+          'description' => 'AI workflow automation tutorials and use cases for modern teams.',
+        ],
+        [
+          '@type' => 'WebSite',
+          'url' => 'https://www.sityos.com/',
+          'name' => 'Sityos Automate',
+          'inLanguage' => ['en', 'es', 'ca'],
+        ],
+      ],
+    ];
+
+    $variables['#attached']['html_head'][] = [
+      [
+        '#type' => 'html_tag',
+        '#tag' => 'script',
+        '#value' => json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT),
+        '#attributes' => ['type' => 'application/ld+json'],
+      ],
+      'schema_jsonld_homepage',
+    ];
+  }
+}
+
+/**
+ * Implements hook_preprocess_block__sityos_social_proof().
+ */
+function sityos_automate_olivero_preprocess_block__sityos_social_proof(array &$variables): void {
+  $variables['#attached']['library'][] = 'sityos_automate_olivero/social-proof';
+}
+
+/**
+ * Implements hook_preprocess_block__sityos_cta_central().
+ */
+function sityos_automate_olivero_preprocess_block__sityos_cta_central(array &$variables): void {
+  $variables['#attached']['library'][] = 'sityos_automate_olivero/cta-central';
 }
 
 /**
@@ -245,4 +321,27 @@ function sityos_automate_olivero_preprocess_node(array &$variables): void {
  */
 function sityos_automate_olivero_preprocess_html_node_image_preload(array &$variables): void {
   // Intentionally left for the preload logic wired via preprocess_html below.
+}
+
+/**
+ * Implements hook_preprocess_block__system_branding_block().
+ *
+ * Exposes logo_dark_url and logo_light_url for the branding template.
+ * Reads paths from theme settings (admin/appearance/settings/sityos_automate_olivero);
+ * falls back to the theme's images/ directory when no override is configured.
+ */
+function sityos_automate_olivero_preprocess_block__system_branding_block(array &$variables): void {
+  $theme      = 'sityos_automate_olivero';
+  $theme_path = base_path() . \Drupal::service('extension.list.theme')->getPath($theme);
+
+  $dark_setting  = theme_get_setting('logo_dark_path', $theme);
+  $light_setting = theme_get_setting('logo_light_path', $theme);
+
+  $variables['logo_dark_url']  = ($dark_setting  !== NULL && $dark_setting  !== '')
+    ? $dark_setting
+    : $theme_path . '/images/sityos-ai-logo-dark.svg';
+
+  $variables['logo_light_url'] = ($light_setting !== NULL && $light_setting !== '')
+    ? $light_setting
+    : $theme_path . '/images/sityos-ai-logo-light.svg';
 }

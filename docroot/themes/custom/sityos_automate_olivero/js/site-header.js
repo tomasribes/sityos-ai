@@ -1,0 +1,1 @@
+!function(e){"use strict";e.behaviors.sityosHeader={attach(e){const t=e.querySelector(".site-header")??document.querySelector(".site-header");if(!t||t.dataset.saoHeaderInit)return;t.dataset.saoHeaderInit="1";const s=()=>{t.classList.toggle("is-scrolled",window.scrollY>50)};s(),window.addEventListener("scroll",s,{passive:!0})}}}(Drupal);

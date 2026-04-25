@@ -16,12 +16,12 @@
   transition: transform var(--sao-duration-base) var(--sao-easing-spring), box-shadow var(--sao-duration-base) var(--sao-easing-standard), border-color var(--sao-duration-base) var(--sao-easing-standard);
 }
 .sao-card__link:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   box-shadow: var(--sao-shadow-lg);
-  border-color: var(--sao-accent);
+  border-color: var(--gold-border);
 }
 .sao-card__link:focus-visible {
-  outline: 2px solid var(--sao-accent);
+  outline: 2px solid var(--gold-border);
   outline-offset: 3px;
 }
 

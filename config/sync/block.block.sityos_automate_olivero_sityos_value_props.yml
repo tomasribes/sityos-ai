@@ -1,0 +1,26 @@
+uuid: aa120887-e6ef-457e-9095-005dab6f3a46
+langcode: en
+status: true
+dependencies:
+  module:
+    - sityos_base
+  theme:
+    - sityos_automate_olivero
+_core:
+  default_config_hash: ''
+id: sityos_automate_olivero_sityos_value_props
+theme: sityos_automate_olivero
+region: content_above
+weight: 0
+provider: null
+plugin: sityos_value_props
+settings:
+  id: sityos_value_props
+  label: 'Value Propositions'
+  label_display: '0'
+  provider: sityos_base
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

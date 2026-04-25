@@ -71,8 +71,8 @@
   color: var(--sao-text-muted);
 }
 .sao-newsletter__input:focus {
-  border-color: var(--sao-accent);
-  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.18);
 }
 
 .sao-newsletter__submit {
@@ -80,30 +80,30 @@
   font-size: var(--sao-type-body);
   font-weight: 600;
   padding: 0.75rem 1.5rem;
-  background: var(--sao-gradient-primary);
-  color: #ffffff;
+  background: var(--gold);
+  color: var(--dark);
   border: none;
   border-radius: var(--sao-radius-md);
   cursor: pointer;
   white-space: nowrap;
-  transition: transform var(--sao-duration-fast) var(--sao-easing-spring), box-shadow var(--sao-duration-fast) var(--sao-easing-standard);
+  transition: transform var(--dur-fast) var(--ease-spring), box-shadow var(--dur-fast) var(--ease-standard);
 }
 .sao-newsletter__submit:hover {
   transform: translateY(-1px);
-  box-shadow: var(--sao-shadow-glow);
+  box-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
 }
 .sao-newsletter__submit:active {
   transform: translateY(0) scale(0.98);
 }
 .sao-newsletter__submit:focus-visible {
-  outline: 2px solid var(--sao-accent);
+  outline: 2px solid var(--gold-border);
   outline-offset: 3px;
 }
 
 .sao-newsletter__feedback:not(:empty) {
   margin-top: var(--sao-space-3);
   font-size: var(--sao-type-label);
-  color: var(--sao-accent-green);
+  color: var(--success);
 }
 
 .sao-newsletter__privacy {

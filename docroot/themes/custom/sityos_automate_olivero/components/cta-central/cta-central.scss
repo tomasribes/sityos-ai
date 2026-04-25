@@ -1,0 +1,53 @@
+// ─── CTA Central — full-width conversion section ──────────────────────────────
+// Dark surface with gold CTA button. Brand System: no color gradient background.
+
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+.sao-cta-central {
+  padding: var(--sao-space-24) var(--sp2);
+  background: var(--dark-2);           // #111118 — premium dark surface
+  border-block: 1px solid var(--gold-line);   // subtle gold separation
+  color: var(--light);
+  text-align: center;
+  container-type: inline-size;
+}
+
+.sao-cta-central__inner {
+  max-width: var(--sao-container-editorial);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sao-space-6);
+}
+
+.sao-cta-central__headline {
+  font-size: var(--sao-type-hero);   // was hardcoded clamp()
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0;
+}
+
+.sao-cta-central__body {
+  font-size: var(--sao-type-body-lg);   // was --sao-font-size-lg (orphaned token)
+  color: rgba(248, 248, 248, 0.75);
+  max-width: 600px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.sao-cta-central__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sao-space-3);
+  justify-content: center;
+}
+
+.sao-cta-central__microcopy {
+  font-size: var(--sao-type-label);   // was --sao-font-size-sm (orphaned token)
+  color: rgba(248, 248, 248, 0.45);
+  margin: 0;
+}

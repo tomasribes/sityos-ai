@@ -1,8 +1,9 @@
 /* === sityos_automate_olivero: front.css
  * Critical CSS for homepage (/).
- * SAO Hero component above the fold.
+ * SITYOS AI Brand System v1.0 — dark hero, gold accent.
  */
 
+/* Hero — dark background primary, gold mesh overlay */
 .sao-hero {
   position: relative;
   display: grid;
@@ -10,20 +11,20 @@
   min-height: 70vh;
   padding: 4rem 1rem;
   overflow: hidden;
-  background-color: #fafbfc;
-  color: #0a0a0a;
+  background-color: #0B0B0F;
+  color: #F8F8F8;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root:not([data-color-mode]) .sao-hero {
-    background-color: #0a0b0f;
-    color: #f0f0f5;
+    background-color: #F8F8F8;
+    color: #0B0B0F;
   }
 }
 
-[data-color-mode="dark"] .sao-hero {
-  background-color: #0a0b0f;
-  color: #f0f0f5;
+[data-color-mode="light"] .sao-hero {
+  background-color: #F8F8F8;
+  color: #0B0B0F;
 }
 
 .sao-hero__content {
@@ -37,40 +38,41 @@
   opacity: 1;
   transform: translateY(0);
   transition:
-    opacity 700ms cubic-bezier(0, 0, 0.2, 1),
-    transform 700ms cubic-bezier(0, 0, 0.2, 1);
+    opacity 420ms cubic-bezier(0, 0, 0.2, 1),
+    transform 420ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .sao-hero__eyebrow {
   display: inline-block;
-  font-family: "Inter", -apple-system, sans-serif;
-  font-size: 0.75rem;
+  font-family: "Sora", -apple-system, sans-serif;
+  font-size: 0.625rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
-  color: #0066ff;
+  color: #C9A227;
   width: fit-content;
 }
 
 .sao-hero__headline {
-  font-family: "Inter", -apple-system, sans-serif;
-  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  font-family: "Sora", -apple-system, sans-serif;
+  font-size: clamp(2.25rem, 5vw + 1rem, 3.5rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.05;
-  color: #0a0a0a;
+  color: #F8F8F8;
   max-width: 18ch;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-color-mode]) .sao-hero__headline { color: #f0f0f5; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-color-mode]) .sao-hero__headline { color: #0B0B0F; }
 }
 
-[data-color-mode="dark"] .sao-hero__headline { color: #f0f0f5; }
+[data-color-mode="light"] .sao-hero__headline { color: #0B0B0F; }
 
+/* <em> in headline — gold gradient accent */
 .sao-hero__headline em {
   font-style: normal;
-  background: linear-gradient(135deg, #0066ff 0%, #00c853 100%);
+  background: linear-gradient(135deg, #C9A227 0%, #9B7A1A 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -79,15 +81,15 @@
 .sao-hero__subtitle {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: #4a5568;
+  color: rgba(248, 248, 248, 0.55);
   max-width: 50ch;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-color-mode]) .sao-hero__subtitle { color: #a0a4b0; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-color-mode]) .sao-hero__subtitle { color: rgba(11, 11, 15, 0.60); }
 }
 
-[data-color-mode="dark"] .sao-hero__subtitle { color: #a0a4b0; }
+[data-color-mode="light"] .sao-hero__subtitle { color: rgba(11, 11, 15, 0.60); }
 
 .sao-hero__actions {
   display: flex;
@@ -96,15 +98,15 @@
   margin-top: 1rem;
 }
 
-/* Gradient mesh background */
+/* Gold gradient mesh background */
 .sao-hero__mesh {
   position: absolute;
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(0, 102, 255, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(0, 200, 83, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(0, 102, 255, 0.08) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(201, 162, 39, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(201, 162, 39, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(201, 162, 39, 0.06) 0%, transparent 50%);
   opacity: 0.6;
 }
 
@@ -114,28 +116,63 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-family: "Inter", sans-serif;
+  font-family: "Sora", sans-serif;
   font-weight: 600;
   text-decoration: none;
   border: none;
-  border-radius: 0.625rem;
+  border-radius: 0.5rem;
   cursor: pointer;
   padding: 0.625rem 1.5rem;
-  font-size: 1rem;
+  font-size: 0.9375rem;
   min-height: 2.75rem;
 }
 
+/* Primary CTA — solid gold, dark text */
 .sao-cta--primary {
-  background: linear-gradient(135deg, #0066ff 0%, #00c853 100%);
-  color: #ffffff;
+  background: #C9A227;
+  color: #0B0B0F;
 }
 
-.sao-cta--secondary {
+/* Ghost CTA — gold border, gold text */
+.sao-cta--ghost {
   background: transparent;
-  color: #0066ff;
-  border: 1.5px solid #0066ff;
+  color: #C9A227;
+  border: 1px solid rgba(201, 162, 39, 0.40);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .sao-hero__content { transition: none; }
+}
+
+/* Social Proof Bar — critical above-fold styles */
+.sao-social-proof {
+  padding: 1.5rem 1rem;
+  background-color: #18181F;
+  border-top: 1px solid #22222C;
+  border-bottom: 1px solid #22222C;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-color-mode]) .sao-social-proof {
+    background-color: #E2E2E2;
+    border-color: rgba(201, 162, 39, 0.20);
+  }
+}
+
+[data-color-mode="light"] .sao-social-proof {
+  background-color: #E2E2E2;
+  border-color: rgba(201, 162, 39, 0.20);
+}
+
+.sao-social-proof__metric-value {
+  font-family: "Sora", -apple-system, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #C9A227;
+  line-height: 1.2;
 }

@@ -1,43 +1,63 @@
 /* === sityos_automate_olivero: default-critical.css
  * Critical above-the-fold CSS — inlined by drupal/critical_css for all pages.
- * SAO electric blue palette (Inter font, light-mode default).
+ * SITYOS AI Brand System v1.0 — dark-first, Sora, gold palette.
+ * font-display: swap is handled by Google Fonts (?display=swap param).
  */
 
-/* SAO light mode token subset — prevents FOUC before color-mode.css loads */
+/* Brand System token subset — top 12 most-used tokens, dark-first defaults */
 :root {
-  --sao-accent:           #0066ff;
-  --sao-accent-light:     #3d8bff;
-  --sao-bg-base:          #fafbfc;
-  --sao-bg-elevated:      #ffffff;
-  --sao-bg-surface:       #f1f3f5;
-  --sao-bg-border:        #e1e4e8;
-  --sao-bg-hover:         rgba(0, 102, 255, 0.04);
-  --sao-text-primary:     #0a0a0a;
-  --sao-text-secondary:   #4a5568;
-  --sao-text-muted:       #718096;
-  --sao-shadow-md:        0 4px 12px rgba(0, 0, 0, 0.08);
-  --sao-shadow-lg:        0 12px 40px rgba(0, 0, 0, 0.12);
-  --sao-radius-sm:        0.375rem;
-  --sao-radius-md:        0.625rem;
-  --sao-radius-lg:        1rem;
-  --sao-radius-full:      9999px;
-  --sao-duration-fast:    150ms;
-  --sao-duration-base:    250ms;
-  --sao-easing-standard:  cubic-bezier(0.4, 0, 0.2, 1);
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --gold:               #C9A227;
+  --gold-pale:          rgba(201, 162, 39, 0.10);
+  --gold-border:        rgba(201, 162, 39, 0.40);
+  --dark:               #0B0B0F;
+  --dark-2:             #111118;
+  --dark-3:             #18181F;
+  --dark-4:             #22222C;
+  --light:              #F8F8F8;
+  --border:             rgba(201, 162, 39, 0.14);
+  --font-sans:          "Sora", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:          "JetBrains Mono", "Fira Code", monospace;
+  --radius-md:          0.5rem;
+
+  /* SAO semantic defaults — dark mode */
+  --sao-accent:         #C9A227;
+  --sao-bg-base:        #0B0B0F;
+  --sao-bg-elevated:    #111118;
+  --sao-bg-surface:     #18181F;
+  --sao-bg-border:      #22222C;
+  --sao-text-primary:   #F8F8F8;
+  --sao-text-secondary: rgba(248, 248, 248, 0.55);
+  --sao-text-muted:     rgba(248, 248, 248, 0.28);
+  --sao-radius-md:      0.5rem;
+  --sao-duration-fast:  100ms;
+  --sao-duration-base:  180ms;
+  --sao-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark mode system preference fallback (before JS sets data-color-mode) */
-@media (prefers-color-scheme: dark) {
+/* Light mode override — system preference (before JS) */
+@media (prefers-color-scheme: light) {
   :root:not([data-color-mode]) {
-    --sao-bg-base:        #0a0b0f;
-    --sao-bg-elevated:    #12131a;
-    --sao-bg-border:      #2a2b36;
-    --sao-text-primary:   #f0f0f5;
-    --sao-text-secondary: #a0a4b0;
-    --sao-accent:         #3d8bff;
+    --sao-bg-base:        #F8F8F8;
+    --sao-bg-elevated:    #EFEFEF;
+    --sao-bg-surface:     #E2E2E2;
+    --sao-bg-border:      rgba(201, 162, 39, 0.20);
+    --sao-text-primary:   #0B0B0F;
+    --sao-text-secondary: rgba(11, 11, 15, 0.60);
+    --sao-text-muted:     rgba(11, 11, 15, 0.40);
+    --sao-accent:         #9B7A1A;
   }
+}
+
+/* Light mode — explicit toggle */
+[data-color-mode="light"] {
+  --sao-bg-base:        #F8F8F8;
+  --sao-bg-elevated:    #EFEFEF;
+  --sao-bg-surface:     #E2E2E2;
+  --sao-bg-border:      rgba(201, 162, 39, 0.20);
+  --sao-text-primary:   #0B0B0F;
+  --sao-text-secondary: rgba(11, 11, 15, 0.60);
+  --sao-text-muted:     rgba(11, 11, 15, 0.40);
+  --sao-accent:         #9B7A1A;
 }
 
 /* Box model */
@@ -49,43 +69,50 @@
   padding: 0;
 }
 
-/* Body */
+/* Body — dark-first */
 body {
-  background-color: #fafbfc;
-  color: #0a0a0a;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 1rem;
+  background-color: #0B0B0F;
+  color: #F8F8F8;
+  font-family: "Sora", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.9375rem;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root:not([data-color-mode]) body {
-    background-color: #0a0b0f;
-    color: #f0f0f5;
+    background-color: #F8F8F8;
+    color: #0B0B0F;
   }
 }
 
-/* Site header — sticky */
+[data-color-mode="light"] body {
+  background-color: #F8F8F8;
+  color: #0B0B0F;
+}
+
+/* Site header — sticky, dark glass */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 200;
-  background: rgba(250, 251, 252, 0.85);
+  background: rgba(11, 11, 15, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.14);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root:not([data-color-mode]) .site-header {
-    background: rgba(10, 11, 15, 0.85);
+    background: rgba(248, 248, 248, 0.90);
+    border-bottom-color: rgba(201, 162, 39, 0.20);
   }
 }
 
-[data-color-mode="dark"] .site-header {
-  background: rgba(10, 11, 15, 0.85);
+[data-color-mode="light"] .site-header {
+  background: rgba(248, 248, 248, 0.90);
+  border-bottom-color: rgba(201, 162, 39, 0.20);
 }
 
 .site-header__inner {
@@ -103,38 +130,35 @@ body {
   padding-inline: 1rem;
 }
 
-@media (min-width: 700px)  { .layout-container { padding-inline: 1.5rem; } }
-@media (min-width: 1300px) { .layout-container { padding-inline: 2rem; } }
+@media (min-width: 768px)  { .layout-container { padding-inline: 2rem; } }
+@media (min-width: 1024px) { .layout-container { padding-inline: 4rem; } }
+@media (min-width: 1440px) { .layout-container { padding-inline: 2rem; } }
 
-/* Headings */
+/* Headings — Sora, dark-first */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Sora", -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
   line-height: 1.2;
-  color: #0a0a0a;
+  color: #F8F8F8;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root:not([data-color-mode]) h1,
   :root:not([data-color-mode]) h2,
-  :root:not([data-color-mode]) h3 {
-    color: #f0f0f5;
-  }
+  :root:not([data-color-mode]) h3 { color: #0B0B0F; }
 }
 
-[data-color-mode="dark"] h1,
-[data-color-mode="dark"] h2,
-[data-color-mode="dark"] h3 {
-  color: #f0f0f5;
-}
+[data-color-mode="light"] h1,
+[data-color-mode="light"] h2,
+[data-color-mode="light"] h3 { color: #0B0B0F; }
 
 /* Page wrapper */
 .page-wrapper {
-  background-color: #fafbfc;
+  background-color: #0B0B0F;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-color-mode]) .page-wrapper { background-color: #0a0b0f; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-color-mode]) .page-wrapper { background-color: #F8F8F8; }
 }
 
-[data-color-mode="dark"] .page-wrapper { background-color: #0a0b0f; }
+[data-color-mode="light"] .page-wrapper { background-color: #F8F8F8; }
