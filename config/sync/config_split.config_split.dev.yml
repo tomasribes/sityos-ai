@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {}
+id: dev
+label: Development
+description: 'Overrides for local development environment'
+weight: 0
+storage: folder
+folder: ../config/dev
+complete_split:
+  module: {  }
+  theme: {  }
+  config: {  }
+partial_split:
+  config: {  }

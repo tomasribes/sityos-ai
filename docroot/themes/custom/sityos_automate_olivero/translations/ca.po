@@ -1,0 +1,113 @@
+# Catalan translations for Sityos Automate Olivero theme.
+# Copyright (C) Sityos
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: sityos_automate_olivero\n"
+"PO-Revision-Date: 2026-04-26\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# -- SityosHeroHomeBlock --
+msgid "AI Automation Platform"
+msgstr "Plataforma d'Automatització IA"
+
+msgid "Automate Smarter. <em>Work Less.</em> Achieve More."
+msgstr "Automatitza amb Intel·ligència. <em>Treballa Menys.</em> Aconsegueix Més."
+
+msgid "Sityos gives teams the practical AI workflows, tutorials, and tools they need to eliminate repetitive work and focus on what matters."
+msgstr "Sityos proporciona als equips els fluxos de treball IA pràctics, tutorials i eines que necessiten per eliminar la feina repetitiva i centrar-se en el que importa."
+
+msgid "Explore Tutorials →"
+msgstr "Explorar Tutorials →"
+
+msgid "See Use Cases"
+msgstr "Veure Casos d'Ús"
+
+msgid "Join professionals already saving hours every week."
+msgstr "Uneix-te a professionals que ja estalvien hores cada setmana."
+
+# -- SityosSocialProofBlock --
+msgid "Trusted by professionals at"
+msgstr "Utilitzat per professionals a"
+
+msgid "Tutorials Published"
+msgstr "Tutorials Publicats"
+
+msgid "Monthly Readers"
+msgstr "Lectors Mensuals"
+
+msgid "Use Cases"
+msgstr "Casos d'Ús"
+
+# -- SityosValuePropsBlock --
+msgid "Why teams choose Sityos Automate"
+msgstr "Per què els equips trien Sityos Automate"
+
+msgid "Practical AI Workflows"
+msgstr "Fluxos de Treball IA Pràctics"
+
+msgid "Step-by-step guides built for real work environments. No theory — just actionable automation playbooks you can implement today."
+msgstr "Guies pas a pas per a entorns reals. Sense teoria — playbooks d'automatització accionables que pots implementar avui."
+
+msgid "Real-World Use Cases"
+msgstr "Casos d'Ús del Món Real"
+
+msgid "Learn from documented implementations across industries. See exactly how teams are using AI to cut costs and accelerate delivery."
+msgstr "Aprèn d'implementacions documentades. Descobreix com els equips fan servir la IA per reduir costos i accelerar resultats."
+
+msgid "Expert-Curated Tutorials"
+msgstr "Tutorials amb Criteri Expert"
+
+msgid "From beginner to advanced. Our tutorials cover the full automation stack — from prompt engineering to multi-agent orchestration."
+msgstr "Des de bàsic fins a avançat. Stack complet d'automatització — des del prompt engineering fins a l'orquestació multi-agent."
+
+# -- SityosCtaCentralBlock --
+msgid "Ready to Automate Your Workflow?"
+msgstr "Preparat per Automatitzar el teu Flux de Treball?"
+
+msgid "Join professionals using Sityos Automate to work smarter. Get weekly tutorials, use cases, and automation insights — free."
+msgstr "Uneix-te a professionals que utilitzen Sityos Automate per treballar de manera més intel·ligent. Rep tutorials setmanals, casos d'ús i insights d'automatització — gratis."
+
+msgid "Subscribe Free →"
+msgstr "Subscriu-te Gratis →"
+
+msgid "Explore Content First"
+msgstr "Explorar Contingut Primer"
+
+msgid "No spam. Unsubscribe anytime."
+msgstr "Sense spam. Cancel·la quan vulguis."
+
+# -- SityosTestimonialsBlock --
+msgid "What Professionals Are Saying"
+msgstr "El Que Diuen els Professionals"
+
+msgid "Sityos cut our onboarding automation from 3 days to 4 hours. The use cases are incredibly practical."
+msgstr "Sityos va reduir la nostra automatització d'onboarding de 3 dies a 4 hores. Els casos d'ús són increïblement pràctics."
+
+msgid "Finally, a resource that explains AI automation without the hype. Pure actionable content."
+msgstr "Per fi, un recurs que explica l'automatització IA sense fum. Contingut pur i accionable."
+
+msgid "[Name]"
+msgstr "[Nom]"
+
+msgid "[Role]"
+msgstr "[Càrrec]"
+
+msgid "[Company]"
+msgstr "[Empresa]"
+
+# -- SityosTutorialsCtaBlock --
+msgid "Browse All Tutorials →"
+msgstr "Veure Tots els Tutorials →"
+
+# -- SityosUseCasesCtaBlock --
+msgid "View All Use Cases →"
+msgstr "Veure Tots els Casos d'Ús →"
+
+# -- Homepage meta description --
+msgid "Practical AI automation workflows, step-by-step tutorials, and real-world use cases for teams. Eliminate repetitive work and work smarter."
+msgstr "Fluxos de treball IA pràctics, tutorials pas a pas i casos d'ús reals per a equips. Elimina la feina repetitiva i treballa de manera més intel·ligent."

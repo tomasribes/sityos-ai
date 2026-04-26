@@ -6,6 +6,8 @@ namespace Drupal\sityos_base\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Language\LanguageInterface;
+use Drupal\Core\Url;
 
 /**
  * @Block(
@@ -17,14 +19,16 @@ use Drupal\Core\Cache\Cache;
 final class SityosTutorialsCtaBlock extends BlockBase {
 
   public function build(): array {
-    $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
-    [$label, $url] = match ($lang) {
-      'es' => ['Ver Todos los Tutoriales →', '/es/tutorials'],
-      'ca' => ['Veure Tots els Tutorials →', '/ca/tutorials'],
-      default => ['Browse All Tutorials →', '/tutorials'],
-    };
+    $language = \Drupal::languageManager()->getCurrentLanguage(LanguageInterface::TYPE_URL);
     return [
-      '#markup' => '<div class="sao-section-cta"><a href="' . $url . '" class="sao-btn sao-btn--secondary">' . $label . '</a></div>',
+      '#type' => 'container',
+      '#attributes' => ['class' => ['sao-section-cta']],
+      'link' => [
+        '#type' => 'link',
+        '#title' => $this->t('Browse All Tutorials →'),
+        '#url' => Url::fromUserInput('/tutorials', ['language' => $language]),
+        '#attributes' => ['class' => ['sao-btn', 'sao-btn--secondary']],
+      ],
       '#cache' => [
         'contexts' => ['languages:language_interface'],
         'max-age' => Cache::PERMANENT,

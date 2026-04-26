@@ -61,22 +61,7 @@ function sityos_automate_olivero_preprocess_html(array &$variables): void {
   // Homepage SEO: Schema JSON-LD + meta description.
   $is_front = \Drupal::service('path.matcher')->isFrontPage();
   if ($is_front) {
-    $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
-
-    [$meta_title, $meta_description] = match ($lang) {
-      'es' => [
-        'Sityos Automate — Tutoriales y Casos de Uso de Automatización IA',
-        'Flujos de trabajo IA prácticos, tutoriales paso a paso y casos de uso reales para equipos. Elimina el trabajo repetitivo y trabaja de forma más inteligente.',
-      ],
-      'ca' => [
-        "Sityos Automate — Tutorials i Casos d'Ús d'Automatització IA",
-        "Fluxos de treball IA pràctics, tutorials pas a pas i casos d'ús reals per a equips. Elimina la feina repetitiva i treballa de manera més intel·ligent.",
-      ],
-      default => [
-        'Sityos Automate — AI Workflow Automation Tutorials & Use Cases',
-        'Practical AI automation workflows, step-by-step tutorials, and real-world use cases for teams. Eliminate repetitive work and work smarter.',
-      ],
-    };
+    $meta_description = (string) t('Practical AI automation workflows, step-by-step tutorials, and real-world use cases for teams. Eliminate repetitive work and work smarter.');
 
     $variables['#attached']['html_head'][] = [
       [

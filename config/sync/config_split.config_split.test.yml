@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {}
+id: test
+label: 'Test / Staging'
+description: 'Overrides for test/staging environment'
+weight: 0
+storage: folder
+folder: ../config/test
+complete_split:
+  module: {  }
+  theme: {  }
+  config: {  }
+partial_split:
+  config: {  }

@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {}
+id: live
+label: Production
+description: 'Overrides for production environment'
+weight: 0
+storage: folder
+folder: ../config/live
+complete_split:
+  module: {  }
+  theme: {  }
+  config: {  }
+partial_split:
+  config: {  }

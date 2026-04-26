@@ -59,6 +59,9 @@
             "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
             "oomphinc/composer-installers-extender": true
+        },
+        "preferred-install": {
+            "twig/twig": "source"
         }
     },
     "extra": {
