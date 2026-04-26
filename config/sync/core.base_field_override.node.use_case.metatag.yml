@@ -1,0 +1,20 @@
+uuid: 366c9095-4f96-482a-86a5-8590b1ce997a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.use_case
+  module:
+    - metatag
+id: node.use_case.metatag
+field_name: metatag
+entity_type: node
+bundle: use_case
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The computed meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag_computed

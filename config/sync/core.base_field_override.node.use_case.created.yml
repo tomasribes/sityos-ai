@@ -1,0 +1,18 @@
+uuid: dc170ee0-2194-49c5-a879-9895669697d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.use_case
+id: node.use_case.created
+field_name: created
+entity_type: node
+bundle: use_case
+label: 'Authored on'
+description: 'The date and time that the content was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

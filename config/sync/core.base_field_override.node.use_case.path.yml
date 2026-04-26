@@ -1,0 +1,20 @@
+uuid: df332a79-39d5-414c-8323-39af0d20d414
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.use_case
+  module:
+    - path
+id: node.use_case.path
+field_name: path
+entity_type: node
+bundle: use_case
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

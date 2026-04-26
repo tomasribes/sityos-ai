@@ -1,18 +1,18 @@
-uuid: 75889c13-8446-401e-9101-7684f8b1d609
+uuid: e10bf504-009f-44a6-9d5d-70fb6b0f02c9
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - node.type.article
+    - node.type.use_case
     - system.menu.main
   module:
     - blazy
     - node
     - slick_views
     - user
-id: articles
-label: Tutorials
+id: use_cases
+label: 'Use Cases'
 module: views
 description: ''
 tag: ''
@@ -25,7 +25,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Tutorials
+      title: 'Use cases'
       fields:
         title:
           id: title
@@ -139,7 +139,7 @@ display:
           plugin_id: bundle
           operator: in
           value:
-            article: article
+            use_case: use_case
           group: 1
           exposed: false
           expose:
@@ -295,13 +295,13 @@ display:
       tags: {  }
   latest_articles:
     id: latest_articles
-    display_title: 'Latest Tutorials'
+    display_title: 'Latest Use Cases'
     display_plugin: block
     position: 1
     display_options:
       display_description: ''
       display_extenders: {  }
-      block_description: 'Latest Tutorials'
+      block_description: 'Latest Use Cases'
     cache_metadata:
       max-age: -1
       contexts:
@@ -331,10 +331,10 @@ display:
         style: false
         row: false
       display_extenders: {  }
-      path: tutorials
+      path: use-cases
       menu:
         type: normal
-        title: Tutorials
+        title: 'Use cases'
         description: ''
         weight: 2
         expanded: false

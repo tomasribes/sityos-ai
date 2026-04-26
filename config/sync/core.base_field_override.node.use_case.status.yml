@@ -1,0 +1,22 @@
+uuid: addaa416-d9e9-4371-9481-631ed47e519e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.use_case
+id: node.use_case.status
+field_name: status
+entity_type: node
+bundle: use_case
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
