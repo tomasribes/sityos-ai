@@ -1,0 +1,19 @@
+uuid: d91bd3a2-a93c-49e9-86d7-ff7e206b463a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subtitle
+    - node.type.use_case
+id: node.use_case.field_subtitle
+field_name: field_subtitle
+entity_type: node
+bundle: use_case
+label: Subtitle
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

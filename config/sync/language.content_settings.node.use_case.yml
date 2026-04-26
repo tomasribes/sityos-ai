@@ -1,0 +1,16 @@
+uuid: 147588c2-c479-4700-9aa1-83c913600095
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.use_case
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.use_case
+target_entity_type_id: node
+target_bundle: use_case
+default_langcode: site_default
+language_alterable: true

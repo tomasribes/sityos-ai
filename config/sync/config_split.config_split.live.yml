@@ -1,15 +1,16 @@
+uuid: 7284f7ba-67ad-4d9f-a2a3-7906dd50cb9a
 langcode: en
 status: true
-dependencies: {}
+dependencies: {  }
 id: live
 label: Production
 description: 'Overrides for production environment'
 weight: 0
+stackable: false
+no_patching: false
 storage: folder
 folder: ../config/live
-complete_split:
-  module: {  }
-  theme: {  }
-  config: {  }
-partial_split:
-  config: {  }
+module: {  }
+theme: {  }
+complete_list: {  }
+partial_list: {  }

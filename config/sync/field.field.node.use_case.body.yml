@@ -1,23 +1,21 @@
-uuid: 9a65e366-0721-4b54-984a-111ee31f8047
+uuid: cff49c50-a612-49a6-ad39-446f4fce596d
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.body
     - filter.format.full_html
-    - node.type.article
+    - node.type.use_case
   module:
     - text
-_core:
-  default_config_hash: 4Wxs1LseZ8JsNwD9uJVIbzZqG35yQXN8Eo1Hub6NMuI
-id: node.article.body
+id: node.use_case.body
 field_name: body
 entity_type: node
-bundle: article
+bundle: use_case
 label: Body
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

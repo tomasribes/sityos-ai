@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - sityos_base
+    - system
   theme:
     - sityos_automate_olivero
 _core:

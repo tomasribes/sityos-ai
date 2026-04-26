@@ -1,15 +1,16 @@
+uuid: 737e40fc-e7c3-45c5-b03b-7c3b2d7f7a3a
 langcode: en
 status: true
-dependencies: {}
+dependencies: {  }
 id: test
 label: 'Test / Staging'
 description: 'Overrides for test/staging environment'
 weight: 0
+stackable: false
+no_patching: false
 storage: folder
 folder: ../config/test
-complete_split:
-  module: {  }
-  theme: {  }
-  config: {  }
-partial_split:
-  config: {  }
+module: {  }
+theme: {  }
+complete_list: {  }
+partial_list: {  }

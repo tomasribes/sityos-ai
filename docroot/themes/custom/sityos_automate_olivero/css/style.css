@@ -200,6 +200,7 @@ pre code {
 
 .page-wrapper {
   background-color: var(--sao-bg-base, #fafbfc);
+  max-width: none;
 }
 
 ::-moz-selection {
@@ -228,6 +229,25 @@ img {
 :focus-visible {
   outline: 2px solid var(--sao-accent);
   outline-offset: 3px;
+}
+
+.site-header__initial {
+  display: none;
+}
+
+.site-header__inner {
+  width: 100%;
+  background-color: var(--sao-bg-base);
+}
+
+.site-header__inner__container {
+  max-width: none;
+  padding-inline: var(--sp3);
+}
+@media (min-width: 1024px) {
+  .site-header__inner__container {
+    padding-inline: var(--sp4);
+  }
 }
 
 :root,
@@ -663,7 +683,7 @@ main {
   gap: var(--sp0-5);
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 75rem) {
   #header-nav {
     flex-grow: 1;
     margin-inline-start: var(--sp2);
@@ -677,14 +697,14 @@ main {
   #block-sityos-automate-olivero-main-menu {
     flex-grow: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
   }
   #block-sityos-automate-olivero-account-menu {
     flex-shrink: 0;
     margin-inline-start: auto;
   }
 }
-@media (max-width: 1439px) {
+@media (max-width: 74.9375rem) {
   .header-lang {
     margin-inline-start: auto;
   }
