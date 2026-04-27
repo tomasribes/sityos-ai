@@ -250,6 +250,21 @@ img {
   }
 }
 
+#main-wrapper {
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+}
+
+.main-content__container {
+  max-width: none;
+  padding-inline: 0;
+}
+
+#main {
+  grid-template-columns: 1fr;
+}
+
 :root,
 [data-color-mode=dark] {
   --sao-bg-base: var(--dark);
@@ -711,12 +726,24 @@ main {
   .color-mode-toggle {
     margin-inline-start: 0;
   }
+  .mobile-buttons {
+    margin-inline-start: 0;
+    flex-shrink: 0;
+  }
   #block-sityos-automate-olivero-account-menu {
     border-top: 1px solid var(--sao-bg-border);
     padding-top: var(--sp);
     margin-top: var(--sp0-5);
   }
 }
+.mobile-nav-button {
+  margin-inline-end: 0;
+}
+
+.site-header__inner {
+  overflow-x: clip;
+}
+
 .site-branding {
   background-image: none !important;
   background-color: transparent;
