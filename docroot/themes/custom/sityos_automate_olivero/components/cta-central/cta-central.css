@@ -1,5 +1,5 @@
 .sao-cta-central {
-  padding: var(--sao-space-24) var(--sp2);
+  padding: var(--sao-space-24) var(--sao-space-8);
   background: var(--dark-2);
   border-block: 1px solid var(--gold-line);
   color: var(--light);

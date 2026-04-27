@@ -3,7 +3,17 @@ node_modules/
 css/style.css
 css/style.min.css
 
+# Stale per-file compiled CSS from old Gulp config — NOT loaded in production
+# (all CSS is now bundled into css/style.min.css via compileSassMain)
+css/base/
+css/components/
+css/theme/
+
 # SDC component compiled CSS — generated from .scss source
+# NOTE: social-proof/social-proof.css and cta-central/cta-central.css are intentionally
+# NOT listed here — they are committed to git because they are loaded via libraries.yml.
+# After editing social-proof.scss or cta-central.scss, run make build-sao and commit the
+# regenerated .css file.
 components/hero/hero.css
 components/card/card.css
 components/cta-button/cta-button.css

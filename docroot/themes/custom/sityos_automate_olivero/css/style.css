@@ -242,11 +242,11 @@ img {
 
 .site-header__inner__container {
   max-width: none;
-  padding-inline: var(--sp3);
+  padding-inline: var(--sao-space-12);
 }
 @media (min-width: 1024px) {
   .site-header__inner__container {
-    padding-inline: var(--sp4);
+    padding-inline: var(--sao-space-16);
   }
 }
 
@@ -263,6 +263,14 @@ img {
 
 #main {
   grid-template-columns: 1fr;
+}
+
+.sao-node__body {
+  overflow-x: auto;
+}
+
+.sao-cta-central {
+  overflow: hidden;
 }
 
 :root,
@@ -644,7 +652,7 @@ main {
   color: var(--sao-text-secondary);
   cursor: pointer;
   flex-shrink: 0;
-  transition: background-color color border-color 100ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 100ms cubic-bezier(0.4, 0, 0.2, 1), color 100ms cubic-bezier(0.4, 0, 0.2, 1), border-color 100ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .color-mode-toggle:hover {
   background-color: var(--sao-bg-hover);
@@ -695,7 +703,7 @@ main {
 .site-header__inner__container {
   display: flex;
   align-items: center;
-  gap: var(--sp0-5);
+  gap: var(--sao-space-2);
 }
 
 @media (min-width: 75rem) {
@@ -875,16 +883,16 @@ main {
   transition: color var(--sao-duration-fast, 150ms) var(--sao-easing-standard, ease), border-color var(--sao-duration-fast, 150ms) var(--sao-easing-standard, ease), background-color var(--sao-duration-fast, 150ms) var(--sao-easing-standard, ease);
 }
 .lang-switcher__toggle:hover, .lang-switcher__toggle:focus-visible {
-  color: var(--sao-accent, #0066ff);
-  border-color: var(--sao-accent, #0066ff);
-  background-color: var(--sao-bg-hover, rgba(0, 102, 255, 0.08));
+  color: var(--sao-accent, #C9A227);
+  border-color: var(--sao-accent, #C9A227);
+  background-color: var(--sao-bg-hover, rgba(201, 162, 39, 0.08));
   outline: none;
 }
 
 .lang-switcher.is-open .lang-switcher__toggle {
-  color: var(--sao-accent, #0066ff);
-  border-color: var(--sao-accent, #0066ff);
-  background-color: var(--sao-bg-hover, rgba(0, 102, 255, 0.08));
+  color: var(--sao-accent, #C9A227);
+  border-color: var(--sao-accent, #C9A227);
+  background-color: var(--sao-bg-hover, rgba(201, 162, 39, 0.08));
 }
 
 .lang-switcher__name {
@@ -953,8 +961,8 @@ main {
   transition: color var(--sao-duration-fast, 150ms) var(--sao-easing-standard, ease), background-color var(--sao-duration-fast, 150ms) var(--sao-easing-standard, ease);
 }
 .lang-switcher__option a:hover, .lang-switcher__option a:focus-visible {
-  color: var(--sao-accent, #0066ff);
-  background-color: var(--sao-bg-hover, rgba(0, 102, 255, 0.08));
+  color: var(--sao-accent, #C9A227);
+  background-color: var(--sao-bg-hover, rgba(201, 162, 39, 0.08));
   outline: none;
 }
 

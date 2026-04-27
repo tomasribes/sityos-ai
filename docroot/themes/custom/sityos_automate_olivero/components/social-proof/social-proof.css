@@ -1,5 +1,6 @@
 .sao-social-proof {
-  padding: var(--sao-space-6) var(--sp2);
+  overflow: hidden;
+  padding: var(--sao-space-6) var(--sao-space-8);
   background-color: var(--sao-bg-surface);
   border-block: 1px solid var(--sao-bg-border);
   display: flex;
@@ -32,7 +33,6 @@
 .sao-social-proof__intro {
   font-size: var(--sao-type-label);
   color: var(--sao-text-secondary);
-  white-space: nowrap;
 }
 
 .sao-social-proof__logos {

@@ -1,7 +1,9 @@
 _core:
   default_config_hash: 1xIS-lel8mYmL357ogYEI7qkmiQWkhtHly-n1t0d_GE
 favicon:
-  use_default: true
+  mimetype: image/svg+xml
+  path: 'public://sityos-ai-favicon-transparent.svg'
+  use_default: false
 features:
   comment_user_picture: true
   comment_user_verification: true
@@ -14,16 +16,6 @@ color_mode_default: system
 mobile_menu_all_widths: 0
 site_branding_bg_color: default
 logo_dark_path: /sites/default/files/logos/sityos-ai-dark-v2.svg
-logo_dark_upload:
-  "\0Symfony\\Component\\HttpFoundation\\File\\UploadedFile\0originalName": sityos-ai-dark-v2.svg
-  "\0Symfony\\Component\\HttpFoundation\\File\\UploadedFile\0mimeType": image/svg+xml
-  "\0Symfony\\Component\\HttpFoundation\\File\\UploadedFile\0error": 0
-  "\0Symfony\\Component\\HttpFoundation\\File\\UploadedFile\0originalPath": sityos-ai-dark-v2.svg
-  "\0Symfony\\Component\\HttpFoundation\\File\\UploadedFile\0test": false
+logo_dark_upload: ''
 logo_light_path: /sites/default/files/logos/sityos-ai-light-v2.svg
-logo_light_upload:
-  "\0Symfony\\Component\\HttpFoundation\\File\\UploadedFile\0originalName": sityos-ai-light-v2.svg
-  "\0Symfony\\Component\\HttpFoundation\\File\\UploadedFile\0mimeType": image/svg+xml
-  "\0Symfony\\Component\\HttpFoundation\\File\\UploadedFile\0error": 0
-  "\0Symfony\\Component\\HttpFoundation\\File\\UploadedFile\0originalPath": sityos-ai-light-v2.svg
-  "\0Symfony\\Component\\HttpFoundation\\File\\UploadedFile\0test": false
+logo_light_upload: ''

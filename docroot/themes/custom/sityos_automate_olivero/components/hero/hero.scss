@@ -10,7 +10,7 @@
   display: grid;
   place-items: center;
   min-height: 70vh;
-  padding: var(--sao-space-16) var(--sp2);
+  padding: var(--sao-space-16) var(--sao-space-8);
   overflow: hidden;
   background-color: var(--sao-bg-base);
   color: var(--sao-text-primary);
@@ -207,7 +207,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: auto;
-    padding: var(--sao-space-20) var(--sp2);
+    padding: var(--sao-space-20) var(--sao-space-8);
 
     .sao-hero__content {
       grid-column: 1;
@@ -233,7 +233,7 @@
 @include respond-up(lg) {
   .sao-hero {
     min-height: 80vh;
-    padding: var(--sao-space-24) var(--sp4);
+    padding: var(--sao-space-24) var(--sao-space-16);
   }
 }
 

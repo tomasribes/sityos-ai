@@ -5,7 +5,7 @@
 @use 'abstracts/mixins' as *;
 
 .sao-cta-central {
-  padding: var(--sao-space-24) var(--sp2);
+  padding: var(--sao-space-24) var(--sao-space-8);
   background: var(--dark-2);           // #111118 — premium dark surface
   border-block: 1px solid var(--gold-line);   // subtle gold separation
   color: var(--light);
