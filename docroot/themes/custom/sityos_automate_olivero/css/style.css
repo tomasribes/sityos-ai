@@ -123,6 +123,12 @@
   inherits: false;
   initial-value: 135deg;
 }
+html,
+body {
+  overscroll-behavior-x: none;
+  overflow-x: clip;
+}
+
 h1 {
   font-family: var(--font-sans);
   font-weight: 700;
@@ -263,6 +269,10 @@ img {
 
 #main {
   grid-template-columns: 1fr;
+}
+
+.social-bar {
+  display: none;
 }
 
 .sao-node__body {

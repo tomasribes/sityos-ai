@@ -22,6 +22,10 @@ $settings['trusted_host_patterns'] = [
   '^sityos\.local$',
   '^sityos\.com$',
   '^.*\.sityos\.com$',
+  // RFC1918 private LAN ranges — for testing on physical devices over LAN.
+  '^10\.\d+\.\d+\.\d+$',
+  '^172\.(1[6-9]|2[0-9]|3[0-1])\.\d+\.\d+$',
+  '^192\.168\.\d+\.\d+$',
 ];
 
 // File system paths.
