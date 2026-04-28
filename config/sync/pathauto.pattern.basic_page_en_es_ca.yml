@@ -1,32 +1,33 @@
-uuid: dabeac2a-4e14-4ae6-a3af-1e98b03bc1ed
+uuid: 40b5dbf0-f9f8-4ac3-8fca-09b92d3c2d63
 langcode: en
 status: true
 dependencies:
   module:
     - language
     - node
-id: articles_en
-label: 'Tutorials EN CA'
+id: basic_page_en_es_ca
+label: 'Basic Page EN ES CA'
 type: 'canonical_entities:node'
-pattern: 'tutorials/[node:title]'
+pattern: '[node:title]'
 selection_criteria:
-  e54fa1b5-480b-4ef5-9ca9-b063d0fc98fc:
+  4099864b-7afa-42c9-8ff6-f571107f7543:
     id: 'entity_bundle:node'
     negate: false
-    uuid: e54fa1b5-480b-4ef5-9ca9-b063d0fc98fc
+    uuid: 4099864b-7afa-42c9-8ff6-f571107f7543
     context_mapping:
       node: node
     bundles:
-      article: article
-  3ee24571-acec-45da-92cc-2ea80ad02666:
+      page: page
+  c04ea366-6f59-4261-8a91-003e826a7af5:
     id: language
     negate: false
-    uuid: 3ee24571-acec-45da-92cc-2ea80ad02666
+    uuid: c04ea366-6f59-4261-8a91-003e826a7af5
     context_mapping:
       language: 'node:langcode:language'
     langcodes:
       ca: ca
       en: en
+      es: es
 selection_logic: and
 weight: -10
 relationships:

@@ -1,0 +1,25 @@
+uuid: a53a1d5c-2789-409d-8981-0de41aa6b27a
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - user
+id: user_en
+label: 'User EN'
+type: 'canonical_entities:user'
+pattern: 'user/[current-user:display-name]'
+selection_criteria:
+  533afa2d-4867-4242-b500-2c6c098a69b5:
+    id: language
+    negate: false
+    uuid: 533afa2d-4867-4242-b500-2c6c098a69b5
+    context_mapping:
+      language: 'user:langcode:language'
+    langcodes:
+      en: en
+selection_logic: and
+weight: -5
+relationships:
+  'user:langcode:language':
+    label: Language

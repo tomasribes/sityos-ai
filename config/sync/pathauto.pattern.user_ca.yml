@@ -1,0 +1,25 @@
+uuid: 80d86d08-40e0-4980-b517-866dd19b8f70
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - user
+id: user_ca
+label: 'User CA'
+type: 'canonical_entities:user'
+pattern: 'usuari/[current-user:display-name]'
+selection_criteria:
+  6710051c-44e3-4d00-a254-e51836ccca60:
+    id: language
+    negate: false
+    uuid: 6710051c-44e3-4d00-a254-e51836ccca60
+    context_mapping:
+      language: 'user:langcode:language'
+    langcodes:
+      ca: ca
+selection_logic: and
+weight: -5
+relationships:
+  'user:langcode:language':
+    label: Language

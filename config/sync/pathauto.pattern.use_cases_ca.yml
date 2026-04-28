@@ -1,32 +1,31 @@
-uuid: dabeac2a-4e14-4ae6-a3af-1e98b03bc1ed
+uuid: 562ba993-65e5-45ad-895e-efeab6e83b6a
 langcode: en
 status: true
 dependencies:
   module:
     - language
     - node
-id: articles_en
-label: 'Tutorials EN CA'
+id: use_cases_ca
+label: 'Use Cases CA'
 type: 'canonical_entities:node'
-pattern: 'tutorials/[node:title]'
+pattern: 'casos-us/[node:title]'
 selection_criteria:
-  e54fa1b5-480b-4ef5-9ca9-b063d0fc98fc:
+  f610fd67-d5a3-4a87-b8ac-1a9f37f0e874:
     id: 'entity_bundle:node'
     negate: false
-    uuid: e54fa1b5-480b-4ef5-9ca9-b063d0fc98fc
+    uuid: f610fd67-d5a3-4a87-b8ac-1a9f37f0e874
     context_mapping:
       node: node
     bundles:
-      article: article
-  3ee24571-acec-45da-92cc-2ea80ad02666:
+      use_case: use_case
+  f6280c11-ea05-4608-ae3a-9b8597115cc2:
     id: language
     negate: false
-    uuid: 3ee24571-acec-45da-92cc-2ea80ad02666
+    uuid: f6280c11-ea05-4608-ae3a-9b8597115cc2
     context_mapping:
       language: 'node:langcode:language'
     langcodes:
       ca: ca
-      en: en
 selection_logic: and
 weight: -10
 relationships:

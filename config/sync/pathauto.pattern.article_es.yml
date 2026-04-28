@@ -6,22 +6,22 @@ dependencies:
     - language
     - node
 id: article_es
-label: 'Article ES'
+label: 'Tutorials ES'
 type: 'canonical_entities:node'
-pattern: 'articulo/[node:title]'
+pattern: 'tutorials/[node:title]'
 selection_criteria:
-  2d2ea0fe-8be5-4c4b-822f-8b24734e8fe0:
+  5ed83def-a2c0-4843-9492-4a7615b0597b:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 2d2ea0fe-8be5-4c4b-822f-8b24734e8fe0
+    uuid: 5ed83def-a2c0-4843-9492-4a7615b0597b
     context_mapping:
       node: node
     bundles:
       article: article
-  8f934e0c-d915-43d7-bb74-db8a0b99f8b9:
+  58775301-2e15-4c2c-870e-d84aa4b50967:
     id: language
     negate: false
-    uuid: 8f934e0c-d915-43d7-bb74-db8a0b99f8b9
+    uuid: 58775301-2e15-4c2c-870e-d84aa4b50967
     context_mapping:
       language: 'node:langcode:language'
     langcodes:

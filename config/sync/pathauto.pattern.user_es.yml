@@ -1,0 +1,25 @@
+uuid: efba2ec9-80f4-435d-b792-a36ec9163f46
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - user
+id: user_es
+label: 'User ES'
+type: 'canonical_entities:user'
+pattern: 'usuario/[current-user:display-name]'
+selection_criteria:
+  bf717520-c630-41d7-a583-a07b3495ff65:
+    id: language
+    negate: false
+    uuid: bf717520-c630-41d7-a583-a07b3495ff65
+    context_mapping:
+      language: 'user:langcode:language'
+    langcodes:
+      es: es
+selection_logic: and
+weight: -5
+relationships:
+  'user:langcode:language':
+    label: Language
