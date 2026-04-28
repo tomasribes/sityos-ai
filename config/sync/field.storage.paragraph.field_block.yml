@@ -1,16 +1,16 @@
-uuid: ede11686-1f78-4272-8faf-dac6ea3885cf
+uuid: 58fa2898-f3dc-48cd-a447-ed8ef4b92a0d
 langcode: en
 status: true
 dependencies:
   module:
+    - block
     - paragraphs
-    - views
 id: paragraph.field_block
 field_name: field_block
 entity_type: paragraph
 type: entity_reference
 settings:
-  target_type: view
+  target_type: block
 module: core
 locked: false
 cardinality: 1

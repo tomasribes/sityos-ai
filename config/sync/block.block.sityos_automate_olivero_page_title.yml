@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - node
+    - system
   theme:
     - sityos_automate_olivero
 _core:
@@ -27,5 +28,8 @@ visibility:
       node: '@node.node_route_context:node'
     bundles:
       article: article
-      tutorial: tutorial
       use_case: use_case
+  request_path:
+    id: request_path
+    negate: true
+    pages: "<front>\r\n/tags"

@@ -1,4 +1,4 @@
-uuid: 21eea5ec-f1de-49e7-9a29-33845e02ff45
+uuid: a60f860a-43fb-4a0f-adfe-42c9b07842bb
 langcode: en
 status: true
 dependencies:
@@ -11,12 +11,12 @@ entity_type: paragraph
 bundle: block_component
 label: Block
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:view'
+  handler: 'default:block'
   handler_settings:
     target_bundles: null
     auto_create: false

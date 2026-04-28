@@ -3,7 +3,7 @@
         'name' => 'sityos/automate',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'd50361662e73cdb9da36664ff0e14511242cbd92',
+        'reference' => 'e7a290a01bb2a92042fcf68a820d04ba6f683a73',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -586,6 +586,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/tagclouds' => array(
+            'pretty_version' => '2.0.11',
+            'version' => '2.0.11.0',
+            'reference' => '2.0.11',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../docroot/modules/contrib/tagclouds',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/token' => array(
             'pretty_version' => '1.17.0',
             'version' => '1.17.0.0',
@@ -1022,7 +1031,7 @@
         'sityos/automate' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'd50361662e73cdb9da36664ff0e14511242cbd92',
+            'reference' => 'e7a290a01bb2a92042fcf68a820d04ba6f683a73',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

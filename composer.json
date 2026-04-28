@@ -37,6 +37,7 @@
         "drupal/seckit": "^2.0",
         "drupal/slick": "^3.0",
         "drupal/slick_views": "^3.0",
+        "drupal/tagclouds": "^2.0",
         "drupal/token": "^1.13",
         "drupal/views_slick_animate": "^3.5",
         "drupal/webform": "^6.3@beta",

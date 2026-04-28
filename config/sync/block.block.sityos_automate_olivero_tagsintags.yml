@@ -1,0 +1,41 @@
+uuid: d61e8f19-dfa1-463f-be8a-3e067063295c
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - system
+    - tagclouds
+  theme:
+    - sityos_automate_olivero
+id: sityos_automate_olivero_tagsintags
+theme: sityos_automate_olivero
+region: content
+weight: 0
+provider: null
+plugin: 'tagclouds_block:tags'
+settings:
+  id: 'tagclouds_block:tags'
+  label: 'Tags in Tags'
+  label_display: visible
+  provider: tagclouds
+  cache:
+    max_age: 0
+    contexts: {  }
+  tags: '0'
+  vocabulary: tags
+  sort_order: default
+visibility:
+  language:
+    id: language
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
+    langcodes:
+      ca: ca
+      en: en
+      es: es
+  request_path:
+    id: request_path
+    negate: false
+    pages: /tags
