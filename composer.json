@@ -22,7 +22,7 @@
         "drupal/crop": "^2.6",
         "drupal/drupal_cms_olivero": "^1.2",
         "drupal/ds": "^3.37",
-        "drupal/field_group": "^3.4",
+        "drupal/field_group": "^4.0",
         "drupal/focal_point": "^2.1",
         "drupal/gtm": "^1.10",
         "drupal/image_widget_crop": "^3.0",

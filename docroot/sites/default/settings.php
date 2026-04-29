@@ -30,7 +30,7 @@ $settings['trusted_host_patterns'] = [
 
 // File system paths.
 $settings['file_public_path'] = 'sites/default/files';
-$settings['file_private_path'] = '../../private-files';
+$settings['file_private_path'] = '../private-files';
 $settings['file_temp_path'] = '/tmp';
 
 // Prevent accidental cron during local development.
