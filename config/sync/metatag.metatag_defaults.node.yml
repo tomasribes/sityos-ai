@@ -7,6 +7,11 @@ _core:
 id: node
 label: Content
 tags:
-  title: '[node:title] | [site:name]'
-  description: '[node:summary]'
   canonical_url: '[node:url]'
+  description: '[node:summary]'
+  keywords: '[node:field_tags]'
+  og_description: '[node:summary]'
+  og_title: '[node:title] | [site:name]'
+  og_url: '[node:url]'
+  robots: 'index, follow'
+  title: '[node:title] | [site:name]'
