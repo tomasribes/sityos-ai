@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.slick_carousel
     - core.entity_view_mode.node.teaser
     - node.type.use_case
     - system.menu.main
@@ -252,7 +253,8 @@ display:
       row:
         type: 'entity:node'
         options:
-          view_mode: teaser
+          relationship: none
+          view_mode: slick_carousel
       query:
         type: views_query
         options:

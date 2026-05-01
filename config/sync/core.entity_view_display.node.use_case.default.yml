@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.use_case.field_tags
     - node.type.use_case
   module:
-    - blazy
+    - sityos_base
     - text
     - user
 id: node.use_case.default
@@ -35,21 +35,16 @@ content:
     weight: 1
     region: content
   field_subtitle:
-    type: blazy_title
+    type: sityos_subtitle_quote
     label: hidden
-    settings:
-      delimiter: '|'
-      tag: strong
-      break: false
-      link_to_entity: 0
+    settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
   field_tags:
-    type: entity_reference_label
+    type: sityos_tags_box
     label: hidden
-    settings:
-      link: true
+    settings: {  }
     third_party_settings: {  }
     weight: 3
     region: content

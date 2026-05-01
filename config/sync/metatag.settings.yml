@@ -9,6 +9,10 @@ entity_type_groups:
     page:
       basic: basic
       open_graph: open_graph
+    use_case:
+      basic: basic
+      open_graph: open_graph
+      schema_article: schema_article
 separator: ','
 tag_trim_method: beforeValue
 use_maxlength: true

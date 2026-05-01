@@ -12,7 +12,7 @@ dependencies:
     - field.field.node.article.field_tags
     - node.type.article
   module:
-    - blazy
+    - sityos_base
     - text
     - user
 _core:
@@ -30,13 +30,11 @@ content:
     weight: 2
     region: content
   field_media_document:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: false
+    type: sityos_pdf_download
+    label: inline
+    settings: {  }
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_media_image:
     type: entity_reference_entity_view
@@ -48,23 +46,18 @@ content:
     weight: 1
     region: content
   field_subtitle:
-    type: blazy_title
+    type: sityos_subtitle_quote
     label: hidden
-    settings:
-      delimiter: '|'
-      tag: strong
-      break: false
-      link_to_entity: 0
+    settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
   field_tags:
-    type: entity_reference_label
+    type: sityos_tags_box
     label: hidden
-    settings:
-      link: true
+    settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
 hidden:
   comment: true

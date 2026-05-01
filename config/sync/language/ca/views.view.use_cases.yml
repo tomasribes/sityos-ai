@@ -1,0 +1,19 @@
+label: "Casos d'us"
+display:
+  default:
+    display_options:
+      title: "Casos d'us"
+      exposed_form:
+        options:
+          submit_button: Aplicar
+          reset_button_label: Esborrar
+          exposed_sorts_label: 'Ordenar per'
+  latest_articles:
+    display_title: "Últims casos d'us"
+    display_options:
+      block_description: "Últims casos d'us"
+  page_1:
+    display_title: Pàgina
+    display_options:
+      menu:
+        title: "Casos d'us"
