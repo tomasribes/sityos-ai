@@ -5139,6 +5139,21 @@
             "install-path": "../../docroot/libraries/slick-carousel"
         },
         {
+            "name": "npm-asset/wordcloud",
+            "version": "1.2.3",
+            "version_normalized": "1.2.3.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/wordcloud/-/wordcloud-1.2.3.tgz"
+            },
+            "type": "npm-asset",
+            "installation-source": "dist",
+            "license": [
+                "MIT"
+            ],
+            "install-path": "../../docroot/libraries/wordcloud"
+        },
+        {
             "name": "oomphinc/composer-installers-extender",
             "version": "2.0.1",
             "version_normalized": "2.0.1.0",

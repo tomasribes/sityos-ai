@@ -8,6 +8,17 @@
 declare(strict_types=1);
 
 /**
+ * Implements hook_preprocess_block__tagclouds_block__tags().
+ *
+ * Attaches the tagcloud JS library only to the tagclouds vocabulary block.
+ * The library renders a wordcloud2.js canvas overlay while keeping the
+ * original DOM links visible to crawlers and screen readers.
+ */
+function sityos_automate_olivero_preprocess_block__tagclouds_block__tags(array &$variables): void {
+  $variables['#attached']['library'][] = 'sityos_automate_olivero/tagcloud';
+}
+
+/**
  * Implements hook_preprocess_links__language_block().
  *
  * Exposes current_lang so the template can identify the active language

@@ -48,3 +48,12 @@ cta-central:
       components/cta-central/cta-central.css: {}
   dependencies:
     - core/drupal
+
+tagcloud:
+  version: VERSION
+  js:
+    /libraries/wordcloud/src/wordcloud2.js: { minified: false, preprocess: false }
+    js/tagcloud.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

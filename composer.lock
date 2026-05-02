@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e880552f59bd3114773baeb9e4c9c7c7",
+    "content-hash": "b345313e7403d52233a8112134de474a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4935,6 +4935,18 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/slick-carousel/-/slick-carousel-1.8.1.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/wordcloud",
+            "version": "1.2.3",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/wordcloud/-/wordcloud-1.2.3.tgz"
             },
             "type": "npm-asset",
             "license": [

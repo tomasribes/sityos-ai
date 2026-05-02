@@ -3,7 +3,7 @@
         'name' => 'sityos/automate',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '4a61e3d4ba2534ab82397662c159b78862e0964b',
+        'reference' => 'b7b1a4604404ae2c562889c7258034c39cbe41c3',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -766,6 +766,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'npm-asset/wordcloud' => array(
+            'pretty_version' => '1.2.3',
+            'version' => '1.2.3.0',
+            'reference' => null,
+            'type' => 'npm-asset',
+            'install_path' => __DIR__ . '/../../docroot/libraries/wordcloud',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'oomphinc/composer-installers-extender' => array(
             'pretty_version' => '2.0.1',
             'version' => '2.0.1.0',
@@ -1031,7 +1040,7 @@
         'sityos/automate' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '4a61e3d4ba2534ab82397662c159b78862e0964b',
+            'reference' => 'b7b1a4604404ae2c562889c7258034c39cbe41c3',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

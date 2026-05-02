@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\sityos_base\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Entity\EntityRepositoryInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
@@ -30,6 +31,7 @@ class SityosPdfDownloadFormatter extends FormatterBase {
     string $view_mode,
     array $third_party_settings,
     protected readonly FileUrlGeneratorInterface $fileUrlGenerator,
+    protected readonly EntityRepositoryInterface $entityRepository,
   ) {
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
   }
@@ -44,6 +46,7 @@ class SityosPdfDownloadFormatter extends FormatterBase {
       $configuration['view_mode'],
       $configuration['third_party_settings'],
       $container->get('file_url_generator'),
+      $container->get('entity.repository'),
     );
   }
 
@@ -52,7 +55,13 @@ class SityosPdfDownloadFormatter extends FormatterBase {
     foreach ($items as $delta => $item) {
       /** @var \Drupal\media\MediaInterface|null $media */
       $media = $item->entity;
-      if (!$media || !$media->access('view')) {
+      if (!$media) {
+        continue;
+      }
+      // Resolve the correct language translation — same pattern as core
+      // EntityReferenceFormatterBase::getEntitiesToView().
+      $media = $this->entityRepository->getTranslationFromContext($media, $langcode);
+      if (!$media->access('view')) {
         continue;
       }
 
