@@ -1,14 +1,20 @@
 #
-# robots.txt — Sityos AI (sityos.com)
-# Drupal 11 · Multilingüe: en (default) / es (/es/) / ca (/ca/)
+# robots.txt
 #
+# This file is to prevent the crawling and indexing of certain parts
+# of your site by web crawlers and spiders run by sites like Yahoo!
+# and Google. By telling these "robots" where not to go on your site,
+# you save bandwidth and server resources.
+#
+# This file will be ignored unless it is at the root of your host:
+# Used:    http://example.com/robots.txt
+# Ignored: http://example.com/site/robots.txt
+#
+# For more information about the robots.txt standard, see:
+# http://www.robotstxt.org/robotstxt.html
 
-# ─────────────────────────────────────────────────────────
-# ALL BOTS
-# ─────────────────────────────────────────────────────────
 User-agent: *
-
-# Allow rendering resources so bots can render pages correctly
+# CSS, JS, Images
 Allow: /core/*.css$
 Allow: /core/*.css?
 Allow: /core/*.js$
@@ -22,114 +28,45 @@ Allow: /profiles/*.css$
 Allow: /profiles/*.css?
 Allow: /profiles/*.js$
 Allow: /profiles/*.js?
-Allow: /themes/custom/sityos_automate_olivero/*.css$
-Allow: /themes/custom/sityos_automate_olivero/*.js$
-Allow: /themes/custom/sityos_automate_olivero/*.png
-Allow: /themes/custom/sityos_automate_olivero/*.svg
-Allow: /modules/custom/*.css$
-Allow: /modules/custom/*.js$
-
-# Allow taxonomy RSS feeds (more specific than Disallow: /taxonomy/term/ below)
-Allow: /taxonomy/term/*/feed
-Allow: /es/taxonomy/term/*/feed
-Allow: /ca/taxonomy/term/*/feed
-
-# Allow sitemap and RSS feeds
-Allow: /sitemap.xml
-Allow: /es/sitemap.xml
-Allow: /ca/sitemap.xml
-Allow: /rss.xml
-Allow: /es/rss.xml
-Allow: /ca/rss.xml
-
-# Directories — server internals
+Allow: /profiles/*.gif
+Allow: /profiles/*.jpg
+Allow: /profiles/*.jpeg
+Allow: /profiles/*.png
+Allow: /profiles/*.svg
+# Directories
 Disallow: /core/
 Disallow: /profiles/
-Disallow: /modules/
-Disallow: /themes/
-Disallow: /sites/
-Disallow: /libraries/
-Disallow: /composer/
-
-# System files
+# Files
 Disallow: /README.md
-Disallow: /install.php
-Disallow: /update.php
-Disallow: /cron.php
-Disallow: /xmlrpc.php
-Disallow: /web.config
-
-# Drupal admin — all languages
+Disallow: /composer/Metapackage/README.txt
+Disallow: /composer/Plugin/ProjectMessage/README.md
+Disallow: /composer/Plugin/Scaffold/README.md
+Disallow: /composer/Plugin/VendorHardening/README.txt
+Disallow: /composer/Template/README.txt
+Disallow: /modules/README.txt
+Disallow: /sites/README.txt
+Disallow: /themes/README.txt
+# Paths (clean URLs)
 Disallow: /admin/
-Disallow: /es/admin/
-Disallow: /ca/admin/
-
-# Drupal internal system paths
-Disallow: /batch
-Disallow: /system/
-Disallow: /devel/
-Disallow: /node/add/
 Disallow: /comment/reply/
 Disallow: /filter/tips
-Disallow: /media/oembed
-Disallow: /*/media/oembed
-
-# Raw Drupal paths — use clean URLs (/tutorials/*, /tags/*, /use-cases/*) instead
-Disallow: /node/
-Disallow: /es/node/
-Disallow: /ca/node/
-Disallow: /taxonomy/term/
-Disallow: /es/taxonomy/term/
-Disallow: /ca/taxonomy/term/
-
-# Search pages
+Disallow: /node/add/
 Disallow: /search/
-Disallow: /es/search/
-Disallow: /ca/search/
-
-# User account paths — all languages
 Disallow: /user/register
 Disallow: /user/password
 Disallow: /user/login
 Disallow: /user/logout
-Disallow: /user/
-Disallow: /es/usuario/
-Disallow: /ca/usuari/
-
-# Webform admin
-Disallow: /webform/
-Disallow: /admin/structure/webform/
-
-# index.php fallback (legacy non-clean URLs)
-Disallow: /index.php/
-
-# ─────────────────────────────────────────────────────────
-# AI TRAINING CRAWLERS — Block content scraping
-# ─────────────────────────────────────────────────────────
-User-agent: GPTBot
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: Claude-Web
-Disallow: /
-
-User-agent: Bytespider
-Disallow: /
-
-User-agent: Omgilibot
-Disallow: /
-
-User-agent: FacebookBot
-Disallow: /
-
-# ─────────────────────────────────────────────────────────
-# SITEMAPS
-# ─────────────────────────────────────────────────────────
-Sitemap: https://sityos.com/sitemap.xml
-Sitemap: https://sityos.com/es/sitemap.xml
-Sitemap: https://sityos.com/ca/sitemap.xml
+Disallow: /media/oembed
+Disallow: /*/media/oembed
+# Paths (no clean URLs)
+Disallow: /index.php/admin/
+Disallow: /index.php/comment/reply/
+Disallow: /index.php/filter/tips
+Disallow: /index.php/node/add/
+Disallow: /index.php/search/
+Disallow: /index.php/user/password
+Disallow: /index.php/user/register
+Disallow: /index.php/user/login
+Disallow: /index.php/user/logout
+Disallow: /index.php/media/oembed
+Disallow: /index.php/*/media/oembed

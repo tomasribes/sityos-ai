@@ -6,8 +6,8 @@
   title: label|render|striptags|trim,
   url: url,
   description: content.body|render|striptags|trim|slice(0, 140),
-  label: 'Article'|t,
-  label_color: 'purple',
+  label: 'Tutorial'|t,
+  label_color: 'green',
 } %}
 {% if card_image_data is defined %}
   {% set card_props = card_props | merge(card_image_data) %}

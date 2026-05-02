@@ -736,6 +736,9 @@ main {
     flex-shrink: 0;
     margin-inline-start: auto;
   }
+  .site-branding__logo img {
+    height: 5rem;
+  }
 }
 @media (max-width: 74.9375rem) {
   .header-lang {
@@ -796,7 +799,7 @@ main {
 }
 
 .site-branding__logo img {
-  height: 2.75rem;
+  height: 4rem;
   width: auto;
   max-height: none;
   border-radius: 0;
@@ -830,7 +833,7 @@ main {
     padding-inline: var(--sp2);
   }
   .site-branding__logo img {
-    height: 2rem;
+    height: 2.75rem;
   }
   .color-mode-toggle {
     width: 2rem;
