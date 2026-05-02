@@ -1,0 +1,7 @@
+uuid: 0273b3fe-d031-4459-85fb-e91b13bcfb37
+langcode: en
+status: true
+dependencies: {  }
+formId: webform_submission_newsletter_add_form
+captchaType: image_captcha/Image
+label: webform_submission_newsletter_add_form

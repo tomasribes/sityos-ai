@@ -1,0 +1,10 @@
+_core:
+  default_config_hash: UqoPtv5ZWzKvrSUU6kRFwsddB-I_BN16Cw38Rtk7H7A
+site_key: 6Ldqp9UsAAAAAO1Xrdco8YuzYU4CtQnTUT7-h-N-
+secret_key: 6Ldqp9UsAAAAAExu3_tgdBe66gmy6pTSyf7zRU2W
+hide_badge: false
+verify_hostname: true
+default_challenge: image_captcha/Image
+error_message: 'Anti-bot verification failed.'
+cacheable: false
+library_use_recaptcha_net: false

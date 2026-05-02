@@ -31,6 +31,8 @@
         "drupal/paragraph_blocks": "^4.2",
         "drupal/paragraphs": "^1.17",
         "drupal/pathauto": "^1.12",
+        "drupal/recaptcha": "^3.4",
+        "drupal/recaptcha_v3": "^2.0",
         "drupal/redirect": "^1.9",
         "drupal/redis": "^1.7",
         "drupal/schema_metatag": "^3.0",

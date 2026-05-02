@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb345313e7403d52233a8112134de474a
+class ComposerStaticInitba1b9308dc83c81046c7a4d1bcf67f19
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -90,6 +90,7 @@ class ComposerStaticInitb345313e7403d52233a8112134de474a
         array (
             'Robo\\' => 5,
             'Revolt\\' => 7,
+            'ReCaptcha\\' => 10,
         ),
         'P' =>
         array (
@@ -324,6 +325,10 @@ class ComposerStaticInitb345313e7403d52233a8112134de474a
         'Revolt\\' =>
         array (
             0 => __DIR__ . '/..' . '/revolt/event-loop/src',
+        ),
+        'ReCaptcha\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha',
         ),
         'Psy\\' =>
         array (
@@ -5254,6 +5259,15 @@ class ComposerStaticInitb345313e7403d52233a8112134de474a
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/NoopChecker.php',
         'Psy\\VersionUpdater\\SelfUpdate' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/SelfUpdate.php',
+        'ReCaptcha\\ReCaptcha' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/ReCaptcha.php',
+        'ReCaptcha\\RequestMethod' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestMethod.php',
+        'ReCaptcha\\RequestMethod\\Curl' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestMethod/Curl.php',
+        'ReCaptcha\\RequestMethod\\CurlPost' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestMethod/CurlPost.php',
+        'ReCaptcha\\RequestMethod\\Post' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php',
+        'ReCaptcha\\RequestMethod\\Socket' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestMethod/Socket.php',
+        'ReCaptcha\\RequestMethod\\SocketPost' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestMethod/SocketPost.php',
+        'ReCaptcha\\RequestParameters' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestParameters.php',
+        'ReCaptcha\\Response' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/Response.php',
         'ReflectionConstant' => __DIR__ . '/..' . '/symfony/polyfill-php84/Resources/stubs/ReflectionConstant.php',
         'ReturnTypeWillChange' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
         'Revolt\\EventLoop' => __DIR__ . '/..' . '/revolt/event-loop/src/EventLoop.php',
@@ -7240,10 +7254,10 @@ class ComposerStaticInitb345313e7403d52233a8112134de474a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb345313e7403d52233a8112134de474a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb345313e7403d52233a8112134de474a::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitb345313e7403d52233a8112134de474a::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitb345313e7403d52233a8112134de474a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitba1b9308dc83c81046c7a4d1bcf67f19::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitba1b9308dc83c81046c7a4d1bcf67f19::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitba1b9308dc83c81046c7a4d1bcf67f19::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitba1b9308dc83c81046c7a4d1bcf67f19::$classMap;
 
         }, null, ClassLoader::class);
     }

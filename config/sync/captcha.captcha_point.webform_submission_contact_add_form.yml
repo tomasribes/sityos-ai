@@ -1,0 +1,7 @@
+uuid: 86aed2d8-fdc1-4fcf-a2a6-fc78a7449312
+langcode: en
+status: true
+dependencies: {  }
+formId: webform_submission_contact_add_form
+captchaType: image_captcha/Image
+label: webform_submission_contact_add_form
