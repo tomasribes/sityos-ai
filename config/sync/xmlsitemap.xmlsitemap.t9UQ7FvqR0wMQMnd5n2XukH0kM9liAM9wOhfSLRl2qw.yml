@@ -1,0 +1,8 @@
+uuid: 01da1e77-9e48-44f2-83b8-31cfadc09963
+langcode: en
+status: true
+dependencies: {  }
+id: t9UQ7FvqR0wMQMnd5n2XukH0kM9liAM9wOhfSLRl2qw
+label: 'http://localhost/es'
+context:
+  language: es

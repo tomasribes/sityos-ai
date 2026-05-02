@@ -1,0 +1,8 @@
+uuid: a0bb447c-063c-43ac-9f63-75278fc0fc73
+langcode: en
+status: true
+dependencies: {  }
+id: aNkRiCzjfJQdg8nBocBcXhm1bm6WLTXsKRTh-yDHMc8
+label: 'http://localhost/ca'
+context:
+  language: ca
