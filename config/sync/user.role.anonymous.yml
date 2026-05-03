@@ -19,6 +19,7 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access user profiles'
   - 'search content'
   - 'use text format restricted_html'
   - 'view media'

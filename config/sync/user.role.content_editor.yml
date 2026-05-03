@@ -12,6 +12,7 @@ dependencies:
     - file
     - node
     - path
+    - sityos_base
     - system
     - taxonomy
     - toolbar
@@ -41,6 +42,7 @@ permissions:
   - 'edit own comments'
   - 'edit own page content'
   - 'edit terms in tags'
+  - 'import pexels media'
   - 'revert all revisions'
   - 'skip comment approval'
   - 'view all revisions'
