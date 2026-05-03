@@ -72,6 +72,9 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "docroot/"
+            },
+            "file-mapping": {
+                "[web-root]/robots.txt": false
             }
         },
         "installer-types": ["npm-asset", "bower-asset"],

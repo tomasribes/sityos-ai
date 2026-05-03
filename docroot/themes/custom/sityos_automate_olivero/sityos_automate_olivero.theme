@@ -10,12 +10,14 @@ declare(strict_types=1);
 /**
  * Implements hook_preprocess_block__tagclouds_block__tags().
  *
- * Attaches the tagcloud JS library only to the tagclouds vocabulary block.
- * The library renders a wordcloud2.js canvas overlay while keeping the
- * original DOM links visible to crawlers and screen readers.
+ * Attaches the tagcloud JS library only when the admin setting is 'canvas'.
+ * When set to 'css', only the Phase 1 flex-wrap list renders.
  */
 function sityos_automate_olivero_preprocess_block__tagclouds_block__tags(array &$variables): void {
-  $variables['#attached']['library'][] = 'sityos_automate_olivero/tagcloud';
+  $mode = \Drupal::config('sityos_base.settings.tagcloud')->get('rendering_mode');
+  if ($mode === 'canvas') {
+    $variables['#attached']['library'][] = 'sityos_automate_olivero/tagcloud';
+  }
 }
 
 /**

@@ -1,0 +1,153 @@
+/* Pexels Import — admin UI styles */
+
+.pexels-search-bar .fieldset-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pexels-search-bar .form-item-query {
+  flex: 1 1 300px;
+  margin: 0;
+}
+
+.pexels-search-bar .form-item-per-page {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.pexels-summary {
+  color: #595959;
+  font-size: 13px;
+  margin: 1rem 0 0.75rem;
+}
+
+/* Photo grid */
+.pexels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.pexels-card {
+  border: 2px solid #d0d0d0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fafafa;
+  transition: border-color 0.15s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.pexels-card:not(.pexels-card--imported):hover {
+  border-color: #0071b8;
+}
+
+.pexels-card--imported {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Thumbnail */
+.pexels-card__thumb {
+  position: relative;
+  height: 130px;
+  overflow: hidden;
+  background: #e5e5e5;
+}
+
+.pexels-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pexels-card__badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #1a7340;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Card meta / checkbox area */
+.pexels-card__meta {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.pexels-card__alt {
+  font-size: 11px;
+  color: #555;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.pexels-card__link {
+  font-size: 11px;
+  color: #0071b8;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.pexels-card__link:hover {
+  text-decoration: underline;
+}
+
+/* Drupal form-item inside the card */
+.pexels-card .form-item {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px 4px;
+}
+
+.pexels-card .form-item input[type="checkbox"] {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.pexels-card .form-item label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Pagination */
+.pexels-pagination {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+  padding-top: 0.25rem;
+}
+
+.pexels-pagination__info {
+  color: #595959;
+  font-size: 13px;
+}
+
+/* Import actions */
+.pexels-import-actions {
+  border-top: 1px solid #d0d0d0;
+  padding-top: 1rem;
+}

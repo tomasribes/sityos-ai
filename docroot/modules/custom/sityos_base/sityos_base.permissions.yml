@@ -1,0 +1,4 @@
+import pexels media:
+  title: 'Import media from Pexels'
+  description: 'Search and import images from the Pexels API into the Media Library.'
+  restrict access: false

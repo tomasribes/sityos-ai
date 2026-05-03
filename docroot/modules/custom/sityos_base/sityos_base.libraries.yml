@@ -1,0 +1,5 @@
+pexels-import:
+  version: VERSION
+  css:
+    theme:
+      css/pexels-import.css: {}

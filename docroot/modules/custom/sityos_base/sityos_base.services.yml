@@ -5,3 +5,16 @@ services:
       - '@config.factory'
       - '@language_manager'
       - '@datetime.time'
+
+  logger.channel.sityos_base:
+    parent: logger.channel_base
+    arguments: ['sityos_base']
+
+  sityos_base.pexels_api:
+    class: Drupal\sityos_base\Service\PexelsApiService
+    arguments:
+      - '@config.factory'
+      - '@http_client'
+      - '@file_system'
+      - '@logger.channel.sityos_base'
+      - '@entity_type.manager'

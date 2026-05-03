@@ -1,0 +1,15 @@
+sityos_base.settings.tagcloud:
+  type: config_object
+  label: 'TagCloud rendering settings'
+  mapping:
+    rendering_mode:
+      type: string
+      label: 'Rendering mode'
+
+sityos_base.settings.pexels:
+  type: config_object
+  label: 'Pexels API settings'
+  mapping:
+    api_key:
+      type: string
+      label: 'API Key'

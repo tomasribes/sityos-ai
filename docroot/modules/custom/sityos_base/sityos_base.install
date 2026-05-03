@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the sityos_base module.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Adds sityos_base.settings.tagcloud with default 'canvas' rendering mode.
+ */
+function sityos_base_update_10001(): void {
+  $config = \Drupal::configFactory()->getEditable('sityos_base.settings.tagcloud');
+  if ($config->get('rendering_mode') === NULL) {
+    $config->set('rendering_mode', 'canvas')->save(TRUE);
+  }
+}

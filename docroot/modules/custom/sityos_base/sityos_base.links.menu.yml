@@ -1,0 +1,27 @@
+sityos_base.admin_config_sityos:
+  title: 'Sityos Settings'
+  description: 'Configure the Sityos Automate platform settings.'
+  parent: system.admin_config
+  route_name: sityos_base.admin_config_sityos
+  weight: 0
+
+sityos_base.tagcloud_settings:
+  title: 'TagCloud'
+  description: 'Choose how the TagCloud block renders: CSS flex list or JS canvas.'
+  parent: sityos_base.admin_config_sityos
+  route_name: sityos_base.tagcloud_settings
+  weight: 0
+
+sityos_base.pexels_settings:
+  title: 'Pexels Integration'
+  description: 'Configure the Pexels API key and import images to the Media Library.'
+  parent: sityos_base.admin_config_sityos
+  route_name: sityos_base.pexels_settings
+  weight: 10
+
+sityos_base.pexels_import:
+  title: 'Search & Import'
+  description: 'Search Pexels and import images into the Media Library.'
+  parent: sityos_base.pexels_settings
+  route_name: sityos_base.pexels_import
+  weight: 0
