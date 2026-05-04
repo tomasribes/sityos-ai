@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitba1b9308dc83c81046c7a4d1bcf67f19
+class ComposerStaticInit5665bc57e46030cbbf75c9118c642445
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -5261,10 +5261,8 @@ class ComposerStaticInitba1b9308dc83c81046c7a4d1bcf67f19
         'Psy\\VersionUpdater\\SelfUpdate' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/SelfUpdate.php',
         'ReCaptcha\\ReCaptcha' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/ReCaptcha.php',
         'ReCaptcha\\RequestMethod' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestMethod.php',
-        'ReCaptcha\\RequestMethod\\Curl' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestMethod/Curl.php',
         'ReCaptcha\\RequestMethod\\CurlPost' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestMethod/CurlPost.php',
         'ReCaptcha\\RequestMethod\\Post' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestMethod/Post.php',
-        'ReCaptcha\\RequestMethod\\Socket' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestMethod/Socket.php',
         'ReCaptcha\\RequestMethod\\SocketPost' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestMethod/SocketPost.php',
         'ReCaptcha\\RequestParameters' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/RequestParameters.php',
         'ReCaptcha\\Response' => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha/Response.php',
@@ -5680,6 +5678,7 @@ class ComposerStaticInitba1b9308dc83c81046c7a4d1bcf67f19
         'Symfony\\Component\\DependencyInjection\\Compiler\\CheckCircularReferencesPass' => __DIR__ . '/..' . '/symfony/dependency-injection/Compiler/CheckCircularReferencesPass.php',
         'Symfony\\Component\\DependencyInjection\\Compiler\\CheckDefinitionValidityPass' => __DIR__ . '/..' . '/symfony/dependency-injection/Compiler/CheckDefinitionValidityPass.php',
         'Symfony\\Component\\DependencyInjection\\Compiler\\CheckExceptionOnInvalidReferenceBehaviorPass' => __DIR__ . '/..' . '/symfony/dependency-injection/Compiler/CheckExceptionOnInvalidReferenceBehaviorPass.php',
+        'Symfony\\Component\\DependencyInjection\\Compiler\\CheckFactoryBuilderCircularReferencePass' => __DIR__ . '/..' . '/symfony/dependency-injection/Compiler/CheckFactoryBuilderCircularReferencePass.php',
         'Symfony\\Component\\DependencyInjection\\Compiler\\CheckReferenceValidityPass' => __DIR__ . '/..' . '/symfony/dependency-injection/Compiler/CheckReferenceValidityPass.php',
         'Symfony\\Component\\DependencyInjection\\Compiler\\CheckTypeDeclarationsPass' => __DIR__ . '/..' . '/symfony/dependency-injection/Compiler/CheckTypeDeclarationsPass.php',
         'Symfony\\Component\\DependencyInjection\\Compiler\\Compiler' => __DIR__ . '/..' . '/symfony/dependency-injection/Compiler/Compiler.php',
@@ -7254,10 +7253,10 @@ class ComposerStaticInitba1b9308dc83c81046c7a4d1bcf67f19
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitba1b9308dc83c81046c7a4d1bcf67f19::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitba1b9308dc83c81046c7a4d1bcf67f19::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitba1b9308dc83c81046c7a4d1bcf67f19::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitba1b9308dc83c81046c7a4d1bcf67f19::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit5665bc57e46030cbbf75c9118c642445::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit5665bc57e46030cbbf75c9118c642445::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit5665bc57e46030cbbf75c9118c642445::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit5665bc57e46030cbbf75c9118c642445::$classMap;
 
         }, null, ClassLoader::class);
     }

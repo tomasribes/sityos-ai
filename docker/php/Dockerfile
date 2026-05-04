@@ -1,5 +1,5 @@
 # Stage 1: Build dependencies
-FROM php:8.3-fpm-alpine AS builder
+FROM php:8.4-fpm-alpine AS builder
 
 RUN apk add --no-cache \
     autoconf \
@@ -10,7 +10,7 @@ RUN apk add --no-cache \
     && docker-php-ext-enable redis
 
 # Stage 2: Runtime image
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 
 LABEL maintainer="Sityos Automate <dev@sityos.com>"
 
