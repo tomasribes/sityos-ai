@@ -48,7 +48,8 @@
         "drush/drush": "^13",
         "npm-asset/slick-carousel": "^1.8",
         "npm-asset/wordcloud": "^1.2",
-        "oomphinc/composer-installers-extender": "^2.0"
+        "oomphinc/composer-installers-extender": "^2.0",
+        "wikimedia/composer-merge-plugin": "^2.1"
     },
     "require-dev": {
         "drupal/devel": "^5.0"
@@ -62,7 +63,8 @@
             "composer/installers": true,
             "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
-            "oomphinc/composer-installers-extender": true
+            "oomphinc/composer-installers-extender": true,
+            "wikimedia/composer-merge-plugin": true
         },
         "preferred-install": {
             "twig/twig": "source"
@@ -85,7 +87,19 @@
             "docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
             "docroot/themes/contrib/{$name}": ["type:drupal-theme"]
         },
-        "patches": {}
+        "patches": {},
+        "merge-plugin": {
+            "include": [
+                "docroot/modules/contrib/webform/composer.libraries.json"
+            ],
+            "recurse": false,
+            "replace": false,
+            "ignore-duplicates": false,
+            "merge-dev": false,
+            "merge-extra": false,
+            "merge-extra-deep": false,
+            "merge-scripts": false
+        }
     },
     "repositories": [
         {

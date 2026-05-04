@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5665bc57e46030cbbf75c9118c642445
+class ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -46,6 +46,10 @@ class ComposerStaticInit5665bc57e46030cbbf75c9118c642445
         'Y' =>
         array (
             'Yethee\\Tiktoken\\' => 16,
+        ),
+        'W' =>
+        array (
+            'Wikimedia\\Composer\\Merge\\V2\\' => 28,
         ),
         'T' =>
         array (
@@ -185,6 +189,10 @@ class ComposerStaticInit5665bc57e46030cbbf75c9118c642445
         'Yethee\\Tiktoken\\' =>
         array (
             0 => __DIR__ . '/..' . '/yethee/tiktoken/src',
+        ),
+        'Wikimedia\\Composer\\Merge\\V2\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/wikimedia/composer-merge-plugin/src',
         ),
         'Twig\\' =>
         array (
@@ -7177,6 +7185,14 @@ class ComposerStaticInit5665bc57e46030cbbf75c9118c642445
         'Twig\\Util\\DeprecationCollector' => __DIR__ . '/..' . '/twig/twig/src/Util/DeprecationCollector.php',
         'Twig\\Util\\ReflectionCallable' => __DIR__ . '/..' . '/twig/twig/src/Util/ReflectionCallable.php',
         'Twig\\Util\\TemplateDirIterator' => __DIR__ . '/..' . '/twig/twig/src/Util/TemplateDirIterator.php',
+        'Wikimedia\\Composer\\Merge\\V2\\ExtraPackage' => __DIR__ . '/..' . '/wikimedia/composer-merge-plugin/src/ExtraPackage.php',
+        'Wikimedia\\Composer\\Merge\\V2\\Logger' => __DIR__ . '/..' . '/wikimedia/composer-merge-plugin/src/Logger.php',
+        'Wikimedia\\Composer\\Merge\\V2\\MergePlugin' => __DIR__ . '/..' . '/wikimedia/composer-merge-plugin/src/MergePlugin.php',
+        'Wikimedia\\Composer\\Merge\\V2\\MissingFileException' => __DIR__ . '/..' . '/wikimedia/composer-merge-plugin/src/MissingFileException.php',
+        'Wikimedia\\Composer\\Merge\\V2\\MultiConstraint' => __DIR__ . '/..' . '/wikimedia/composer-merge-plugin/src/MultiConstraint.php',
+        'Wikimedia\\Composer\\Merge\\V2\\NestedArray' => __DIR__ . '/..' . '/wikimedia/composer-merge-plugin/src/NestedArray.php',
+        'Wikimedia\\Composer\\Merge\\V2\\PluginState' => __DIR__ . '/..' . '/wikimedia/composer-merge-plugin/src/PluginState.php',
+        'Wikimedia\\Composer\\Merge\\V2\\StabilityFlags' => __DIR__ . '/..' . '/wikimedia/composer-merge-plugin/src/StabilityFlags.php',
         'Yethee\\Tiktoken\\Encoder' => __DIR__ . '/..' . '/yethee/tiktoken/src/Encoder.php',
         'Yethee\\Tiktoken\\EncoderProvider' => __DIR__ . '/..' . '/yethee/tiktoken/src/EncoderProvider.php',
         'Yethee\\Tiktoken\\Exception\\ParseError' => __DIR__ . '/..' . '/yethee/tiktoken/src/Exception/ParseError.php',
@@ -7253,10 +7269,10 @@ class ComposerStaticInit5665bc57e46030cbbf75c9118c642445
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5665bc57e46030cbbf75c9118c642445::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5665bc57e46030cbbf75c9118c642445::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit5665bc57e46030cbbf75c9118c642445::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit5665bc57e46030cbbf75c9118c642445::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68::$classMap;
 
         }, null, ClassLoader::class);
     }
