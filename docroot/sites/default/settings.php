@@ -33,9 +33,6 @@ $settings['file_public_path'] = 'sites/default/files';
 $settings['file_private_path'] = '../private-files';
 $settings['file_temp_path'] = '/tmp';
 
-// Prevent accidental cron during local development.
-$config['automated_cron.settings']['interval'] = 0;
-
 // Environment detection and config split activation.
 $environment = getenv('APP_ENV') ?: 'dev';
 
@@ -49,6 +46,8 @@ switch ($environment) {
   case 'dev':
   default:
     $config['config_split.config_split.dev']['status'] = TRUE;
+    // Prevent accidental cron during local development.
+    $config['automated_cron.settings']['interval'] = 0;
     break;
 }
 

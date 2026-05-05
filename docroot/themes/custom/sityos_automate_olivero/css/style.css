@@ -1288,3 +1288,35 @@ main {
     opacity: 1;
   }
 }
+.block-tagclouds .js-wordcloud-container {
+  position: relative;
+  display: block;
+  margin-inline: auto;
+  max-width: 900px;
+}
+
+.block-tagclouds .js-wc-overlay {
+  position: absolute;
+  display: block;
+  background: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  color: transparent;
+  font-size: 0;
+  text-decoration: none;
+  border-radius: 3px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .block-tagclouds .js-wc-overlay {
+    transition: box-shadow var(--sao-duration-base) var(--sao-easing-standard);
+  }
+}
+.block-tagclouds .js-wc-overlay:hover, .block-tagclouds .js-wc-overlay:focus-visible {
+  box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.25), 0 0 14px 5px rgba(201, 162, 39, 0.12);
+}
+.block-tagclouds .js-wc-overlay:focus-visible {
+  outline: 2px solid #C9A227;
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
