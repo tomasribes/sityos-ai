@@ -8,7 +8,7 @@ dependencies:
 id: use_cases_ca
 label: 'Use Cases CA'
 type: 'canonical_entities:node'
-pattern: 'casos-us/[node:title]'
+pattern: '/casos-us/[node:title]'
 selection_criteria:
   f610fd67-d5a3-4a87-b8ac-1a9f37f0e874:
     id: 'entity_bundle:node'

@@ -8,7 +8,7 @@ dependencies:
 id: user_ca
 label: 'User CA'
 type: 'canonical_entities:user'
-pattern: 'usuari/[current-user:display-name]'
+pattern: '/usuari/[current-user:display-name]'
 selection_criteria:
   6710051c-44e3-4d00-a254-e51836ccca60:
     id: language

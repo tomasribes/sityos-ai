@@ -8,7 +8,7 @@ dependencies:
 id: user_en
 label: 'User EN'
 type: 'canonical_entities:user'
-pattern: 'user/[current-user:display-name]'
+pattern: '/user/[current-user:display-name]'
 selection_criteria:
   533afa2d-4867-4242-b500-2c6c098a69b5:
     id: language

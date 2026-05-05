@@ -8,7 +8,7 @@ dependencies:
 id: article_es
 label: 'Tutorials ES'
 type: 'canonical_entities:node'
-pattern: 'tutorials/[node:title]'
+pattern: '/tutorials/[node:title]'
 selection_criteria:
   5ed83def-a2c0-4843-9492-4a7615b0597b:
     id: 'entity_bundle:node'

@@ -8,7 +8,7 @@ dependencies:
 id: use_cases_en
 label: 'Use Cases EN'
 type: 'canonical_entities:node'
-pattern: 'use-cases/[node:title]'
+pattern: '/use-cases/[node:title]'
 selection_criteria:
   68635425-fbd9-475c-ae72-bad2885a820d:
     id: 'entity_bundle:node'
