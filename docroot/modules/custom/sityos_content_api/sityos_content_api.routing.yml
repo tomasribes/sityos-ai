@@ -1,0 +1,10 @@
+sityos_content_api.ingest:
+  path: '/api/v1/sityos/content/ingest'
+  defaults:
+    _controller: '\Drupal\sityos_content_api\Controller\ContentIngestController::ingest'
+    _title: 'Sityos Content Ingest API'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST]
+  options:
+    no_cache: TRUE

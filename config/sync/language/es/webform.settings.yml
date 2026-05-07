@@ -7,6 +7,8 @@ settings:
   dialog_options:
     narrow:
       title: Estrecho
+    normal:
+      title: Normal
     wide:
       title: Ancho
 element:

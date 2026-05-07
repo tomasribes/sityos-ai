@@ -1,0 +1,4 @@
+use sityos content api:
+  title: 'Use Sityos Content API'
+  description: 'Allows authenticated access to the Sityos content ingest REST endpoint.'
+  restrict access: true

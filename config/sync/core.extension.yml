@@ -82,6 +82,7 @@ module:
   shortcut: 0
   sityos_article: 0
   sityos_base: 0
+  sityos_content_api: 0
   sityos_tutorial: 0
   sityos_use_case: 0
   slick: 0

@@ -1,0 +1,54 @@
+services:
+
+  logger.channel.sityos_content_api:
+    parent: logger.channel_base
+    arguments: ['sityos_content_api']
+
+  sityos_content_api.api_key_authenticator:
+    class: Drupal\sityos_content_api\Authentication\ApiKeyAuthenticator
+    arguments:
+      - '@key.repository'
+      - '@database'
+      - '@logger.channel.sityos_content_api'
+      - '%sityos_content_api.key_id%'
+      - '%sityos_content_api.rate_limit_rpm%'
+
+  sityos_content_api.input_validator:
+    class: Drupal\sityos_content_api\Service\InputValidator
+    arguments:
+      - '@logger.channel.sityos_content_api'
+      - '%sityos_content_api.max_pdf_size_mb%'
+
+  sityos_content_api.tag_manager:
+    class: Drupal\sityos_content_api\Service\TagManager
+    arguments:
+      - '@entity_type.manager'
+      - '@logger.channel.sityos_content_api'
+
+  sityos_content_api.media_document_manager:
+    class: Drupal\sityos_content_api\Service\MediaDocumentManager
+    arguments:
+      - '@entity_type.manager'
+      - '@file_system'
+      - '@file.repository'
+      - '@logger.channel.sityos_content_api'
+
+  sityos_content_api.node_content_creator:
+    class: Drupal\sityos_content_api\Service\NodeContentCreator
+    arguments:
+      - '@entity_type.manager'
+      - '@logger.channel.sityos_content_api'
+
+  sityos_content_api.content_ingest_orchestrator:
+    class: Drupal\sityos_content_api\Service\ContentIngestOrchestrator
+    arguments:
+      - '@sityos_content_api.tag_manager'
+      - '@sityos_content_api.media_document_manager'
+      - '@sityos_content_api.node_content_creator'
+      - '@database'
+      - '@logger.channel.sityos_content_api'
+
+parameters:
+  sityos_content_api.key_id: 'sityos_content_api_key'
+  sityos_content_api.rate_limit_rpm: 60
+  sityos_content_api.max_pdf_size_mb: 20

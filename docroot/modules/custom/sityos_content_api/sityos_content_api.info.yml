@@ -1,0 +1,16 @@
+name: 'Sityos Content API'
+type: module
+description: 'REST API for automated multilingual content creation in Sityos Automate.'
+package: 'Sityos'
+core_version_requirement: ^11
+dependencies:
+  - drupal:system
+  - drupal:node
+  - drupal:media
+  - drupal:file
+  - drupal:taxonomy
+  - drupal:path_alias
+  - drupal:metatag
+  - drupal:pathauto
+  - drupal:key
+  - sityos_base:sityos_base

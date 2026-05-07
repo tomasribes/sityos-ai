@@ -9,7 +9,10 @@ register_admin_created:
 register_no_approval_required:
   subject: 'Detalls del compte per [user:display-name] a [site:name]'
   body: "[user:display-name],\r\n\r\nGràcies per registrar-vos a [site:name]. Ara podeu iniciar sessió fent clic en aquest enllaç o copiant-lo i enganxant-lo al vostre navegador:\r\n\r\n[user:one-time-login-url]\r\n\r\nAquest enllaç només es pot utilitzar una vegada per iniciar sessió i us conduirà a una pàgina on podeu configurar la vostra contrasenya.\r\n\r\nDesprés d'establir la vostra contrasenya, podreu iniciar sessió a [site:login-url] utilitzant en el futur:\r\n\r\nnom d’usuari: [user:name]\r\ncontrasenya: La vostra contrasenya\r\n\r\n--  L'equip de [site:name]"
+register_pending_approval:
+  subject: 'Account details for [user:display-name] at [site:name] (pending admin approval)'
 register_pending_approval_admin:
+  subject: 'Account details for [user:display-name] at [site:name] (pending admin approval)'
   body: "[user:display-name] ha demanat un compte.\r\n\r\n[user:edit-url]"
 status_activated:
   subject: 'Detalls del compte per [user:display-name] a [site:name] (aprovat)'
