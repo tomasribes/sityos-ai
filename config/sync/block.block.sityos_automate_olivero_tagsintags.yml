@@ -11,7 +11,7 @@ dependencies:
 id: sityos_automate_olivero_tagsintags
 theme: sityos_automate_olivero
 region: content
-weight: 0
+weight: -7
 provider: null
 plugin: 'tagclouds_block:tags'
 settings:

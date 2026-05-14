@@ -1,0 +1,30 @@
+uuid: b42b1308-af65-4d1e-8582-e6de0e6ba384
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.articles
+  module:
+    - system
+    - views
+  theme:
+    - sityos_automate_olivero
+id: sityos_automate_olivero_views_block__articles_latest_tutorials
+theme: sityos_automate_olivero
+region: content
+weight: -6
+provider: null
+plugin: 'views_block:articles-latest_tutorials'
+settings:
+  id: 'views_block:articles-latest_tutorials'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+  exposed: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

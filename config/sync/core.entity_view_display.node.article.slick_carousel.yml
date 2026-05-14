@@ -39,18 +39,11 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_tags:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 2
-    region: content
 hidden:
   comment: true
   field_media_document: true
   field_meta_tags: true
   field_subtitle: true
+  field_tags: true
   langcode: true
   links: true

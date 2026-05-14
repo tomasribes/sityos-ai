@@ -1,0 +1,30 @@
+uuid: 22af7dde-40ac-44ee-bda4-a416a5fbb98a
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.use_cases
+  module:
+    - system
+    - views
+  theme:
+    - sityos_automate_olivero
+id: sityos_automate_olivero_views_block__use_cases_latest_usecases
+theme: sityos_automate_olivero
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:use_cases-latest_usecases'
+settings:
+  id: 'views_block:use_cases-latest_usecases'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: null
+  exposed: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

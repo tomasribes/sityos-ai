@@ -109,7 +109,7 @@ display:
           entity_type: node
           entity_field: changed
           plugin_id: date
-          order: ASC
+          order: DESC
           expose:
             label: ''
             field_identifier: ''
@@ -295,12 +295,58 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  latest_articles:
-    id: latest_articles
+  latest_tutorials:
+    id: latest_tutorials
     display_title: 'Latest Tutorials'
     display_plugin: block
     position: 1
     display_options:
+      style:
+        type: slick
+        options:
+          caption:
+            title: '0'
+          optionset: default
+          class: ''
+          image: ''
+          link: ''
+          overlay: ''
+          title: ''
+          vanilla: true
+          layout: ''
+          cache: 0
+          admin_uri: '/admin/structure/views/ajax/display/articles/latest_tutorials/style_options?_wrapper_format=drupal_ajax'
+          grid: ''
+          grid_medium: ''
+          grid_small: ''
+          style: flexbox
+          skin: classic
+          overridables:
+            arrows: arrows
+            autoplay: '0'
+            dots: '0'
+            draggable: '0'
+            infinite: '0'
+            mouseWheel: '0'
+            randomize: '0'
+            variableWidth: '0'
+          thumbnail: ''
+          optionset_thumbnail: ''
+          skin_thumbnail: ''
+          thumbnail_caption: ''
+          thumbnail_effect: ''
+          thumbnail_position: ''
+          override: false
+          preserve_keys: false
+          visible_items: null
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: slick_carousel
+      defaults:
+        style: false
+        row: false
       display_description: ''
       display_extenders: {  }
       block_description: 'Latest Tutorials'
@@ -318,18 +364,38 @@ display:
     display_plugin: page
     position: 3
     display_options:
+      pager:
+        type: mini
+        options:
+          offset: 0
+          pagination_heading_level: h4
+          items_per_page: 12
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
       style:
         type: blazy
         options:
-          grid: empty
-          grid_medium: ''
-          grid_small: ''
-          style: flex
+          grid: '33 34 33'
+          grid_medium: '50 50'
+          grid_small: '100'
+          style: flexbox
       row:
         type: 'entity:node'
         options:
           view_mode: teaser
       defaults:
+        pager: false
         style: false
         row: false
       display_extenders: {  }
@@ -349,6 +415,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

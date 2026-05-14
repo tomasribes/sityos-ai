@@ -8,10 +8,6 @@ display:
           submit_button: Aplicar
           reset_button_label: Borrar
           exposed_sorts_label: 'Ordernar por'
-  latest_articles:
-    display_title: 'Últimos tutoriales'
-    display_options:
-      block_description: 'Últimos tutoriales'
   page_1:
     display_title: Página
     display_options:

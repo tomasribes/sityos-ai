@@ -8,8 +8,6 @@ display:
           submit_button: Aplicar
           reset_button_label: Borrar
           exposed_sorts_label: 'Ordenar por'
-  latest_articles:
-    display_title: 'Últimos casos de uso'
   page_1:
     display_title: Página
     display_options:

@@ -6,9 +6,5 @@ display:
           submit_button: Aplicar
           reset_button_label: Esborrar
           exposed_sorts_label: 'Odernar per'
-  latest_articles:
-    display_title: 'Últims Tutorials'
-    display_options:
-      block_description: 'Últims Tutorials'
   page_1:
     display_title: Pàgina

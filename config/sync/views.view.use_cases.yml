@@ -109,7 +109,7 @@ display:
           entity_type: node
           entity_field: changed
           plugin_id: date
-          order: ASC
+          order: DESC
           expose:
             label: ''
             field_identifier: ''
@@ -223,14 +223,14 @@ display:
           link: ''
           overlay: ''
           title: ''
-          vanilla: false
+          vanilla: true
           layout: ''
           cache: 0
-          admin_uri: '/admin/structure/views/ajax/display/articles/block_1/style_options?_wrapper_format=drupal_ajax'
+          admin_uri: '/admin/structure/views/ajax/display/use_cases/latest_usecases/style_options?_wrapper_format=drupal_ajax'
           grid: ''
           grid_medium: ''
           grid_small: ''
-          style: column
+          style: flexbox
           skin: classic
           overridables:
             arrows: '0'
@@ -295,8 +295,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  latest_articles:
-    id: latest_articles
+  latest_usecases:
+    id: latest_usecases
     display_title: 'Latest Use Cases'
     display_plugin: block
     position: 1
@@ -318,18 +318,38 @@ display:
     display_plugin: page
     position: 3
     display_options:
+      pager:
+        type: mini
+        options:
+          offset: 0
+          pagination_heading_level: h4
+          items_per_page: 12
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
       style:
         type: blazy
         options:
-          grid: empty
-          grid_medium: ''
-          grid_small: ''
-          style: flex
+          grid: '33 34 33'
+          grid_medium: '50 50'
+          grid_small: '100'
+          style: flexbox
       row:
         type: 'entity:node'
         options:
           view_mode: teaser
       defaults:
+        pager: false
         style: false
         row: false
       display_extenders: {  }
@@ -348,6 +368,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
