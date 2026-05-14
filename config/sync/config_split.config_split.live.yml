@@ -13,4 +13,5 @@ folder: ../config/live
 module: {  }
 theme: {  }
 complete_list: {  }
-partial_list: {  }
+partial_list:
+  - sityos_content_api.settings
