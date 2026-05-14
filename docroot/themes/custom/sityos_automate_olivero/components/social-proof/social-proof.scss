@@ -5,7 +5,7 @@
 
 .sao-social-proof {
   overflow: hidden;
-  padding: var(--sao-space-6) var(--sao-space-8);
+  padding: var(--sao-space-10) var(--sao-space-8);
   background-color: var(--sao-bg-surface);
   border-block: 1px solid var(--sao-bg-border);
   display: flex;
@@ -94,8 +94,8 @@
 }
 
 .sao-social-proof__metric-value {
-  font-size: var(--sao-type-title);   // was --sao-font-size-xl (orphaned token)
-  font-weight: 700;
+  font-size: var(--sao-type-display);
+  font-weight: 800;
   color: var(--sao-accent);           // gold via token cascade
   line-height: 1.2;
 }

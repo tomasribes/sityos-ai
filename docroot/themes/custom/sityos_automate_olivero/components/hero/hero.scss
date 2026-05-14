@@ -31,7 +31,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--sao-space-6);
+  gap: var(--sao-space-8);
   opacity: 1;
   transform: translateY(0);
   transition:
@@ -115,6 +115,8 @@
   text-transform: uppercase;
   color: var(--sao-accent);
   width: fit-content;
+  padding-bottom: var(--sao-space-2);
+  border-bottom: 1px solid var(--gold-line);
 }
 
 // Headline
@@ -235,6 +237,18 @@
     min-height: 80vh;
     padding: var(--sao-space-24) var(--sao-space-16);
   }
+}
+
+// Fade-out at the bottom to blend into the next section (no-image variant only)
+.sao-hero:not(:has(.sao-hero__media-wrapper))::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 5rem;
+  background: linear-gradient(to bottom, transparent, var(--sao-bg-base));
+  z-index: 3;
+  pointer-events: none;
 }
 
 // ─── Reduced motion ───────────────────────────────────────────────────────────
