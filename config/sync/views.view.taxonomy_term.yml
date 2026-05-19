@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.rss
+    - core.entity_view_mode.node.slick_carousel
     - core.entity_view_mode.node.teaser
   module:
+    - blazy
     - node
     - taxonomy
     - user
@@ -31,7 +33,7 @@ display:
         options:
           offset: 0
           pagination_heading_level: h4
-          items_per_page: 10
+          items_per_page: 12
           total_pages: 0
           id: 0
           tags:
@@ -223,7 +225,8 @@ display:
       row:
         type: 'entity:node'
         options:
-          view_mode: teaser
+          relationship: none
+          view_mode: slick_carousel
       query:
         type: views_query
         options:
@@ -304,9 +307,24 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      style:
+        type: blazy
+        options:
+          grid: '33 34 33'
+          grid_medium: '50 50'
+          grid_small: '100'
+          style: flexbox
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser
       query:
         type: views_query
         options: {  }
+      defaults:
+        style: false
+        row: false
       display_extenders: {  }
       path: taxonomy/term/%
     cache_metadata:
