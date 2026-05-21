@@ -23,8 +23,10 @@ display:
             offset_label: Desplaçament
       fields:
         sid:
+          label: '#'
           separator: ', '
         in_draft:
+          label: Esborrany
           separator: ', '
         created:
           label: Creat
@@ -49,10 +51,13 @@ display:
         webform_submission_bulk_form:
           action_title: Acció
         sid:
+          label: '#'
           separator: ', '
         in_draft:
+          label: Esborrany
           separator: ', '
         sticky:
+          label: Estàtic
           separator: ', '
         locked:
           label: Bloquejat
@@ -69,6 +74,9 @@ display:
         operations:
           label: Operacions
       filters:
+        sticky:
+          expose:
+            label: Estàtic
         locked:
           expose:
             label: Bloquejat
@@ -78,10 +86,13 @@ display:
         webform_submission_bulk_form:
           action_title: Acció
         sid:
+          label: '#'
           separator: ', '
         in_draft:
+          label: Esborrany
           separator: ', '
         sticky:
+          label: Estàtic
           separator: ', '
         locked:
           label: Bloquejat
@@ -102,6 +113,9 @@ display:
           label: Operacions
           text: edita
       filters:
+        sticky:
+          expose:
+            label: Estàtic
         locked:
           expose:
             label: Bloquejat
@@ -109,10 +123,13 @@ display:
     display_options:
       fields:
         sid:
+          label: '#'
           separator: ', '
         in_draft:
+          label: Esborrany
           separator: ', '
         sticky:
+          label: Estàtic
           separator: ', '
         locked:
           label: Bloquejat
@@ -130,6 +147,9 @@ display:
           label: Operacions
           text: mostra
       filters:
+        sticky:
+          expose:
+            label: Estàtic
         locked:
           expose:
             label: Bloquejat

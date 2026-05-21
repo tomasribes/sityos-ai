@@ -23,8 +23,10 @@ display:
             offset_label: Desplazamiento
       fields:
         sid:
+          label: Nº
           separator: ', '
         in_draft:
+          label: Borrador
           separator: ', '
         created:
           label: Creado
@@ -49,10 +51,13 @@ display:
         webform_submission_bulk_form:
           action_title: Acción
         sid:
+          label: Nº
           separator: ', '
         in_draft:
+          label: Borrador
           separator: ', '
         sticky:
+          label: 'Fijo en cabeza de las listas'
           separator: ', '
         locked:
           label: Bloqueado
@@ -69,6 +74,9 @@ display:
         operations:
           label: Operaciones
       filters:
+        sticky:
+          expose:
+            label: 'Fijo en cabeza de las listas'
         locked:
           expose:
             label: Bloqueado
@@ -78,10 +86,13 @@ display:
         webform_submission_bulk_form:
           action_title: Acción
         sid:
+          label: Nº
           separator: ', '
         in_draft:
+          label: Borrador
           separator: ', '
         sticky:
+          label: 'Fijo en cabeza de las listas'
           separator: ', '
         locked:
           label: Bloqueado
@@ -102,6 +113,9 @@ display:
           label: Operaciones
           text: editar
       filters:
+        sticky:
+          expose:
+            label: 'Fijo en cabeza de las listas'
         locked:
           expose:
             label: Bloqueado
@@ -109,10 +123,13 @@ display:
     display_options:
       fields:
         sid:
+          label: Nº
           separator: ', '
         in_draft:
+          label: Borrador
           separator: ', '
         sticky:
+          label: 'Fijo en cabeza de las listas'
           separator: ', '
         locked:
           label: Bloqueado
@@ -130,6 +147,9 @@ display:
           label: Operaciones
           text: vista
       filters:
+        sticky:
+          expose:
+            label: 'Fijo en cabeza de las listas'
         locked:
           expose:
             label: Bloqueado

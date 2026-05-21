@@ -1,0 +1,4 @@
+title: 'Avaluació dels empleats'
+description: "Una plantilla de formulari d'avaluació d'empleats."
+settings:
+  confirmation_message: 'Gràcies per sol·licitar-ho.'

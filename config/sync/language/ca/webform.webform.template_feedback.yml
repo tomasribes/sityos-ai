@@ -1,0 +1,14 @@
+title: Suggeriment
+description: 'Una plantilla de comentaris bàsica.'
+settings:
+  confirmation_message: 'Gràcies pels seus comentaris.'
+handlers:
+  email_confirmation:
+    label: 'Confirmació per correu electrònic'
+    settings:
+      body: '[webform_submission:values:comments:value]'
+  email_notification:
+    label: 'Notificació per correu electrònic'
+    settings:
+      from_name: '[webform_submission:values:name:raw]'
+      body: '[webform_submission:values:comments:value]'

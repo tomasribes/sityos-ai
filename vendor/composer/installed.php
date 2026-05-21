@@ -3,7 +3,7 @@
         'name' => 'sityos/automate',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'd6bc5697883f436b8b43a027df0488cbb7e2d09d',
+        'reference' => '366cc01c9e309e8905c7e0e26d756a4ec53846ea',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -1202,7 +1202,7 @@
         'sityos/automate' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'd6bc5697883f436b8b43a027df0488cbb7e2d09d',
+            'reference' => '366cc01c9e309e8905c7e0e26d756a4ec53846ea',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

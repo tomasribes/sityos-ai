@@ -1,0 +1,7 @@
+title: "Perfil d'usuari"
+description: "Una plantilla de formulari web de perfil d'usuari."
+handlers:
+  email_notification:
+    label: 'Notificació per correu electrònic'
+    settings:
+      from_name: '[webform_submission:values:first_name] [webform_submission:values:last_name]'
