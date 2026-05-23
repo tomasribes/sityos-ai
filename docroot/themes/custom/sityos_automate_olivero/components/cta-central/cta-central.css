@@ -1,6 +1,7 @@
 .sao-cta-central {
   padding: var(--sao-space-24) var(--sao-space-8);
   background: var(--dark-2);
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(63, 126, 255, 0.06) 0%, transparent 60%), radial-gradient(ellipse at 50% 100%, rgba(201, 162, 39, 0.04) 0%, transparent 50%);
   border-block: 1px solid var(--gold-line);
   color: var(--light);
   text-align: center;
@@ -27,7 +28,7 @@
 
 .sao-cta-central__body {
   font-size: var(--sao-type-body-lg);
-  color: rgba(248, 248, 248, 0.75);
+  color: var(--sao-text-secondary);
   max-width: 600px;
   margin: 0;
   line-height: 1.6;
@@ -42,6 +43,6 @@
 
 .sao-cta-central__microcopy {
   font-size: var(--sao-type-label);
-  color: rgba(248, 248, 248, 0.45);
+  color: var(--sao-text-muted);
   margin: 0;
 }

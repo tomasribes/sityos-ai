@@ -17,7 +17,7 @@
 }
 .sao-card__link:hover {
   transform: translateY(-2px);
-  box-shadow: var(--sao-shadow-lg);
+  box-shadow: var(--sao-shadow-lg), 0 0 0 1px var(--sao-bg-border);
   border-color: var(--gold-border);
 }
 .sao-card__link:focus-visible {

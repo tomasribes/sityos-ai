@@ -16,14 +16,6 @@
   color: var(--sao-text-primary);
 }
 
-// Entry animation via @starting-style
-@starting-style {
-  .sao-hero__content {
-    opacity: 0;
-    transform: translateY(2rem);
-  }
-}
-
 .sao-hero__content {
   position: relative;
   z-index: 2;
@@ -32,11 +24,34 @@
   display: flex;
   flex-direction: column;
   gap: var(--sao-space-8);
-  opacity: 1;
-  transform: translateY(0);
-  transition:
-    opacity var(--sao-duration-enter) var(--sao-easing-enter),
-    transform var(--sao-duration-enter) var(--sao-easing-enter);
+}
+
+// Stagger entrance animation — each child enters sequentially
+@media (prefers-reduced-motion: no-preference) {
+  .sao-hero__eyebrow,
+  .sao-hero__headline,
+  .sao-hero__subtitle,
+  .sao-hero__actions,
+  .sao-hero__microcopy {
+    animation: sao-hero-child-enter var(--sao-duration-enter) var(--sao-easing-enter) both;
+  }
+
+  .sao-hero__eyebrow   { animation-delay: var(--sao-stagger-1); }
+  .sao-hero__headline  { animation-delay: var(--sao-stagger-2); }
+  .sao-hero__subtitle  { animation-delay: var(--sao-stagger-3); }
+  .sao-hero__actions   { animation-delay: var(--sao-stagger-4); }
+  .sao-hero__microcopy { animation-delay: calc(var(--sao-stagger-step) * 5); }
+}
+
+@keyframes sao-hero-child-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 // Background image
@@ -78,7 +93,7 @@
     inset: 0;
     background:
       radial-gradient(circle at 30% 70%, var(--gold-pale) 0%, transparent 40%),
-      radial-gradient(circle at 70% 30%, rgba(201, 162, 39, 0.06) 0%, transparent 40%);
+      radial-gradient(circle at 70% 30%, rgba(63, 126, 255, 0.05) 0%, transparent 40%);
     animation: sao-mesh-drift 20s ease-in-out infinite alternate;
   }
 }
@@ -253,7 +268,15 @@
 
 // ─── Reduced motion ───────────────────────────────────────────────────────────
 @media (prefers-reduced-motion: reduce) {
-  .sao-hero__content  { transition: none; }
+  .sao-hero__eyebrow,
+  .sao-hero__headline,
+  .sao-hero__subtitle,
+  .sao-hero__actions,
+  .sao-hero__microcopy {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
   .sao-hero__media    { animation: none; transform: none; }
   .sao-hero__mesh::after { animation: none; }
   .sao-hero__scroll-line { animation: none; opacity: 0.5; }

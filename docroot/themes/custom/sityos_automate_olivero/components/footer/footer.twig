@@ -1,0 +1,87 @@
+{#
+  Footer — site-wide.
+
+  Props:
+    - logo_dark_url (string)  — absolute URL to dark-mode logo SVG
+    - logo_light_url (string) — absolute URL to light-mode logo SVG
+    - brand_tagline (string)
+    - nav_columns (array of {heading, links[]{label, url}})
+    - copyright (string)
+    - social_links (array of {label, url, icon}) — optional
+    - sao_theme_path (string) — theme base path for logo assets
+#}
+{% set logo_dark  = logo_dark_url  ?? '/sites/default/files/logos/sityos-ai-dark-v2.svg' %}
+{% set logo_light = logo_light_url ?? '/sites/default/files/logos/sityos-ai-light-v2.svg' %}
+
+<footer class="sao-footer" aria-label="{{ 'Site footer'|t }}">
+  <div class="sao-footer__inner">
+
+    <div class="sao-footer__primary">
+
+      <div class="sao-footer__brand">
+        <a href="{{ path('<front>') }}" rel="home" class="sao-footer__logo-link" aria-label="{{ 'Sityos — Home'|t }}">
+          <img
+            class="site-logo site-logo--dark"
+            src="{{ logo_dark }}"
+            alt="Sityos"
+            loading="lazy"
+            width="120"
+            height="32"
+          />
+          <img
+            class="site-logo site-logo--light"
+            src="{{ logo_light }}"
+            alt="Sityos"
+            loading="lazy"
+            width="120"
+            height="32"
+          />
+        </a>
+        {% if brand_tagline %}
+          <p class="sao-footer__tagline">{{ brand_tagline }}</p>
+        {% endif %}
+      </div>
+
+      {% if nav_columns %}
+        <nav class="sao-footer__nav" aria-label="{{ 'Footer navigation'|t }}">
+          {% for column in nav_columns %}
+            <div class="sao-footer__nav-col">
+              <h3 class="sao-footer__nav-heading">{{ column.heading }}</h3>
+              {% if column.links %}
+                <ul class="sao-footer__nav-list">
+                  {% for link in column.links %}
+                    <li class="sao-footer__nav-item">
+                      <a class="sao-footer__nav-link" href="{{ link.url }}">{{ link.label }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </nav>
+      {% endif %}
+
+    </div>
+
+    <div class="sao-footer__secondary">
+      <p class="sao-footer__copyright">{{ copyright }}</p>
+
+      {% if social_links %}
+        <ul class="sao-footer__social" aria-label="{{ 'Social media links'|t }}">
+          {% for link in social_links %}
+            <li class="sao-footer__social-item">
+              <a class="sao-footer__social-link" href="{{ link.url }}" aria-label="{{ link.label }}" rel="noopener noreferrer" target="_blank">
+                {% if link.icon %}
+                  <span aria-hidden="true">{{ link.icon|raw }}</span>
+                {% else %}
+                  {{ link.label }}
+                {% endif %}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+
+  </div>
+</footer>

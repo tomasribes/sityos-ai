@@ -9,10 +9,12 @@
   --gold:               #C9A227;
   --gold-pale:          rgba(201, 162, 39, 0.10);
   --gold-border:        rgba(201, 162, 39, 0.40);
-  --dark:               #0B0B0F;
-  --dark-2:             #111118;
-  --dark-3:             #18181F;
-  --dark-4:             #22222C;
+  --blue:               #3F7EFF;
+  --blue-pale:          rgba(63, 126, 255, 0.10);
+  --dark:               #080810;
+  --dark-2:             #0E0E1A;
+  --dark-3:             #141428;
+  --dark-4:             #1E1E34;
   --light:              #F8F8F8;
   --border:             rgba(201, 162, 39, 0.14);
   --font-sans:          "Sora", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -20,44 +22,47 @@
   --radius-md:          0.5rem;
 
   /* SAO semantic defaults — dark mode */
-  --sao-accent:         #C9A227;
-  --sao-bg-base:        #0B0B0F;
-  --sao-bg-elevated:    #111118;
-  --sao-bg-surface:     #18181F;
-  --sao-bg-border:      #22222C;
-  --sao-text-primary:   #F8F8F8;
-  --sao-text-secondary: rgba(248, 248, 248, 0.55);
-  --sao-text-muted:     rgba(248, 248, 248, 0.28);
-  --sao-radius-md:      0.5rem;
-  --sao-duration-fast:  100ms;
-  --sao-duration-base:  180ms;
-  --sao-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --sao-accent:                #C9A227;
+  --sao-accent-interactive:    #3F7EFF;
+  --sao-bg-base:               #080810;
+  --sao-bg-elevated:           #0E0E1A;
+  --sao-bg-surface:            #141428;
+  --sao-bg-border:             #1E1E34;
+  --sao-text-primary:          #F8F8F8;
+  --sao-text-secondary:        rgba(248, 248, 248, 0.72);
+  --sao-text-muted:            rgba(248, 248, 248, 0.45);
+  --sao-radius-md:             0.5rem;
+  --sao-duration-fast:         100ms;
+  --sao-duration-base:         180ms;
+  --sao-easing-standard:       cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Light mode override — system preference (before JS) */
 @media (prefers-color-scheme: light) {
   :root:not([data-color-mode]) {
-    --sao-bg-base:        #F8F8F8;
-    --sao-bg-elevated:    #EFEFEF;
-    --sao-bg-surface:     #E2E2E2;
-    --sao-bg-border:      rgba(201, 162, 39, 0.20);
-    --sao-text-primary:   #0B0B0F;
-    --sao-text-secondary: rgba(11, 11, 15, 0.60);
-    --sao-text-muted:     rgba(11, 11, 15, 0.40);
-    --sao-accent:         #9B7A1A;
+    --sao-bg-base:               #F8F8F8;
+    --sao-bg-elevated:           #EFEFEF;
+    --sao-bg-surface:            #E2E2E2;
+    --sao-bg-border:             rgba(201, 162, 39, 0.20);
+    --sao-text-primary:          #0B0B0F;
+    --sao-text-secondary:        rgba(11, 11, 15, 0.70);
+    --sao-text-muted:            rgba(11, 11, 15, 0.45);
+    --sao-accent:                #9B7A1A;
+    --sao-accent-interactive:    #2B62D6;
   }
 }
 
 /* Light mode — explicit toggle */
 [data-color-mode="light"] {
-  --sao-bg-base:        #F8F8F8;
-  --sao-bg-elevated:    #EFEFEF;
-  --sao-bg-surface:     #E2E2E2;
-  --sao-bg-border:      rgba(201, 162, 39, 0.20);
-  --sao-text-primary:   #0B0B0F;
-  --sao-text-secondary: rgba(11, 11, 15, 0.60);
-  --sao-text-muted:     rgba(11, 11, 15, 0.40);
-  --sao-accent:         #9B7A1A;
+  --sao-bg-base:               #F8F8F8;
+  --sao-bg-elevated:           #EFEFEF;
+  --sao-bg-surface:            #E2E2E2;
+  --sao-bg-border:             rgba(201, 162, 39, 0.20);
+  --sao-text-primary:          #0B0B0F;
+  --sao-text-secondary:        rgba(11, 11, 15, 0.70);
+  --sao-text-muted:            rgba(11, 11, 15, 0.45);
+  --sao-accent:                #9B7A1A;
+  --sao-accent-interactive:    #2B62D6;
 }
 
 /* Box model */
@@ -71,7 +76,7 @@
 
 /* Body — dark-first */
 body {
-  background-color: #0B0B0F;
+  background-color: #080810;
   color: #F8F8F8;
   font-family: "Sora", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.9375rem;
@@ -97,7 +102,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 200;
-  background: rgba(11, 11, 15, 0.88);
+  background: rgba(8, 8, 16, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(201, 162, 39, 0.14);
@@ -154,7 +159,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Page wrapper */
 .page-wrapper {
-  background-color: #0B0B0F;
+  background-color: #080810;
 }
 
 @media (prefers-color-scheme: light) {

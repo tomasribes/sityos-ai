@@ -16,6 +16,7 @@ global-styling:
     - core/once
     - sityos_automate_olivero/google-fonts
     - sityos_automate_olivero/color-mode
+    - sityos_automate_olivero/scroll-reveal
 
 color-mode:
   version: VERSION
@@ -46,6 +47,22 @@ cta-central:
   css:
     component:
       components/cta-central/cta-central.css: {}
+  dependencies:
+    - core/drupal
+
+scroll-reveal:
+  version: VERSION
+  js:
+    js/scroll-reveal.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+footer:
+  version: VERSION
+  css:
+    component:
+      components/footer/footer.css: {}
   dependencies:
     - core/drupal
 

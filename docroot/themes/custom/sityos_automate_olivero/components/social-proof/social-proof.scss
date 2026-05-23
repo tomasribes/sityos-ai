@@ -34,8 +34,10 @@
 }
 
 .sao-social-proof__intro {
-  font-size: var(--sao-type-label);   // was --sao-font-size-sm (orphaned token)
+  font-size: var(--sao-type-label);
   color: var(--sao-text-secondary);
+  padding-left: var(--sao-space-3);
+  border-left: 2px solid var(--gold-line);
 }
 
 .sao-social-proof__logos {

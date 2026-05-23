@@ -322,11 +322,11 @@ display:
           style: flexbox
           skin: classic
           overridables:
-            arrows: arrows
-            autoplay: '0'
-            dots: '0'
+            autoplay: autoplay
+            dots: dots
+            infinite: infinite
+            arrows: '0'
             draggable: '0'
-            infinite: '0'
             mouseWheel: '0'
             randomize: '0'
             variableWidth: '0'
@@ -336,7 +336,7 @@ display:
           thumbnail_caption: ''
           thumbnail_effect: ''
           thumbnail_position: ''
-          override: false
+          override: true
           preserve_keys: false
           visible_items: null
       row:

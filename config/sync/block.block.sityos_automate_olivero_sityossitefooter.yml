@@ -1,0 +1,20 @@
+uuid: deb37eb3-1bf2-45c7-bfa5-c2bc5ab4cd51
+langcode: en
+status: true
+dependencies:
+  module:
+    - sityos_base
+  theme:
+    - sityos_automate_olivero
+id: sityos_automate_olivero_sityossitefooter
+theme: sityos_automate_olivero
+region: footer_top
+weight: -8
+provider: null
+plugin: sityos_footer
+settings:
+  id: sityos_footer
+  label: 'Sityos: Site Footer'
+  label_display: '0'
+  provider: sityos_base
+visibility: {  }

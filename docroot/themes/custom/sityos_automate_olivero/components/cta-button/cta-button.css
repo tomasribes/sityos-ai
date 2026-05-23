@@ -25,7 +25,7 @@
   transform: translateY(0) scale(0.98);
 }
 .sao-cta:focus-visible {
-  outline: 2px solid var(--gold-border);
+  outline: 2px solid var(--sao-accent-interactive);
   outline-offset: 3px;
 }
 
@@ -59,17 +59,27 @@
   box-shadow: var(--sao-shadow-sm);
 }
 .sao-cta--primary:hover {
-  box-shadow: 0 0 24px rgba(201, 162, 39, 0.35);
+  box-shadow: var(--sao-shadow-glow), 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .sao-cta--secondary {
   background: transparent;
-  color: var(--sao-accent);
-  border: 1.5px solid var(--sao-accent);
+  color: var(--sao-accent-interactive);
+  border: 1.5px solid var(--sao-accent-interactive);
 }
 .sao-cta--secondary:hover {
-  background: var(--sao-bg-hover);
-  box-shadow: 0 0 20px rgba(201, 162, 39, 0.2);
+  background: var(--blue-pale);
+  box-shadow: 0 0 20px rgba(63, 126, 255, 0.25);
+}
+
+.sao-cta--blue {
+  background: var(--blue);
+  color: #ffffff;
+  box-shadow: var(--sao-shadow-sm);
+}
+.sao-cta--blue:hover {
+  box-shadow: var(--sao-shadow-glow-blue);
+  transform: translateY(-1px);
 }
 
 .sao-cta--ghost {

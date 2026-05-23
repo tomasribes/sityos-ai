@@ -134,6 +134,13 @@ function sityos_automate_olivero_preprocess_block__sityos_cta_central(array &$va
 }
 
 /**
+ * Implements hook_preprocess_block__sityos_footer().
+ */
+function sityos_automate_olivero_preprocess_block__sityos_footer(array &$variables): void {
+  $variables['#attached']['library'][] = 'sityos_automate_olivero/footer';
+}
+
+/**
  * Implements hook_preprocess_page().
  */
 function sityos_automate_olivero_preprocess_page(array &$variables): void {
