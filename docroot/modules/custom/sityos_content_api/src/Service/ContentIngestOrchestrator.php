@@ -115,7 +115,7 @@ final class ContentIngestOrchestrator {
       $content = $payload->content[$lang] ?? NULL;
       if ($content !== NULL) {
         $prefixes = [
-          IngestPayload::TYPE_ARTICLE => ['en' => '/tutorials/', 'es' => '/tutoriales/', 'ca' => '/tutorials/'],
+          IngestPayload::TYPE_TUTORIAL => ['en' => '/tutorials/', 'es' => '/tutoriales/', 'ca' => '/tutorials/'],
           IngestPayload::TYPE_USE_CASE => ['en' => '/use-cases/', 'es' => '/casos-de-uso/', 'ca' => '/casos-uso/'],
         ];
         $prefix = $prefixes[$payload->contentType][$lang] ?? '/node/';
