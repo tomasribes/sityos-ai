@@ -62,10 +62,10 @@ final class InputValidator {
       $errors[] = ['field' => 'document', 'message' => 'document must be omitted for content_type "use_case"'];
     }
 
-    if ($payload->contentType === IngestPayload::TYPE_ARTICLE
+    if ($payload->contentType === IngestPayload::TYPE_TUTORIAL
       && $payload->mode === IngestPayload::MODE_FULL
       && $payload->document === NULL) {
-      $errors[] = ['field' => 'document', 'message' => 'document is required for content_type "article" in mode "full"'];
+      $errors[] = ['field' => 'document', 'message' => 'document is required for content_type "tutorial" in mode "full"'];
     }
 
     return $errors;
