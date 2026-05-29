@@ -1426,28 +1426,28 @@ main {
     -moz-column-gap: var(--s-6);
          column-gap: var(--s-6);
   }
-  .path-frontpage .region--content > .block:not(.block-views-blockarticles-latest-tutorials):not(.block-views-blockuse-cases-latest-usecases) {
+  .path-frontpage .region--content > .block:not(.block-views-blocktutorials-latest-tutorials):not(.block-views-blockuse-cases-latest-usecases) {
     grid-column: 1/-1;
   }
-  .path-frontpage .region--content > .block-views-blockarticles-latest-tutorials,
+  .path-frontpage .region--content > .block-views-blocktutorials-latest-tutorials,
   .path-frontpage .region--content > .block-views-blockuse-cases-latest-usecases {
     grid-column: auto !important;
     min-width: 0;
   }
 }
 
-.path-frontpage .region--content > .block-views-blockarticles-latest-tutorials,
+.path-frontpage .region--content > .block-views-blocktutorials-latest-tutorials,
 .path-frontpage .region--content > .block-views-blockuse-cases-latest-usecases {
   grid-column: 1/-1;
 }
 @media (min-width: 584px) {
-  .path-frontpage .region--content > .block-views-blockarticles-latest-tutorials,
+  .path-frontpage .region--content > .block-views-blocktutorials-latest-tutorials,
   .path-frontpage .region--content > .block-views-blockuse-cases-latest-usecases {
     grid-column: auto !important;
   }
 }
 
-.path-frontpage .block-views-blockarticles-latest-tutorials,
+.path-frontpage .block-views-blocktutorials-latest-tutorials,
 .path-frontpage .block-views-blockuse-cases-latest-usecases {
   position: relative;
   min-width: 0;
@@ -1457,7 +1457,7 @@ main {
   padding: var(--s-6);
   overflow: hidden;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials::before,
+.path-frontpage .block-views-blocktutorials-latest-tutorials::before,
 .path-frontpage .block-views-blockuse-cases-latest-usecases::before {
   content: "";
   position: absolute;
@@ -1467,16 +1467,16 @@ main {
   background: linear-gradient(90deg, var(--sao-accent), transparent);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials,
+.path-frontpage .block-views-blocktutorials-latest-tutorials,
 .path-frontpage .block-views-blockuse-cases-latest-usecases {
   transition: box-shadow 180ms cubic-bezier(0.4, 0, 0.2, 1), border-color 180ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials:hover,
+.path-frontpage .block-views-blocktutorials-latest-tutorials:hover,
 .path-frontpage .block-views-blockuse-cases-latest-usecases:hover {
   border-color: var(--gold-line);
   box-shadow: var(--sao-shadow-md), var(--sao-shadow-glow);
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .block__title,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .block__title,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .block__title {
   position: relative;
   font-size: var(--sao-type-title);
@@ -1490,7 +1490,7 @@ main {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .block__title::before,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .block__title::before,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .block__title::before {
   content: "";
   position: absolute;
@@ -1500,36 +1500,36 @@ main {
   background: var(--sao-accent);
   border-radius: var(--radius-sm);
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .block__content,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .block__content,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .block__content {
   min-width: 0;
   overflow: visible;
 }
 
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick-track,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick-track,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick-track {
   display: flex;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick-slide,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick-slide,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick-slide {
   float: none !important;
   height: auto !important;
   display: flex !important;
   flex-direction: column;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick-slide > div,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick-slide > div,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick-slide > div {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials [class^=slide--],
+.path-frontpage .block-views-blocktutorials-latest-tutorials [class^=slide--],
 .path-frontpage .block-views-blockuse-cases-latest-usecases [class^=slide--] {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .node--view-mode-slick-carousel,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .node--view-mode-slick-carousel,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .node--view-mode-slick-carousel {
   flex: 1;
   display: flex;
@@ -1537,26 +1537,26 @@ main {
   gap: var(--s-3);
   padding-block-end: var(--s-4);
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .node--view-mode-slick-carousel .node__content,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .node--view-mode-slick-carousel .node__content,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .node--view-mode-slick-carousel .node__content {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: var(--s-3);
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .node--view-mode-slick-carousel .field--name-field-media-image,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .node--view-mode-slick-carousel .field--name-field-media-image,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .node--view-mode-slick-carousel .field--name-field-media-image {
   flex-shrink: 0;
   border-radius: var(--sao-radius-md);
   overflow: hidden;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .node--view-mode-slick-carousel .field--name-field-media-image img,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .node--view-mode-slick-carousel .field--name-field-media-image img,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .node--view-mode-slick-carousel .field--name-field-media-image img {
   width: 100%;
   height: auto;
   display: block;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .node--view-mode-slick-carousel .node__title,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .node--view-mode-slick-carousel .node__title,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .node--view-mode-slick-carousel .node__title {
   font-size: var(--sao-type-headline);
   font-weight: 700;
@@ -1568,16 +1568,16 @@ main {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .node--view-mode-slick-carousel .node__title a,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .node--view-mode-slick-carousel .node__title a,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .node--view-mode-slick-carousel .node__title a {
   color: inherit;
   text-decoration: none;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .node--view-mode-slick-carousel .node__title a:hover,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .node--view-mode-slick-carousel .node__title a:hover,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .node--view-mode-slick-carousel .node__title a:hover {
   color: var(--sao-accent);
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .node--view-mode-slick-carousel .field--name-body,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .node--view-mode-slick-carousel .field--name-body,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .node--view-mode-slick-carousel .field--name-body {
   margin-top: auto;
   font-size: var(--sao-type-body);
@@ -1588,11 +1588,11 @@ main {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick-dotted.slick-slider,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick-dotted.slick-slider,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick-dotted.slick-slider {
   margin-bottom: 0;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick-dots,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick-dots,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick-dots {
   position: relative !important;
   bottom: auto !important;
@@ -1605,14 +1605,14 @@ main {
   list-style: none;
   width: 100%;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick-dots li,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick-dots li,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick-dots li {
   width: auto;
   height: auto;
   margin: 0;
   padding: var(--s-2) 0;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick-dots li button,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick-dots li button,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick-dots li button {
   display: block;
   width: 20px;
@@ -1627,27 +1627,27 @@ main {
   cursor: pointer;
   transition: width var(--dur-base) var(--ease-standard), background-color var(--dur-base) var(--ease-standard);
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick-dots li button::before,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick-dots li button::before,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick-dots li button::before {
   display: none;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick-dots li button:hover,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick-dots li button:hover,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick-dots li button:hover {
   background: var(--gold-border);
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick-dots li button:focus-visible,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick-dots li button:focus-visible,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick-dots li button:focus-visible {
   outline: 2px solid var(--sao-accent);
   outline-offset: 4px;
   border-radius: var(--radius-sm);
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick-dots li.slick-active button,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick-dots li.slick-active button,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick-dots li.slick-active button {
   width: 36px;
   background: var(--sao-accent);
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick__arrow .slick-prev,
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick__arrow .slick-next,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick__arrow .slick-prev,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick__arrow .slick-next,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick__arrow .slick-prev,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick__arrow .slick-next {
   z-index: 2;
@@ -1661,26 +1661,26 @@ main {
   border: 1px solid var(--gold-line);
   transition: background var(--dur-fast) var(--ease-standard), border-color var(--dur-fast) var(--ease-standard);
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick__arrow .slick-prev:hover,
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick__arrow .slick-next:hover,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick__arrow .slick-prev:hover,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick__arrow .slick-next:hover,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick__arrow .slick-prev:hover,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick__arrow .slick-next:hover {
   background: rgba(8, 8, 16, 0.92);
   border-color: var(--gold-border);
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick__arrow .slick-prev::before,
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick__arrow .slick-next::before,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick__arrow .slick-prev::before,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick__arrow .slick-next::before,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick__arrow .slick-prev::before,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick__arrow .slick-next::before {
   color: var(--sao-accent);
   opacity: 1;
   font-size: 14px;
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick__arrow .slick-prev,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick__arrow .slick-prev,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick__arrow .slick-prev {
   left: var(--s-3);
 }
-.path-frontpage .block-views-blockarticles-latest-tutorials .slick__arrow .slick-next,
+.path-frontpage .block-views-blocktutorials-latest-tutorials .slick__arrow .slick-next,
 .path-frontpage .block-views-blockuse-cases-latest-usecases .slick__arrow .slick-next {
   right: var(--s-3);
 }

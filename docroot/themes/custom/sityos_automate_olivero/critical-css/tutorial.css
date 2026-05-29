@@ -1,8 +1,9 @@
-/* === sityos_automate_olivero: tutorial.css
- * Critical CSS for Tutorial nodes (full view mode).
- * SITYOS AI Brand System v1.0 — dark-first, Sora.
- * Tutorial badge REMAINS green (semantic content-type identifier, never gold).
+/* === sityos_automate_olivero: article.css
+ * Critical CSS for Article nodes (full view mode).
+ * SITYOS AI Brand System v1.0 — dark-first, Sora, gold tag pills.
+ * Article badge REMAINS purple (semantic content-type identifier, never gold).
  */
+
 
 .node__header {
   margin-bottom: 2rem;
@@ -37,11 +38,42 @@
   margin-bottom: 0;
 }
 
-/* Tutorial badge — green (semantic identifier, intentionally NOT gold) */
-.node__type-badge--tutorial {
-  background: rgba(16, 185, 129, 0.12);
-  color: #10b981;
-  border: 1px solid rgba(16, 185, 129, 0.2);
+/* Article badge — purple (semantic identifier, intentionally NOT gold) */
+.node__type-badge--article {
+  background: rgba(124, 58, 237, 0.12);
+  color: #7c3aed;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+/* Tag pills — gold (Brand System accent, replacing blue) */
+.node__header-tags .field--name-field-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.node__header-tags .field--name-field-tags a {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  background: rgba(201, 162, 39, 0.10);
+  color: #C9A227;
+  border: 1px solid rgba(201, 162, 39, 0.22);
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-color-mode]) .node__header-tags .field--name-field-tags a {
+    color: #9B7A1A;
+  }
+}
+
+[data-color-mode="light"] .node__header-tags .field--name-field-tags a {
+  color: #9B7A1A;
 }
 
 .node__title {
@@ -93,3 +125,4 @@
   from { transform: scaleX(0); }
   to   { transform: scaleX(1); }
 }
+

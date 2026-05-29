@@ -10,7 +10,7 @@ final class IngestPayload {
   public const MODE_TAGS_ONLY = 'tags-only';
   public const MODE_UPDATE = 'update';
 
-  public const TYPE_ARTICLE = 'article';
+  public const TYPE_TUTORIAL = 'tutorial';
   public const TYPE_USE_CASE = 'use_case';
 
   public const SUPPORTED_LANGS = ['en', 'es', 'ca'];

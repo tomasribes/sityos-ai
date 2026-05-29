@@ -14,7 +14,7 @@ use Psr\Log\LoggerInterface;
 final class NodeContentCreator {
 
   private const PATH_PREFIXES = [
-    IngestPayload::TYPE_ARTICLE => ['en' => '/tutorials/', 'es' => '/tutoriales/', 'ca' => '/tutorials/'],
+    IngestPayload::TYPE_TUTORIAL => ['en' => '/tutorials/', 'es' => '/tutoriales/', 'ca' => '/tutorials/'],
     IngestPayload::TYPE_USE_CASE => ['en' => '/use-cases/', 'es' => '/casos-de-uso/', 'ca' => '/casos-uso/'],
   ];
 
@@ -107,7 +107,7 @@ final class NodeContentCreator {
       'field_meta_tags' => $this->buildMetatagsField($content),
     ];
 
-    if ($contentType === IngestPayload::TYPE_ARTICLE && $mediaId !== NULL) {
+    if ($contentType === IngestPayload::TYPE_TUTORIAL && $mediaId !== NULL) {
       $data['field_media_document'] = ['target_id' => $mediaId];
     }
 

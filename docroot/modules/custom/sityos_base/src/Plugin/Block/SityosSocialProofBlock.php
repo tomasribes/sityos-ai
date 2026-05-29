@@ -23,11 +23,7 @@ final class SityosSocialProofBlock extends BlockBase {
       '#props' => [
         'intro_text' => $this->t('Trusted by professionals at'),
         'logos' => [],
-        'metrics' => [
-          ['value' => '50+', 'label' => $this->t('Tutorials Published')],
-          ['value' => '10K+', 'label' => $this->t('Monthly Readers')],
-          ['value' => '30+', 'label' => $this->t('Use Cases')],
-        ],
+        'metrics' => [],
       ],
       '#cache' => [
         'contexts' => ['languages:language_interface'],

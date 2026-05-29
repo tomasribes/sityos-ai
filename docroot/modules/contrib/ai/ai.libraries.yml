@@ -77,3 +77,12 @@ ai_settings_form:
   css:
     component:
       assets/css/ai_settings_form.css: {}
+
+default_tools_editor:
+  js:
+    ui/default-tools-editor/dist/assets/main.js:
+      attributes: { type: module }
+      minified: true
+  css:
+    component:
+      ui/default-tools-editor/dist/assets/index.css: {}

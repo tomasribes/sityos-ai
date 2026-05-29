@@ -52,7 +52,7 @@ final class InputValidator {
 
   private function validateContentType(IngestPayload $payload): array {
     $errors = [];
-    $valid = [IngestPayload::TYPE_ARTICLE, IngestPayload::TYPE_USE_CASE];
+    $valid = [IngestPayload::TYPE_TUTORIAL, IngestPayload::TYPE_USE_CASE];
 
     if (!in_array($payload->contentType, $valid, TRUE)) {
       $errors[] = ['field' => 'content_type', 'message' => sprintf('Invalid content_type "%s". Must be one of: %s', $payload->contentType, implode(', ', $valid))];

@@ -8,6 +8,149 @@
 declare(strict_types=1);
 
 /**
+ * Renames content type 'article' → 'tutorial' in active config and all node data tables.
+ *
+ * Runs automatically via drush updb BEFORE drush cim so that:
+ *   1. Active config matches the renamed config/sync files (cim sees no diff).
+ *   2. Node data tables have type/bundle='tutorial' before any CT deletion logic runs.
+ *
+ * Safe to run on a site that was already migrated locally (all UPDATE WHERE conditions
+ * are no-ops when the data is already correct).
+ */
+function sityos_base_update_10002(): void {
+  $db = \Drupal::database();
+  $config_storage = \Drupal::service('config.storage');
+
+  // -----------------------------------------------------------------------
+  // 1. Rename active config storage entries.
+  // -----------------------------------------------------------------------
+  $renames = [];
+
+  // Node type.
+  $renames['node.type.article'] = 'node.type.tutorial';
+
+  // Field instances.
+  foreach (['body', 'comment', 'field_media_document', 'field_media_image', 'field_meta_tags', 'field_subtitle', 'field_tags'] as $field) {
+    $renames["field.field.node.article.{$field}"] = "field.field.node.tutorial.{$field}";
+  }
+
+  // Entity view / form displays.
+  foreach (['default', 'full', 'rss', 'slick_carousel', 'teaser'] as $mode) {
+    $renames["core.entity_view_display.node.article.{$mode}"] = "core.entity_view_display.node.tutorial.{$mode}";
+  }
+  $renames['core.entity_form_display.node.article.default'] = 'core.entity_form_display.node.tutorial.default';
+
+  // Base field overrides.
+  foreach (['changed', 'created', 'menu_link', 'metatag', 'path', 'promote', 'status', 'sticky', 'uid'] as $field) {
+    $renames["core.base_field_override.node.article.{$field}"] = "core.base_field_override.node.tutorial.{$field}";
+  }
+
+  // Ancillary configs.
+  $renames['language.content_settings.node.article'] = 'language.content_settings.node.tutorial';
+  $renames['pathauto.pattern.articles_en']           = 'pathauto.pattern.tutorials_en';
+  $renames['pathauto.pattern.article_es']            = 'pathauto.pattern.tutorials_es';
+  $renames['xmlsitemap.settings.node.article']       = 'xmlsitemap.settings.node.tutorial';
+  $renames['captcha.captcha_point.node_article_form']= 'captcha.captcha_point.node_tutorial_form';
+  $renames['views.view.articles']                    = 'views.view.tutorials';
+
+  foreach ($renames as $old => $new) {
+    $data = $config_storage->read($old);
+    if ($data === FALSE) {
+      // Already renamed on this environment — skip.
+      continue;
+    }
+    // Replace 'article' string values recursively inside the config data.
+    $new_data = _sityos_base_replace_article_in_data($data);
+    $config_storage->write($new, $new_data);
+    $config_storage->delete($old);
+  }
+
+  // Configs that reference 'article' internally but keep their own machine name.
+  $ref_only = [
+    'user.role.content_editor',
+    'block.block.sityos_automate_olivero_views_block__articles_latest_tutorials',
+  ];
+  foreach ($ref_only as $name) {
+    $data = $config_storage->read($name);
+    if ($data !== FALSE) {
+      $new_data = _sityos_base_replace_article_in_data($data);
+      if ($new_data !== $data) {
+        $config_storage->write($name, $new_data);
+      }
+    }
+  }
+
+  // -----------------------------------------------------------------------
+  // 2. Migrate node data tables: type/bundle 'article' → 'tutorial'.
+  // -----------------------------------------------------------------------
+
+  // Core node tables.
+  foreach (['node', 'node_field_data'] as $table) {
+    if ($db->schema()->tableExists($table)) {
+      $db->update($table)
+        ->fields(['type' => 'tutorial'])
+        ->condition('type', 'article')
+        ->execute();
+    }
+  }
+
+  // Field data tables (bundle column).
+  $field_tables = [
+    'node__body',
+    'node__comment',
+    'node__field_components',
+    'node__field_media_document',
+    'node__field_media_image',
+    'node__field_meta_tags',
+    'node__field_subtitle',
+    'node__field_tags',
+    'node_revision__body',
+    'node_revision__comment',
+    'node_revision__field_components',
+    'node_revision__field_media_document',
+    'node_revision__field_media_image',
+    'node_revision__field_meta_tags',
+    'node_revision__field_subtitle',
+    'node_revision__field_tags',
+  ];
+
+  foreach ($field_tables as $table) {
+    if ($db->schema()->tableExists($table)) {
+      $db->update($table)
+        ->fields(['bundle' => 'tutorial'])
+        ->condition('bundle', 'article')
+        ->execute();
+    }
+  }
+
+  // Clear entity caches so the CT rename is visible immediately.
+  \Drupal::entityTypeManager()->clearCachedDefinitions();
+}
+
+/**
+ * Helper: recursively replaces the string 'article' with 'tutorial' in config data.
+ *
+ * Only touches string values and string-keyed array keys that contain the word
+ * 'article' — safe for config arrays that may also contain unrelated strings.
+ *
+ * @internal Used only by sityos_base_update_10002().
+ */
+function _sityos_base_replace_article_in_data(mixed $data): mixed {
+  if (is_string($data)) {
+    return str_replace('article', 'tutorial', $data);
+  }
+  if (is_array($data)) {
+    $out = [];
+    foreach ($data as $k => $v) {
+      $new_k = is_string($k) ? str_replace('article', 'tutorial', $k) : $k;
+      $out[$new_k] = _sityos_base_replace_article_in_data($v);
+    }
+    return $out;
+  }
+  return $data;
+}
+
+/**
  * Adds sityos_base.settings.tagcloud with default 'canvas' rendering mode.
  */
 function sityos_base_update_10001(): void {

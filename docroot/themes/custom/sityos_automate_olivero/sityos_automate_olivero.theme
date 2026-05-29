@@ -86,7 +86,6 @@ function sityos_automate_olivero_preprocess_html(array &$variables): void {
     ];
 
     // Schema JSON-LD — Organization + WebSite.
-    // [DATO PLACEHOLDER] sameAs: replace [] with real social URLs before launch.
     $schema = [
       '@context' => 'https://schema.org',
       '@graph' => [

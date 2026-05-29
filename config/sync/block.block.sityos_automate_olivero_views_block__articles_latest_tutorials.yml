@@ -3,20 +3,20 @@ langcode: en
 status: true
 dependencies:
   config:
-    - views.view.articles
+    - views.view.tutorials
   module:
     - system
     - views
   theme:
     - sityos_automate_olivero
-id: sityos_automate_olivero_views_block__articles_latest_tutorials
+id: sityos_automate_olivero_views_block__tutorials_latest_tutorials
 theme: sityos_automate_olivero
 region: content
 weight: -6
 provider: null
-plugin: 'views_block:articles-latest_tutorials'
+plugin: 'views_block:tutorials-latest_tutorials'
 settings:
-  id: 'views_block:articles-latest_tutorials'
+  id: 'views_block:tutorials-latest_tutorials'
   label: ''
   label_display: visible
   provider: views
