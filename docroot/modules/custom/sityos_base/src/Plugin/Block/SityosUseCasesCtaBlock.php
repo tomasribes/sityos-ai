@@ -27,7 +27,7 @@ final class SityosUseCasesCtaBlock extends BlockBase {
         '#type' => 'link',
         '#title' => $this->t('View All Use Cases →'),
         '#url' => Url::fromUserInput('/use-cases', ['language' => $language]),
-        '#attributes' => ['class' => ['sao-btn', 'sao-btn--secondary']],
+        '#attributes' => ['class' => ['sao-cta', 'sao-cta--ghost', 'sao-cta--md']],
       ],
       '#cache' => [
         'contexts' => ['languages:language_interface'],

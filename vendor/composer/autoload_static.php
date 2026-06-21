@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68
+class ComposerStaticInit4c7b989f44edd43e83b380f8d818e5b2
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -3623,6 +3623,7 @@ class ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68
         'GuzzleHttp\\Psr7\\Query' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Query.php',
         'GuzzleHttp\\Psr7\\Request' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Request.php',
         'GuzzleHttp\\Psr7\\Response' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Response.php',
+        'GuzzleHttp\\Psr7\\Rfc3986' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Rfc3986.php',
         'GuzzleHttp\\Psr7\\Rfc7230' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Rfc7230.php',
         'GuzzleHttp\\Psr7\\ServerRequest' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/ServerRequest.php',
         'GuzzleHttp\\Psr7\\Stream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Stream.php',
@@ -3832,7 +3833,9 @@ class ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68
         'OomphInc\\ComposerInstallersExtender\\Installers\\Installer' => __DIR__ . '/..' . '/oomphinc/composer-installers-extender/src/Installers/Installer.php',
         'OomphInc\\ComposerInstallersExtender\\Plugin' => __DIR__ . '/..' . '/oomphinc/composer-installers-extender/src/Plugin.php',
         'OpenAI\\Actions\\Conversations\\ItemObjects' => __DIR__ . '/..' . '/openai-php/client/src/Actions/Conversations/ItemObjects.php',
+        'OpenAI\\Actions\\Responses\\CustomToolInputObjects' => __DIR__ . '/..' . '/openai-php/client/src/Actions/Responses/CustomToolInputObjects.php',
         'OpenAI\\Actions\\Responses\\ItemObjects' => __DIR__ . '/..' . '/openai-php/client/src/Actions/Responses/ItemObjects.php',
+        'OpenAI\\Actions\\Responses\\NamespaceToolObjects' => __DIR__ . '/..' . '/openai-php/client/src/Actions/Responses/NamespaceToolObjects.php',
         'OpenAI\\Actions\\Responses\\OutputObjects' => __DIR__ . '/..' . '/openai-php/client/src/Actions/Responses/OutputObjects.php',
         'OpenAI\\Actions\\Responses\\OutputText' => __DIR__ . '/..' . '/openai-php/client/src/Actions/Responses/OutputText.php',
         'OpenAI\\Actions\\Responses\\ToolChoiceObjects' => __DIR__ . '/..' . '/openai-php/client/src/Actions/Responses/ToolChoiceObjects.php',
@@ -4080,6 +4083,7 @@ class ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68
         'OpenAI\\Responses\\Responses\\Output\\ComputerAction\\OutputComputerDragPath' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/ComputerAction/OutputComputerDragPath.php',
         'OpenAI\\Responses\\Responses\\Output\\ComputerAction\\OutputComputerPendingSafetyCheck' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/ComputerAction/OutputComputerPendingSafetyCheck.php',
         'OpenAI\\Responses\\Responses\\Output\\OutputCodeInterpreterToolCall' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/OutputCodeInterpreterToolCall.php',
+        'OpenAI\\Responses\\Responses\\Output\\OutputCompaction' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/OutputCompaction.php',
         'OpenAI\\Responses\\Responses\\Output\\OutputComputerToolCall' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/OutputComputerToolCall.php',
         'OpenAI\\Responses\\Responses\\Output\\OutputCustomToolCall' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/OutputCustomToolCall.php',
         'OpenAI\\Responses\\Responses\\Output\\OutputFileSearchToolCall' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/OutputFileSearchToolCall.php',
@@ -4101,6 +4105,8 @@ class ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68
         'OpenAI\\Responses\\Responses\\Output\\OutputMessageContentRefusal' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/OutputMessageContentRefusal.php',
         'OpenAI\\Responses\\Responses\\Output\\OutputReasoning' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/OutputReasoning.php',
         'OpenAI\\Responses\\Responses\\Output\\OutputReasoningSummary' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/OutputReasoningSummary.php',
+        'OpenAI\\Responses\\Responses\\Output\\OutputToolSearchCall' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/OutputToolSearchCall.php',
+        'OpenAI\\Responses\\Responses\\Output\\OutputToolSearchOutput' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/OutputToolSearchOutput.php',
         'OpenAI\\Responses\\Responses\\Output\\OutputWebSearchToolCall' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/OutputWebSearchToolCall.php',
         'OpenAI\\Responses\\Responses\\Output\\WebSearch\\OutputWebSearchAction' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/WebSearch/OutputWebSearchAction.php',
         'OpenAI\\Responses\\Responses\\Output\\WebSearch\\OutputWebSearchActionSources' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Output/WebSearch/OutputWebSearchActionSources.php',
@@ -4140,6 +4146,9 @@ class ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68
         'OpenAI\\Responses\\Responses\\Tool\\CodeInterpreterContainerAuto' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/CodeInterpreterContainerAuto.php',
         'OpenAI\\Responses\\Responses\\Tool\\CodeInterpreterTool' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/CodeInterpreterTool.php',
         'OpenAI\\Responses\\Responses\\Tool\\ComputerUseTool' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/ComputerUseTool.php',
+        'OpenAI\\Responses\\Responses\\Tool\\CustomTool' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/CustomTool.php',
+        'OpenAI\\Responses\\Responses\\Tool\\CustomToolInputs\\GrammarInput' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/CustomToolInputs/GrammarInput.php',
+        'OpenAI\\Responses\\Responses\\Tool\\CustomToolInputs\\TextInput' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/CustomToolInputs/TextInput.php',
         'OpenAI\\Responses\\Responses\\Tool\\FileSearchComparisonFilter' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/FileSearchComparisonFilter.php',
         'OpenAI\\Responses\\Responses\\Tool\\FileSearchCompoundFilter' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/FileSearchCompoundFilter.php',
         'OpenAI\\Responses\\Responses\\Tool\\FileSearchRankingOption' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/FileSearchRankingOption.php',
@@ -4148,7 +4157,11 @@ class ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68
         'OpenAI\\Responses\\Responses\\Tool\\ImageGenerationInputImageMask' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/ImageGenerationInputImageMask.php',
         'OpenAI\\Responses\\Responses\\Tool\\ImageGenerationTool' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/ImageGenerationTool.php',
         'OpenAI\\Responses\\Responses\\Tool\\McpToolNamesFilter' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/McpToolNamesFilter.php',
+        'OpenAI\\Responses\\Responses\\Tool\\NamespaceTool' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/NamespaceTool.php',
+        'OpenAI\\Responses\\Responses\\Tool\\NamespaceTools\\CustomTool' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/NamespaceTools/CustomTool.php',
+        'OpenAI\\Responses\\Responses\\Tool\\NamespaceTools\\FunctionTool' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/NamespaceTools/FunctionTool.php',
         'OpenAI\\Responses\\Responses\\Tool\\RemoteMcpTool' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/RemoteMcpTool.php',
+        'OpenAI\\Responses\\Responses\\Tool\\ToolSearchTool' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/ToolSearchTool.php',
         'OpenAI\\Responses\\Responses\\Tool\\WebSearchTool' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/WebSearchTool.php',
         'OpenAI\\Responses\\Responses\\Tool\\WebSearchUserLocation' => __DIR__ . '/..' . '/openai-php/client/src/Responses/Responses/Tool/WebSearchUserLocation.php',
         'OpenAI\\Responses\\StreamResponse' => __DIR__ . '/..' . '/openai-php/client/src/Responses/StreamResponse.php',
@@ -7289,10 +7302,10 @@ class ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit64d6b798759e7fb15d32ffdff06f7f68::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit4c7b989f44edd43e83b380f8d818e5b2::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit4c7b989f44edd43e83b380f8d818e5b2::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit4c7b989f44edd43e83b380f8d818e5b2::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit4c7b989f44edd43e83b380f8d818e5b2::$classMap;
 
         }, null, ClassLoader::class);
     }

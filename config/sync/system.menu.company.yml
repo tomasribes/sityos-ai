@@ -1,0 +1,8 @@
+uuid: 91a55836-28dd-4fc0-9477-c587439c1cba
+langcode: en
+status: true
+dependencies: {  }
+id: company
+label: Company
+description: 'Company footer links'
+locked: false

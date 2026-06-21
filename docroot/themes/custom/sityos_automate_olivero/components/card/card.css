@@ -9,15 +9,15 @@
   height: 100%;
   background: var(--sao-bg-elevated);
   border: 1px solid var(--sao-bg-border);
-  border-radius: var(--sao-radius-lg);
+  border-radius: var(--sao-radius-xl);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
   transition: transform var(--sao-duration-base) var(--sao-easing-spring), box-shadow var(--sao-duration-base) var(--sao-easing-standard), border-color var(--sao-duration-base) var(--sao-easing-standard);
 }
 .sao-card__link:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--sao-shadow-lg), 0 0 0 1px var(--sao-bg-border);
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: var(--sao-shadow-glow-strong), var(--sao-shadow-lg);
   border-color: var(--gold-border);
 }
 .sao-card__link:focus-visible {
@@ -29,6 +29,7 @@
   position: relative;
   overflow: hidden;
   aspect-ratio: 16/10;
+  background: var(--sao-bg-surface);
 }
 .sao-card__media img {
   width: 100%;
@@ -40,14 +41,14 @@
 }
 
 .sao-card__link:hover .sao-card__media img {
-  transform: scale(1.04);
+  transform: scale(1.06);
 }
 
 .sao-card__body {
   display: flex;
   flex-direction: column;
   gap: var(--sao-space-3);
-  padding: var(--sao-space-6);
+  padding: var(--sao-space-8);
   flex: 1;
 }
 
@@ -94,7 +95,7 @@
 
 .sao-card__title {
   font-family: var(--font-sans);
-  font-size: var(--sao-type-title);
+  font-size: var(--sao-type-headline);
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.3;
@@ -141,10 +142,18 @@
   aspect-ratio: 16/8;
 }
 .sao-card--featured .sao-card__title {
-  font-size: var(--sao-type-headline);
+  font-size: var(--sao-type-display);
 }
 .sao-card--featured .sao-card__body {
-  padding: var(--sao-space-8);
+  padding: var(--sao-space-10);
+}
+.sao-card--featured .sao-card__link {
+  box-shadow: var(--sao-shadow-glow), var(--sao-shadow-md);
+  border-color: var(--gold-line);
+}
+.sao-card--featured .sao-card__link:hover {
+  box-shadow: var(--sao-shadow-glow-strong), var(--sao-shadow-lg);
+  border-color: var(--gold-border);
 }
 
 @container card (min-width: 480px) {
@@ -172,6 +181,26 @@
   padding-top: var(--sao-space-8);
 }
 
+[data-color-mode=light] .sao-card__link {
+  background: #FFFFFF;
+  border-color: rgba(201, 162, 39, 0.18);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+[data-color-mode=light] .sao-card__link:hover {
+  box-shadow: var(--sao-shadow-glow-strong), 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-color-mode]) .sao-card__link {
+    background: #FFFFFF;
+    border-color: rgba(201, 162, 39, 0.18);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  }
+  :root:not([data-color-mode]) .sao-card__link:hover {
+    box-shadow: var(--sao-shadow-glow-strong), 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .sao-card__link {
     transition: none;

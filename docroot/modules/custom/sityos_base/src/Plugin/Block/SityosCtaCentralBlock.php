@@ -28,7 +28,7 @@ final class SityosCtaCentralBlock extends BlockBase {
       '#component' => 'sityos_automate_olivero:cta-central',
       '#props' => [
         'headline' => $this->t('Ready to Automate Your Workflow?'),
-        'body' => $this->t('Join professionals using Sityos Automate to work smarter. Get weekly tutorials, use cases, and automation insights — free.'),
+        'body' => $this->t('Join professionals using Sityos Automate to work smarter. Get weekly tutorials, use cases, and automation insights, free.'),
         'cta_primary_label' => $this->t('Subscribe Free →'),
         'cta_primary_url' => $subscribe_url,
         'cta_secondary_label' => $this->t('Explore Content First'),

@@ -8,8 +8,10 @@ display:
           submit_button: Aplicar
           reset_button_label: Esborrar
           exposed_sorts_label: 'Ordenar per'
-  page_1:
-    display_title: Pàgina
+  latest_usecases:
+    display_title: "Últims casos d'ús"
     display_options:
-      menu:
-        title: "Casos d'us"
+      footer:
+        display_link:
+          label: "Tots els casos d'ús"
+      block_description: "Últims casos d'ús"

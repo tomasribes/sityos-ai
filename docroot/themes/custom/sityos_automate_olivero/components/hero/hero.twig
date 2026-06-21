@@ -17,7 +17,7 @@
 <section
   class="sao-hero sao-hero--{{ variant }}"
   style="--hero-overlay-opacity: {{ overlay_opacity ?? 0.5 }}"
-  {% if not image_url %}aria-label="{{ headline|striptags }}"{% endif %}
+  aria-labelledby="sao-hero-headline"
 >
   {% if picture_sources is defined and picture_sources %}
     <div class="sao-hero__media-wrapper">
@@ -44,6 +44,8 @@
         alt="{{ image_alt ?? '' }}"
         loading="eager"
         fetchpriority="high"
+        width="{{ image_width ?? 1440 }}"
+        height="{{ image_height ?? 810 }}"
       />
     </div>
   {% else %}
@@ -57,7 +59,7 @@
       <span class="sao-hero__eyebrow">{{ eyebrow }}</span>
     {% endif %}
 
-    <h1 class="sao-hero__headline">{{ headline|raw }}</h1>
+    <h1 class="sao-hero__headline" id="sao-hero-headline">{{ headline|raw }}</h1>
 
     {% if subtitle %}
       <p class="sao-hero__subtitle">{{ subtitle }}</p>

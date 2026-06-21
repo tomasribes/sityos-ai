@@ -22,7 +22,7 @@ settings:
   cache:
     max_age: 0
     contexts: {  }
-  tags: '0'
+  tags: '50'
   vocabulary: tags
   sort_order: default
 visibility:
@@ -32,9 +32,9 @@ visibility:
     context_mapping:
       language: '@language.current_language_context:language_interface'
     langcodes:
-      en: en
       ca: ca
       es: es
+      en: en
   request_path:
     id: request_path
     negate: false

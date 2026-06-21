@@ -9,24 +9,15 @@
 {% set variant = variant ?? 'carousel' %}
 
 <section class="sao-testimonials sao-testimonials--{{ variant }}"
-  {% if variant == 'carousel' %}
-    role="region"
-    aria-label="{{ heading ?? 'Testimonials'|t }}"
-    aria-roledescription="{{ 'carousel'|t }}"
-  {% endif %}
+  {% if heading %}aria-labelledby="sao-testimonials-heading"{% endif %}
 >
   {% if heading %}
-    <h2 class="sao-testimonials__heading">{{ heading }}</h2>
+    <h2 class="sao-testimonials__heading" id="sao-testimonials-heading">{{ heading }}</h2>
   {% endif %}
 
   <div class="sao-testimonials__track" data-sao-reveal-stagger>
     {% for item in items %}
-      <div class="sao-testimonials__slide"
-        {% if variant == 'carousel' %}
-          role="group"
-          aria-label="{{ 'Testimonial %index of %total'|t({'%index': loop.index, '%total': items|length}) }}"
-        {% endif %}
-      >
+      <div class="sao-testimonials__slide">
         <blockquote class="sao-testimonials__card">
           <p class="sao-testimonials__quote">{{ item.quote }}</p>
 

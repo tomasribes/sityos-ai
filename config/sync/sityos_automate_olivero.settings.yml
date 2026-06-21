@@ -10,7 +10,8 @@ features:
   favicon: true
   node_user_picture: false
 logo:
-  use_default: true
+  path: /sites/default/files/logos/sityos-ai-dark-v2.svg
+  use_default: false
 base_primary_color: '#C9A227'
 color_mode_default: system
 mobile_menu_all_widths: 0

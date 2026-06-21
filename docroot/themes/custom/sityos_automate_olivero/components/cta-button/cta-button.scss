@@ -25,7 +25,7 @@
   }
 
   &:hover  { transform: translateY(-1px); }
-  &:active { transform: translateY(0) scale(0.98); }
+  &:active { transform: translateY(0) scale(0.97); }
 
   &:focus-visible {
     outline: 2px solid var(--sao-accent-interactive);
@@ -50,6 +50,7 @@
   font-size: var(--sao-type-body-lg);
   padding: 0.875rem 2rem;
   min-height: 3.25rem;
+  letter-spacing: 0.02em;
 }
 
 // Minimum 44px touch target on touch devices
@@ -88,7 +89,7 @@
 // Variant: blue (solid blue — alternative interactive CTA)
 .sao-cta--blue {
   background: var(--blue);
-  color: #ffffff;
+  color: var(--light);
   box-shadow: var(--sao-shadow-sm);
 
   &:hover {
@@ -132,7 +133,7 @@
     z-index: -1;
   }
 
-  &:hover { box-shadow: 0 0 24px rgba(201, 162, 39, 0.25); }
+  &:hover { box-shadow: var(--sao-shadow-glow); }
 }
 
 // Shimmer sweep (primary + gradient variants)
@@ -143,7 +144,7 @@
   background: linear-gradient(
     105deg,
     transparent 40%,
-    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.28) 50%,
     transparent 60%
   );
   transform: translateX(-100%);

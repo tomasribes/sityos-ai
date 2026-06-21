@@ -1,0 +1,8 @@
+uuid: 7efe79e2-1325-4b58-828b-f697b72b239b
+langcode: en
+status: true
+dependencies: {  }
+id: legal
+label: Legal
+description: 'Legal footer menu links'
+locked: false

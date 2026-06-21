@@ -22,7 +22,7 @@
   transform: translateY(-1px);
 }
 .sao-cta:active {
-  transform: translateY(0) scale(0.98);
+  transform: translateY(0) scale(0.97);
 }
 .sao-cta:focus-visible {
   outline: 2px solid var(--sao-accent-interactive);
@@ -45,6 +45,7 @@
   font-size: var(--sao-type-body-lg);
   padding: 0.875rem 2rem;
   min-height: 3.25rem;
+  letter-spacing: 0.02em;
 }
 
 @media (pointer: coarse) {
@@ -74,7 +75,7 @@
 
 .sao-cta--blue {
   background: var(--blue);
-  color: #ffffff;
+  color: var(--light);
   box-shadow: var(--sao-shadow-sm);
 }
 .sao-cta--blue:hover {
@@ -113,14 +114,14 @@
   z-index: -1;
 }
 .sao-cta--gradient:hover {
-  box-shadow: 0 0 24px rgba(201, 162, 39, 0.25);
+  box-shadow: var(--sao-shadow-glow);
 }
 
 .sao-cta--primary .sao-cta__shimmer,
 .sao-cta--gradient .sao-cta__shimmer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.18) 50%, transparent 60%);
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.28) 50%, transparent 60%);
   transform: translateX(-100%);
   pointer-events: none;
 }

@@ -5,15 +5,35 @@
 @use 'abstracts/mixins' as *;
 
 .sao-cta-central {
-  padding: var(--sao-space-24) var(--sao-space-8);
+  padding-block-start: var(--sao-section-padding, 2rem);
+  padding-block-end: var(--sao-space-6);  // minimal — border-block-end already acts as separator
+  padding-inline: var(--sao-space-8);
   background: var(--dark-2);
   background-image:
-    radial-gradient(ellipse at 50% 0%, rgba(63, 126, 255, 0.06) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 100%, rgba(201, 162, 39, 0.04) 0%, transparent 50%);
-  border-block: 1px solid var(--gold-line);
+    radial-gradient(ellipse 70% 80% at 20% 40%, rgba(201, 162, 39, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 70% at 80% 60%, rgba(63, 126, 255, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 50% at 50% 0%, rgba(201, 162, 39, 0.06) 0%, transparent 45%);
+  border-block: 1px solid rgba(201, 162, 39, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(201, 162, 39, 0.20),
+    0 -1px 0 rgba(201, 162, 39, 0.20);
   color: var(--light);
   text-align: center;
   container-type: inline-size;
+  position: relative;
+
+  // Divider gradient at top/bottom edges for clean dark-mode separation
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(201, 162, 39, 0.40) 50%, transparent 100%);
+  }
+
+  &::before { top: 0; }
+  &::after  { bottom: 0; }
 }
 
 .sao-cta-central__inner {
@@ -26,16 +46,22 @@
 }
 
 .sao-cta-central__headline {
-  font-size: var(--sao-type-hero);   // was hardcoded clamp()
+  font-size: var(--sao-type-hero);
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.1;
-  color: #ffffff;
+  color: var(--light);
   margin: 0;
+
+  em {
+    font-style: normal;
+    color: var(--gold);
+  }
 }
 
 .sao-cta-central__body {
   font-size: var(--sao-type-body-lg);
+  font-weight: 300;
   color: var(--sao-text-secondary);
   max-width: 600px;
   margin: 0;

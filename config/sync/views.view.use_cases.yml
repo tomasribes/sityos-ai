@@ -301,7 +301,21 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      defaults:
+        footer: false
       display_description: ''
+      footer:
+        display_link:
+          id: display_link
+          table: views
+          field: display_link
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: display_link
+          label: 'All use cases'
+          empty: false
+          display_id: use_case_page
       display_extenders: {  }
       block_description: 'Latest Use Cases'
     cache_metadata:
@@ -312,8 +326,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  page_1:
-    id: page_1
+  use_case_page:
+    id: use_case_page
     display_title: Page
     display_plugin: page
     position: 3
@@ -323,7 +337,7 @@ display:
         options:
           offset: 0
           pagination_heading_level: h4
-          items_per_page: 12
+          items_per_page: 10
           total_pages: null
           id: 0
           tags:
@@ -337,6 +351,102 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            use_case: use_case
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: blazy
         options:
@@ -352,6 +462,21 @@ display:
         pager: false
         style: false
         row: false
+        filters: false
+        header: false
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: none
+          admin_label: ''
+          plugin_id: text_custom
+          label: ''
+          empty: false
+          content: '<div class="sao-listing-hero sao-listing-hero--usecase"><span class="sao-listing-hero__eyebrow">Content Library</span><h1 class="sao-listing-hero__title">Use Cases</h1><p class="sao-listing-hero__subtitle">Real-world examples of AI automation applied to specific business problems and digital workflows.</p></div>'
+          tokenize: false
       display_extenders: {  }
       path: use-cases
       menu:

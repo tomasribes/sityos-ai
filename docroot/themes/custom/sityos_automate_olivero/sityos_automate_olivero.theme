@@ -304,6 +304,11 @@ function sityos_automate_olivero_preprocess_node(array &$variables): void {
   $node = $variables['node'];
   $view_mode = $variables['view_mode'];
 
+  if ($view_mode === 'teaser') {
+    $variables['node_date'] = \Drupal::service('date.formatter')
+      ->format($node->getCreatedTime(), 'custom', 'M Y');
+  }
+
   $media_data = _sityos_get_media_image_file($node);
   if (!$media_data) {
     return;
@@ -325,6 +330,19 @@ function sityos_automate_olivero_preprocess_node(array &$variables): void {
  */
 function sityos_automate_olivero_preprocess_html_node_image_preload(array &$variables): void {
   // Intentionally left for the preload logic wired via preprocess_html below.
+}
+
+/**
+ * Implements hook_theme_suggestions_menu_alter().
+ *
+ * Olivero's hook adds 'menu__primary_menu' after 'menu__account' for all menus
+ * placed in the primary_menu region — making the primary-menu template win.
+ * Re-add 'menu__account' at the end so our menu--account.html.twig takes priority.
+ */
+function sityos_automate_olivero_theme_suggestions_menu_alter(array &$suggestions, array $variables): void {
+  if (!empty($variables['menu_name']) && $variables['menu_name'] === 'account') {
+    $suggestions[] = 'menu__account';
+  }
 }
 
 /**

@@ -9,8 +9,8 @@
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 70vh;
-  padding: var(--sao-space-16) var(--sao-space-8);
+  min-height: clamp(680px, 92vh, 1000px);
+  padding: var(--sao-space-20) var(--sao-space-8);
   overflow: hidden;
   background-color: var(--sao-bg-base);
   color: var(--sao-text-primary);
@@ -41,16 +41,21 @@
   .sao-hero__subtitle  { animation-delay: var(--sao-stagger-3); }
   .sao-hero__actions   { animation-delay: var(--sao-stagger-4); }
   .sao-hero__microcopy { animation-delay: calc(var(--sao-stagger-step) * 5); }
+
+  // Gold dot pulses gently after the eyebrow entrance finishes (80ms + 420ms ≈ 500ms)
+  .sao-hero__eyebrow::before {
+    animation: sao-dot-pulse 3s ease-in-out 500ms infinite;
+  }
 }
 
 @keyframes sao-hero-child-enter {
   from {
     opacity: 0;
-    transform: translateY(1.5rem);
+    transform: translateY(2rem) scale(0.96);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -79,28 +84,50 @@
 }
 
 // Gradient mesh fallback (no image needed)
+// Local token override — dramatically amplify mesh colors in hero context only
+.sao-hero {
+  --sao-gradient-mesh:
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(201, 162, 39, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 15% 25%, rgba(201, 162, 39, 0.38) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 90% at 85% 75%, rgba(63, 126, 255, 0.30) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 45% at 50% 100%, rgba(201, 162, 39, 0.20) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 65% at 92% 12%, rgba(63, 126, 255, 0.22) 0%, transparent 45%);
+}
+
 .sao-hero__mesh {
   position: absolute;
   inset: 0;
   z-index: 0;
   background: var(--sao-gradient-mesh);
-  opacity: 0.6;
 
-  // Animated gradient orbs — gold-pale radials for depth
+  // Dot-grid texture overlay — more visible at hero scale
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='16' cy='16' r='1.5' fill='%23C9A227' fill-opacity='0.45'/%3E%3C/svg%3E");
+    background-size: 32px 32px;
+    opacity: 0.50;
+    pointer-events: none;
+  }
+
+  // Animated gradient orbs
   &::after {
     content: "";
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(circle at 30% 70%, var(--gold-pale) 0%, transparent 40%),
-      radial-gradient(circle at 70% 30%, rgba(63, 126, 255, 0.05) 0%, transparent 40%);
+      radial-gradient(circle at 25% 65%, rgba(201, 162, 39, 0.32) 0%, transparent 45%),
+      radial-gradient(circle at 75% 25%, rgba(63, 126, 255, 0.22) 0%, transparent 45%),
+      radial-gradient(circle at 50% 95%, rgba(201, 162, 39, 0.18) 0%, transparent 35%);
+    will-change: transform;
     animation: sao-mesh-drift 20s ease-in-out infinite alternate;
   }
 }
 
 @keyframes sao-mesh-drift {
   0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(3%, -3%) scale(1.05); }
+  100% { transform: translate(6%, -5%) scale(1.08); }
 }
 
 // Overlay (only shown when image is present)
@@ -122,16 +149,27 @@
 
 // Eyebrow
 .sao-hero__eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sao-space-2);
   font-family: var(--font-sans);
   font-size: var(--sao-type-meta);
   font-weight: #{$sao-weight-semibold};
-  letter-spacing: 0.20em;   // Brand System label spec: 0.20em for eyebrows
+  letter-spacing: 0.30em;
   text-transform: uppercase;
   color: var(--sao-accent);
   width: fit-content;
-  padding-bottom: var(--sao-space-2);
-  border-bottom: 1px solid var(--gold-line);
+
+  // Gold dot marker
+  &::before {
+    content: '';
+    flex-shrink: 0;
+    width: 5px;
+    height: 5px;
+    background: var(--sao-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(201, 162, 39, 0.65);
+  }
 }
 
 // Headline
@@ -139,26 +177,27 @@
   font-family: var(--font-sans);
   font-size: var(--sao-type-hero);
   font-weight: #{$sao-weight-extrabold};
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
   color: var(--sao-text-primary);
   max-width: 18ch;
 
-  // <em> gets gradient accent text
+  // <em> gets luminous gold — glow without gradient text
   & em {
     font-style: normal;
-    background: var(--sao-gradient-primary);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--sao-accent);
+    text-shadow:
+      0 0 60px rgba(201, 162, 39, 0.55),
+      0 0 120px rgba(201, 162, 39, 0.28);
   }
 }
 
-// Force white text when image is present
+// Force light text when image is present
 .sao-hero:has(.sao-hero__media-wrapper) {
-  .sao-hero__headline { color: #ffffff; }
-  .sao-hero__subtitle { color: rgba(255, 255, 255, 0.85); }
-  .sao-hero__eyebrow  { color: rgba(255, 255, 255, 0.7); }
+  .sao-hero__headline { color: var(--light); }
+  .sao-hero__subtitle { color: rgba(248, 248, 248, 0.85); }
+  .sao-hero__eyebrow  { color: rgba(248, 248, 248, 0.7); }
+  .sao-hero__headline em { color: var(--gold); }
 }
 
 // Subtitle
@@ -189,15 +228,15 @@
 .sao-hero__scroll-line {
   display: block;
   width: 1px;
-  height: 3rem;
+  height: 5rem;
   background: linear-gradient(180deg, var(--sao-accent) 0%, transparent 100%);
   animation: sao-scroll-pulse 2s ease-in-out infinite;
 }
 
 @keyframes sao-scroll-pulse {
   0%, 100% {
-    opacity: 0.3;
-    transform: scaleY(0.6);
+    opacity: 0.4;
+    transform: scaleY(0.55);
     transform-origin: top;
   }
   50% {
@@ -249,7 +288,6 @@
 // ─── Responsive ───────────────────────────────────────────────────────────────
 @include respond-up(lg) {
   .sao-hero {
-    min-height: 80vh;
     padding: var(--sao-space-24) var(--sao-space-16);
   }
 }
@@ -266,6 +304,17 @@
   pointer-events: none;
 }
 
+@keyframes sao-dot-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(201, 162, 39, 0.65);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(201, 162, 39, 1), 0 0 32px rgba(201, 162, 39, 0.35);
+    transform: scale(1.3);
+  }
+}
+
 // ─── Reduced motion ───────────────────────────────────────────────────────────
 @media (prefers-reduced-motion: reduce) {
   .sao-hero__eyebrow,
@@ -277,6 +326,7 @@
     opacity: 1;
     transform: none;
   }
+  .sao-hero__eyebrow::before { animation: none; }
   .sao-hero__media    { animation: none; transform: none; }
   .sao-hero__mesh::after { animation: none; }
   .sao-hero__scroll-line { animation: none; opacity: 0.5; }

@@ -11,9 +11,11 @@ global-styling:
       css/style.min.css: {}
   js:
     js/site-header.js: {}
+    js/nav-fix.js: {}
   dependencies:
     - core/drupal
     - core/once
+    - olivero/navigation-primary
     - sityos_automate_olivero/google-fonts
     - sityos_automate_olivero/color-mode
     - sityos_automate_olivero/scroll-reveal

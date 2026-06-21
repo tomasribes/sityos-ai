@@ -6,5 +6,7 @@ display:
           submit_button: Aplicar
           reset_button_label: Esborrar
           exposed_sorts_label: 'Odernar per'
-  page_1:
-    display_title: Pàgina
+  latest_tutorials:
+    display_title: 'Últims Tutorials'
+    display_options:
+      block_description: 'Tots els tutorials'

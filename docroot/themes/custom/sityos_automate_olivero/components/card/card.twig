@@ -34,7 +34,8 @@
       </div>
     {% elseif image_url %}
       <div class="sao-card__media">
-        <img src="{{ image_url }}" alt="{{ image_alt ?? '' }}" loading="lazy" decoding="async" />
+        <img src="{{ image_url }}" alt="{{ image_alt ?? '' }}" loading="lazy" decoding="async"
+             width="{{ image_width ?? 640 }}" height="{{ image_height ?? 360 }}" />
       </div>
     {% endif %}
 

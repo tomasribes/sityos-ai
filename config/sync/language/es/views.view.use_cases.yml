@@ -8,8 +8,10 @@ display:
           submit_button: Aplicar
           reset_button_label: Borrar
           exposed_sorts_label: 'Ordenar por'
-  page_1:
-    display_title: Página
+  latest_usecases:
+    display_title: 'Últimos casos de uso'
     display_options:
-      menu:
-        title: 'Casos de uso'
+      footer:
+        display_link:
+          label: 'Todos los casos de uso'
+      block_description: 'Últimos casos de uso'

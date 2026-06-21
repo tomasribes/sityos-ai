@@ -11,9 +11,9 @@
 {% set variant = variant ?? 'cards' %}
 {% set columns = columns ?? 3 %}
 
-<section class="sao-feature-grid sao-feature-grid--{{ variant }}" style="--sao-fg-columns: {{ columns }}" aria-labelledby="{{ heading ? 'sao-fg-heading' : '' }}">
+<section class="sao-feature-grid sao-feature-grid--{{ variant }}" style="--sao-fg-columns: {{ columns }}" {% if heading %}aria-labelledby="sao-fg-heading"{% endif %}>
   {% if heading or subtitle %}
-    <div class="sao-feature-grid__header">
+    <div class="sao-feature-grid__header" data-sao-reveal>
       {% if heading %}
         <h2 class="sao-feature-grid__heading" id="sao-fg-heading">{{ heading }}</h2>
       {% endif %}

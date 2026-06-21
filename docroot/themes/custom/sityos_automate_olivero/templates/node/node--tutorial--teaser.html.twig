@@ -8,6 +8,7 @@
   description: content.body|render|striptags|trim|slice(0, 140),
   label: 'Tutorial'|t,
   label_color: 'green',
+  date: node_date ?? '',
 } %}
 {% if card_image_data is defined %}
   {% set card_props = card_props | merge(card_image_data) %}

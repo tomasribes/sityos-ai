@@ -35,6 +35,14 @@
   --sao-duration-fast:         100ms;
   --sao-duration-base:         180ms;
   --sao-easing-standard:       cubic-bezier(0.4, 0, 0.2, 1);
+  --sao-shadow-glow:           0 0 28px rgba(201, 162, 39, 0.32);
+  --sao-shadow-glow-strong:    0 0 48px rgba(201, 162, 39, 0.45);
+  --sao-gradient-text:         linear-gradient(135deg, #D4B44A 0%, #C9A227 50%, #F0CC60 100%);
+  --sao-gradient-mesh:
+    radial-gradient(ellipse 80% 60% at 20% 30%, rgba(201, 162, 39, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 70%, rgba(63, 126, 255, 0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 40% at 50% 100%, rgba(201, 162, 39, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(63, 126, 255, 0.10) 0%, transparent 45%);
 }
 
 /* Light mode override — system preference (before JS) */

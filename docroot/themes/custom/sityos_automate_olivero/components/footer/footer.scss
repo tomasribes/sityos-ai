@@ -1,27 +1,62 @@
-// ─── Footer component — always-dark brand surface ─────────────────────────────
-// Uses flat tokens (--dark-*, rgba light) instead of semantic tokens
-// (--sao-bg-elevated, --sao-text-*) because the footer must stay dark in
-// BOTH light and dark color modes — it is a permanent brand surface.
+// ─── Footer component — sityos_automate_olivero:footer ──────────────────────
+// Permanent brand surface — mirrors nav depth. Dark by default; explicit light
+// swap via [data-color-mode="light"] and prefers-color-scheme fallback.
 
 @use '../../sass/abstracts/variables' as *;
 @use '../../sass/abstracts/mixins' as *;
 
+// ─── Dark mode — brand-permanent deep surface ────────────────────────────────
+
 .sao-footer {
   display: block;
   width: 100%;
-  background-color: var(--dark-2);              // always #0E0E1A
-  border-top: 1px solid var(--dark-4);          // always #1E1E34
-  box-shadow: inset 0 1px 0 rgba(63, 126, 255, 0.06);
+  background-color: var(--dark-2);   // #0E0E1A — deep indigo-tinted brand surface
+  position: relative;
+  overflow: hidden;
+
+  // Ambient mesh glow — mirrors hero depth but anchored at footer scale.
+  // Three radial layers: gold warmth + blue depth at very low opacity.
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 80% at 8% 100%, rgba(201, 162, 39, 0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 90% 20%,  rgba(63, 126, 255, 0.05) 0%, transparent 65%),
+      radial-gradient(ellipse 80% 40% at 50% 110%, rgba(201, 162, 39, 0.04) 0%, transparent 60%);
+    z-index: 0;
+  }
+
+  // Gold brand stamp at top — more prominent than a hairline, a deliberate signal.
+  &::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(201, 162, 39, 0.20) 10%,
+      var(--gold) 50%,
+      rgba(201, 162, 39, 0.20) 90%,
+      transparent 100%
+    );
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .sao-footer__inner {
   max-width: var(--max-width, 1350px);
   margin-inline: auto;
   padding-inline: var(--sao-space-8);
-  padding-block: var(--sao-space-16);
+  padding-block-start: var(--sao-space-6);
+  padding-block-end: var(--sao-space-12);
   display: flex;
   flex-direction: column;
   gap: var(--sao-space-12);
+  position: relative;
+  z-index: 1;
 
   @media (min-width: #{$sao-bp-lg}) {
     padding-inline: var(--sao-space-12);
@@ -34,51 +69,88 @@
   gap: var(--sao-space-10);
 
   @media (min-width: #{$sao-bp-md}) {
-    grid-template-columns: 240px 1fr;
-    gap: var(--sao-space-16);
+    grid-template-columns: 300px 1fr;
+    gap: 0;
     align-items: start;
   }
 }
 
-// Brand column
+// ─── Brand column ─────────────────────────────────────────────────────────────
+
 .sao-footer__brand {
   display: flex;
   flex-direction: column;
   gap: var(--sao-space-4);
+
+  // Vertical gold separator between brand and nav — desktop only
+  @media (min-width: #{$sao-bp-md}) {
+    padding-inline-end: var(--sao-space-12);
+    border-inline-end: 1px solid rgba(201, 162, 39, 0.12);
+  }
 }
 
 .sao-footer__logo-link {
   display: inline-flex;
   width: fit-content;
+  transition: opacity var(--sao-duration-fast) var(--sao-easing-standard);
+
+  &:hover { opacity: 0.78; }
+
+  &:focus-visible {
+    @include focus-ring;
+    border-radius: 4px;
+  }
+
+  .site-logo--light { display: none; }
+  .site-logo--dark  { display: block; }
 
   .site-logo {
-    height: 40px;    // increased from 32px
+    height: 52px;   // increased from 44px — stronger brand presence
     width: auto;
   }
 }
 
 .sao-footer__tagline {
-  color: rgba(248, 248, 248, 0.60);   // always light on dark bg
-  font-size: var(--sao-type-label);
+  color: rgba(248, 248, 248, 0.60);
+  font-size: var(--sao-type-body);   // up from label — more readable, more weight
   line-height: 1.6;
-  max-width: 28ch;
-  margin: 0;
+  max-width: 26ch;
+  margin: var(--sao-space-2) 0 0;
 }
 
-// Navigation grid
+// ─── Navigation grid ──────────────────────────────────────────────────────────
+
 .sao-footer__nav {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: var(--sao-space-8);
+
+  @media (min-width: #{$sao-bp-md}) {
+    padding-inline-start: var(--sao-space-12);
+  }
 }
 
 .sao-footer__nav-heading {
   font-size: var(--sao-type-meta);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(248, 248, 248, 0.35);   // always muted light on dark bg
+  letter-spacing: 0.14em;
+  color: var(--gold);
   margin: 0 0 var(--sao-space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--sao-space-2);
+
+  // Gold dot — distinctive brand marker, coherent with gold accent system
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--gold);
+    flex-shrink: 0;
+  }
 }
 
 .sao-footer__nav-list {
@@ -91,14 +163,13 @@
 }
 
 .sao-footer__nav-link {
-  color: rgba(248, 248, 248, 0.55);   // always secondary light on dark bg
+  color: rgba(248, 248, 248, 0.52);
   text-decoration: none;
   font-size: var(--sao-type-label);
   transition: color var(--sao-duration-fast) var(--sao-easing-standard);
 
   &:hover {
-    color: var(--sao-accent-interactive);
-    text-decoration: none;
+    color: rgba(248, 248, 248, 0.92);
   }
 
   &:focus-visible {
@@ -107,14 +178,25 @@
   }
 }
 
-// Secondary row — copyright + social
+// ─── Secondary row — copyright + social ───────────────────────────────────────
+
 .sao-footer__secondary {
   display: flex;
   flex-direction: column;
   gap: var(--sao-space-4);
   align-items: flex-start;
   padding-top: var(--sao-space-8);
-  border-top: 1px solid var(--dark-4);  // always dark border
+  // Gold divider gradient — coherent with hero section separators, vs plain rgba border
+  border-top: 1px solid transparent;
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 162, 39, 0.22) 50%,
+    transparent 100%
+  );
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: top center;
 
   @media (min-width: #{$sao-bp-md}) {
     flex-direction: row;
@@ -124,7 +206,7 @@
 }
 
 .sao-footer__copyright {
-  color: rgba(248, 248, 248, 0.35);   // always muted light on dark bg
+  color: rgba(248, 248, 248, 0.40);
   font-size: var(--sao-type-meta);
   margin: 0;
 }
@@ -134,21 +216,163 @@
   margin: 0;
   padding: 0;
   display: flex;
-  gap: var(--sao-space-4);
+  gap: var(--sao-space-3);
 }
 
 .sao-footer__social-link {
-  color: rgba(248, 248, 248, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--sao-radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(248, 248, 248, 0.48);
   text-decoration: none;
-  font-size: var(--sao-type-label);
-  transition: color var(--sao-duration-fast) var(--sao-easing-standard);
+  transition:
+    color var(--sao-duration-base) var(--sao-easing-standard),
+    border-color var(--sao-duration-base) var(--sao-easing-standard),
+    background-color var(--sao-duration-base) var(--sao-easing-standard),
+    box-shadow var(--sao-duration-base) var(--sao-easing-standard);
 
-  &:hover {
-    color: var(--sao-accent-interactive);
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    flex-shrink: 0;
   }
 
-  &:focus-visible {
-    @include focus-ring;
-    border-radius: 2px;
+  &:hover {
+    color: var(--gold);
+    border-color: rgba(201, 162, 39, 0.45);
+    background-color: rgba(201, 162, 39, 0.08);
+    box-shadow: 0 0 16px rgba(201, 162, 39, 0.18);
+  }
+
+  &:focus-visible { @include focus-ring; }
+}
+
+
+// ─── Light mode ───────────────────────────────────────────────────────────────
+
+[data-color-mode="light"] .sao-footer {
+  background-color: var(--light-2);   // #EFEFEF
+
+  &::after {
+    background:
+      radial-gradient(ellipse 60% 80% at 8% 100%, rgba(155, 122, 26, 0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 90% 20%,  rgba(43, 98, 214, 0.04) 0%, transparent 65%),
+      radial-gradient(ellipse 80% 40% at 50% 110%, rgba(155, 122, 26, 0.03) 0%, transparent 60%);
+  }
+
+  .sao-footer__logo-link {
+    .site-logo--light { display: block; }
+    .site-logo--dark  { display: none; }
+  }
+
+  .sao-footer__brand {
+    @media (min-width: #{$sao-bp-md}) {
+      border-inline-end-color: rgba(155, 122, 26, 0.15);
+    }
+  }
+
+  .sao-footer__tagline {
+    color: rgba(11, 11, 15, 0.58);
+  }
+
+  .sao-footer__nav-heading {
+    color: var(--gold-dim);   // #9B7A1A — WCAG AA (4.5:1) on light
+
+    &::before { background-color: var(--gold-dim); }
+  }
+
+  .sao-footer__nav-link {
+    color: rgba(11, 11, 15, 0.55);
+    &:hover { color: rgba(11, 11, 15, 0.88); }
+  }
+
+  .sao-footer__secondary {
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(155, 122, 26, 0.20) 50%,
+      transparent 100%
+    );
+  }
+
+  .sao-footer__copyright {
+    color: rgba(11, 11, 15, 0.38);
+  }
+
+  .sao-footer__social-link {
+    color: rgba(11, 11, 15, 0.46);
+    border-color: rgba(11, 11, 15, 0.14);
+
+    &:hover {
+      color: var(--gold-dim);
+      border-color: rgba(155, 122, 26, 0.45);
+      background-color: rgba(155, 122, 26, 0.08);
+      box-shadow: 0 0 14px rgba(155, 122, 26, 0.15);
+    }
+  }
+}
+
+// System preference fallback (before JS sets data-color-mode)
+@media (prefers-color-scheme: light) {
+  :root:not([data-color-mode]) .sao-footer {
+    background-color: var(--light-2);
+
+    &::after {
+      background:
+        radial-gradient(ellipse 60% 80% at 8% 100%, rgba(155, 122, 26, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 90% 20%,  rgba(43, 98, 214, 0.04) 0%, transparent 65%),
+        radial-gradient(ellipse 80% 40% at 50% 110%, rgba(155, 122, 26, 0.03) 0%, transparent 60%);
+    }
+
+    .sao-footer__logo-link {
+      .site-logo--light { display: block; }
+      .site-logo--dark  { display: none; }
+    }
+
+    .sao-footer__brand {
+      @media (min-width: #{$sao-bp-md}) {
+        border-inline-end-color: rgba(155, 122, 26, 0.15);
+      }
+    }
+
+    .sao-footer__tagline { color: rgba(11, 11, 15, 0.58); }
+
+    .sao-footer__nav-heading {
+      color: var(--gold-dim);
+      &::before { background-color: var(--gold-dim); }
+    }
+
+    .sao-footer__nav-link {
+      color: rgba(11, 11, 15, 0.55);
+      &:hover { color: rgba(11, 11, 15, 0.88); }
+    }
+
+    .sao-footer__secondary {
+      background-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(155, 122, 26, 0.20) 50%,
+        transparent 100%
+      );
+    }
+
+    .sao-footer__copyright { color: rgba(11, 11, 15, 0.38); }
+
+    .sao-footer__social-link {
+      color: rgba(11, 11, 15, 0.46);
+      border-color: rgba(11, 11, 15, 0.14);
+
+      &:hover {
+        color: var(--gold-dim);
+        border-color: rgba(155, 122, 26, 0.45);
+        background-color: rgba(155, 122, 26, 0.08);
+        box-shadow: 0 0 14px rgba(155, 122, 26, 0.15);
+      }
+    }
   }
 }

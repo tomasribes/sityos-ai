@@ -27,7 +27,7 @@ final class SityosTutorialsCtaBlock extends BlockBase {
         '#type' => 'link',
         '#title' => $this->t('Browse All Tutorials →'),
         '#url' => Url::fromUserInput('/tutorials', ['language' => $language]),
-        '#attributes' => ['class' => ['sao-btn', 'sao-btn--secondary']],
+        '#attributes' => ['class' => ['sao-cta', 'sao-cta--ghost', 'sao-cta--md']],
       ],
       '#cache' => [
         'contexts' => ['languages:language_interface'],
