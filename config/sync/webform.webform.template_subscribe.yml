@@ -1,5 +1,5 @@
 uuid: 1ca5956e-7869-42af-9eaa-4669a8cf8f61
-langcode: en
+langcode: es
 status: closed
 dependencies:
   enforced:
@@ -14,7 +14,7 @@ uid: null
 template: true
 archive: false
 id: template_subscribe
-title: Subscribe
+title: Suscribirse
 description: 'A subscribe to mailing list webform template.'
 categories: {  }
 elements: |
@@ -221,7 +221,7 @@ handlers:
   email_notification:
     id: email
     handler_id: email_notification
-    label: 'Email Notification'
+    label: 'Notificación por correo electrónico'
     notes: ''
     status: true
     conditions: {  }

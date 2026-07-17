@@ -1,5 +1,5 @@
 uuid: 9c17a83a-3f20-4254-add0-89ee683d57da
-langcode: en
+langcode: es
 status: closed
 dependencies:
   enforced:
@@ -316,7 +316,7 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: page
   confirmation_url: '<front>'
-  confirmation_title: 'Thank You'
+  confirmation_title: Gracias
   confirmation_message: 'Your request has been sent. A care specialist will call you back within XX hours to schedule an appointment.'
   confirmation_attributes: {  }
   confirmation_back: false
@@ -397,7 +397,7 @@ handlers:
   email_notification:
     id: email
     handler_id: email_notification
-    label: 'Email notification'
+    label: 'Aviso por correo electrónico'
     notes: ''
     status: true
     conditions: {  }

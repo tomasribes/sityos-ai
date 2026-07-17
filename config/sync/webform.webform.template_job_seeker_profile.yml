@@ -1,5 +1,5 @@
 uuid: fa69d07a-ee71-4887-81a9-fcf4e6e529ff
-langcode: en
+langcode: es
 status: closed
 dependencies:
   enforced:
@@ -273,7 +273,7 @@ handlers:
   email_notification:
     id: email
     handler_id: email_notification
-    label: 'Email Notification'
+    label: 'Notificación por correo electrónico'
     notes: ''
     status: true
     conditions: {  }

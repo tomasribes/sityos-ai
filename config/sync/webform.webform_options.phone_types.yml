@@ -1,5 +1,5 @@
 uuid: 11436149-12ad-4152-8413-4f21ab42fe40
-langcode: en
+langcode: es
 status: true
 dependencies:
   enforced:
@@ -9,7 +9,7 @@ _core:
   default_config_hash: LkO63Zl2cP_l9YdjzWI8dWoD9uD0pytkPiUiUM2bo9A
 id: phone_types
 label: 'Phone type'
-category: Demographic
+category: Demográfico
 likert: false
 options: |
   Home: Home

@@ -1,5 +1,5 @@
 uuid: a434a088-80fd-4312-afe9-a0cc94756d30
-langcode: en
+langcode: es
 status: true
 dependencies:
   module:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: FrZy1tmuXJcOxhXlBoI1Hsnen5TT-9OCC1iolWH84go
 id: media_delete_action
-label: 'Delete media'
+label: 'Eliminar medios'
 type: media
 plugin: 'entity:delete_action:media'
 configuration: {  }

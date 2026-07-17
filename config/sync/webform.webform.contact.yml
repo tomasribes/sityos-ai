@@ -1,5 +1,5 @@
 uuid: b347d3d4-acbf-4d51-b409-91d3a9788ccb
-langcode: en
+langcode: es
 status: open
 dependencies:
   enforced:
@@ -14,7 +14,7 @@ uid: null
 template: false
 archive: false
 id: contact
-title: Contact
+title: Contacto
 description: '<p>Basic email contact webform.</p>'
 categories: {  }
 elements: |
@@ -150,7 +150,7 @@ settings:
   confirmation_type: url_message
   confirmation_url: '<front>'
   confirmation_title: ''
-  confirmation_message: 'Your message has been sent.'
+  confirmation_message: 'Su mensaje ha sido enviado.'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
@@ -230,7 +230,7 @@ handlers:
   email_confirmation:
     id: email
     handler_id: email_confirmation
-    label: 'Email confirmation'
+    label: 'Confirmación por correo electrónico'
     notes: ''
     status: true
     conditions: {  }
@@ -268,7 +268,7 @@ handlers:
   email_notification:
     id: email
     handler_id: email_notification
-    label: 'Email notification'
+    label: 'Aviso por correo electrónico'
     notes: ''
     status: true
     conditions: {  }

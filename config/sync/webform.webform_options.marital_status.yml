@@ -1,5 +1,5 @@
 uuid: e32ed590-89e0-4c51-88ba-ae215403a2b4
-langcode: en
+langcode: es
 status: true
 dependencies:
   enforced:
@@ -9,7 +9,7 @@ _core:
   default_config_hash: cjVDbAE5BlopGrY-tfxsxMoyEibwBBNgdQwDdxOSkow
 id: marital_status
 label: 'Marital status'
-category: Demographic
+category: Demográfico
 likert: false
 options: |
   Single: Single

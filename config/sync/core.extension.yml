@@ -77,6 +77,8 @@ module:
   schema_how_to: 0
   schema_metatag: 0
   search: 0
+  search_help: 0
+  search_node: 0
   seckit: 0
   serialization: 0
   shortcut: 0

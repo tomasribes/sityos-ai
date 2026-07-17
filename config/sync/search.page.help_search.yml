@@ -1,13 +1,13 @@
 uuid: 3cf75686-dbff-4240-b9e2-341e559cc26e
-langcode: en
+langcode: es
 status: true
 dependencies:
   module:
-    - help
+    - search_help
 _core:
   default_config_hash: RZ-bcSekNSsAbIPLW7Gmyd3uUjIOSrPvnb8RCCZYJm8
 id: help_search
-label: Help
+label: Ayuda
 path: help
 weight: 0
 plugin: help_search

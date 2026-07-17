@@ -1,5 +1,6 @@
 _core:
   default_config_hash: UqoPtv5ZWzKvrSUU6kRFwsddB-I_BN16Cw38Rtk7H7A
+langcode: es
 site_key: 6Ldqp9UsAAAAAO1Xrdco8YuzYU4CtQnTUT7-h-N-
 secret_key: 6Ldqp9UsAAAAAExu3_tgdBe66gmy6pTSyf7zRU2W
 hide_badge: false

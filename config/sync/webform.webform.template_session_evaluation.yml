@@ -1,5 +1,5 @@
 uuid: c425e841-6b4a-49ee-83c4-08239bd28032
-langcode: en
+langcode: es
 status: closed
 dependencies:
   enforced:
@@ -154,7 +154,7 @@ settings:
   confirmation_type: page
   confirmation_url: ''
   confirmation_title: ''
-  confirmation_message: 'Thank you for your feedback.'
+  confirmation_message: 'Gracias por su retroalimentación'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
@@ -234,7 +234,7 @@ handlers:
   email_notification:
     id: email
     handler_id: email_notification
-    label: 'Email Notification'
+    label: 'Notificación por correo electrónico'
     notes: ''
     status: true
     conditions: {  }

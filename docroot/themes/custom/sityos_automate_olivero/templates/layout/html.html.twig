@@ -44,7 +44,6 @@
     {# Preload Inter font for fastest LCP. #}
     <link rel="preload" href="/{{ sao_path }}/fonts/inter/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/{{ sao_path }}/fonts/inter/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
-    {% include '@olivero/includes/preload.twig' with {olivero_path: olivero_path} only %}
     {{ noscript_styles }}
   </head>
   <body{{ attributes.addClass(body_classes) }}>

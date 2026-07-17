@@ -1,5 +1,5 @@
 uuid: 74f8b160-f581-4bb5-b398-a371432105e9
-langcode: en
+langcode: es
 status: closed
 dependencies:
   enforced:
@@ -14,7 +14,7 @@ uid: null
 template: true
 archive: false
 id: template_user_profile
-title: 'User Profile'
+title: 'Perfil de usuario'
 description: 'A user profile webform template.'
 categories: {  }
 elements: |
@@ -308,7 +308,7 @@ handlers:
   email_notification:
     id: email
     handler_id: email_notification
-    label: 'Email Notification'
+    label: 'Notificación por correo electrónico'
     notes: ''
     status: true
     conditions: {  }

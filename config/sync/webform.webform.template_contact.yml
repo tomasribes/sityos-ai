@@ -1,5 +1,5 @@
 uuid: 9f89f163-f6bf-4f7e-9f71-644ed1081af1
-langcode: en
+langcode: es
 status: closed
 dependencies:
   enforced:
@@ -145,7 +145,7 @@ settings:
   confirmation_type: url_message
   confirmation_url: '<front>'
   confirmation_title: ''
-  confirmation_message: 'Your message has been sent.'
+  confirmation_message: 'Su mensaje ha sido enviado.'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
@@ -225,7 +225,7 @@ handlers:
   email_confirmation:
     id: email
     handler_id: email_confirmation
-    label: 'Email confirmation'
+    label: 'Confirmación por correo electrónico'
     notes: ''
     status: true
     conditions: {  }
@@ -263,7 +263,7 @@ handlers:
   email_notification:
     id: email
     handler_id: email_notification
-    label: 'Email notification'
+    label: 'Aviso por correo electrónico'
     notes: ''
     status: true
     conditions: {  }

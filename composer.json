@@ -78,7 +78,7 @@
             "drupal/core-composer-scaffold": true,
             "oomphinc/composer-installers-extender": true,
             "wikimedia/composer-merge-plugin": true,
-            "symfony/runtime": false
+            "symfony/runtime": true
         },
         "preferred-install": {
             "twig/twig": "source"

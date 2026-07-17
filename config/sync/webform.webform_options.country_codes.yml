@@ -1,5 +1,5 @@
 uuid: 113bb3f0-86a3-4718-b359-941cb9d670ee
-langcode: en
+langcode: es
 status: true
 dependencies:
   enforced:
@@ -9,6 +9,6 @@ _core:
   default_config_hash: adQ16YGDPk7QfUKrfrC35o2sKdHEozdNtdpiH7CftQQ
 id: country_codes
 label: 'Country codes'
-category: Geographic
+category: Geográfico
 likert: false
 options: ''

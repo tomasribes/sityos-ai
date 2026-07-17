@@ -1,5 +1,5 @@
 uuid: 4992aa6c-e4bf-48a9-8f7f-e91ceaf5b1c8
-langcode: en
+langcode: es
 status: false
 dependencies:
   enforced:
@@ -10,7 +10,7 @@ _core:
 id: default
 name: default
 weight: -10
-label: Default
+label: 'Por defecto'
 group: ''
 skin: default
 breakpoints: 0
@@ -34,8 +34,8 @@ options:
     pauseOnFocus: true
     autoplaySpeed: 3000
     arrows: true
-    prevArrow: Previous
-    nextArrow: Next
+    prevArrow: Anterior
+    nextArrow: Siguiente
     arrowsPlacement: ''
     downArrow: false
     downArrowTarget: ''

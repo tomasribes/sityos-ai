@@ -1,11 +1,11 @@
 uuid: dec50f5e-dd1b-4b63-88da-a2a6a142db9d
-langcode: en
+langcode: es
 status: true
 dependencies: {  }
 _core:
   default_config_hash: rpwvgyEURXLz_JjgMCrkS1rUv-0k3L79BpO-ReN7fDI
 id: node
-label: Content
+label: Contenido
 tags:
   canonical_url: '[node:url]'
   description: '[node:summary]'

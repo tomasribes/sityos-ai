@@ -1,5 +1,5 @@
 uuid: c8d40f35-c471-46a5-9d83-710fbe963135
-langcode: en
+langcode: es
 status: closed
 dependencies:
   enforced:
@@ -14,7 +14,7 @@ uid: null
 template: true
 archive: false
 id: template_registration
-title: Registration
+title: Registro
 description: 'A registration webform template.'
 categories: {  }
 elements: |
@@ -162,7 +162,7 @@ settings:
   confirmation_type: page
   confirmation_url: ''
   confirmation_title: ''
-  confirmation_message: 'Thank you for registering.'
+  confirmation_message: 'Gracias por registrarse.'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
@@ -242,7 +242,7 @@ handlers:
   email_notification:
     id: email
     handler_id: email_notification
-    label: 'Email Notification'
+    label: 'Notificación por correo electrónico'
     notes: ''
     status: true
     conditions: {  }

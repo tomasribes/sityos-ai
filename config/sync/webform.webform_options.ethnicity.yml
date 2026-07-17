@@ -1,5 +1,5 @@
 uuid: 1bc19791-0a1a-44a9-87f7-2790f63e8f13
-langcode: en
+langcode: es
 status: true
 dependencies:
   enforced:
@@ -9,7 +9,7 @@ _core:
   default_config_hash: pIPgrAC82wE2GAk1mOv2UvMYv71YQe4VT8667QIYdvI
 id: ethnicity
 label: Ethnicity
-category: Demographic
+category: Demográfico
 likert: false
 options: |
   Caucasian: Caucasian

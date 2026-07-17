@@ -1,5 +1,6 @@
 _core:
   default_config_hash: Dy0eQlnGPF7PYN3XkrnJyk2bh4L195ZSzCbWLTV-HS4
+langcode: es
 prompts:
   complete: ''
   modify_prompt: |
